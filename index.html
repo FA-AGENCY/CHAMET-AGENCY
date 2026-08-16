@@ -1,631 +1,2491 @@
+```html
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="bn">
 
-    <title>Power by FA-AGENCY™ | Live Streaming Services</title>
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <!-- =====================================================
+         WEBSITE BRAND
+         পরে Admin Panel থেকে পরিবর্তন করার জন্য
+         এই নামটি backend configuration-এর সাথে connect করা যাবে।
+    ====================================================== -->
+
+    <title>রায়হান এজেন্সি | Live Streaming Services</title>
 
     <meta
         name="description"
-        content="Live streaming agency, host registration and top-up services powered by FA-AGENCY™."
+        content="রায়হান এজেন্সি — Live Streaming Agency, Host Registration এবং Top Up Services."
     >
 
     <style>
+
+        /* =====================================================
+           GLOBAL VARIABLES
+        ===================================================== */
+
+        :root {
+
+            --bg: #05060b;
+            --bg-soft: #090b13;
+            --card: #0d101a;
+            --card-2: #111522;
+
+            --text: #ffffff;
+            --muted: #9299aa;
+
+            --line: rgba(255,255,255,0.09);
+
+            --primary: #7657ff;
+            --primary-2: #9b7cff;
+
+            --cyan: #32d9ff;
+            --green: #38e39b;
+
+            --danger: #ff4d70;
+
+            --shadow:
+                0 25px 70px rgba(0,0,0,.45);
+        }
+
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+
         html {
             scroll-behavior: smooth;
         }
 
+
         body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #050816;
-            color: #ffffff;
+
+            font-family:
+                Inter,
+                "Segoe UI",
+                Roboto,
+                Arial,
+                sans-serif;
+
+            background: var(--bg);
+
+            color: var(--text);
+
             line-height: 1.6;
+
+            overflow-x: hidden;
         }
+
+
+        body::before {
+
+            content: "";
+
+            position: fixed;
+
+            width: 700px;
+            height: 700px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(118,87,255,.08);
+
+            filter: blur(100px);
+
+            top: -300px;
+            left: -250px;
+
+            pointer-events: none;
+
+            z-index: -1;
+        }
+
+
+        body::after {
+
+            content: "";
+
+            position: fixed;
+
+            width: 600px;
+            height: 600px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(50,217,255,.05);
+
+            filter: blur(110px);
+
+            right: -300px;
+            bottom: -200px;
+
+            pointer-events: none;
+
+            z-index: -1;
+        }
+
 
         a {
-            text-decoration: none;
             color: inherit;
+            text-decoration: none;
         }
 
-        /* =========================
+
+        button {
+            font: inherit;
+        }
+
+
+        .container {
+
+            width:
+                min(
+                    1180px,
+                    calc(100% - 40px)
+                );
+
+            margin: auto;
+        }
+
+
+        /* =====================================================
+           TOP NOTICE
+        ===================================================== */
+
+        .top-notice {
+
+            border-bottom:
+                1px solid var(--line);
+
+            background:
+                rgba(255,255,255,.018);
+        }
+
+
+        .top-notice-inner {
+
+            min-height: 38px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 9px;
+
+            color: #aeb5c7;
+
+            font-size: 12px;
+        }
+
+
+        .live-dot {
+
+            width: 7px;
+            height: 7px;
+
+            background:
+                var(--green);
+
+            border-radius: 50%;
+
+            box-shadow:
+                0 0 12px var(--green);
+        }
+
+
+        /* =====================================================
            NAVBAR
-        ========================== */
+        ===================================================== */
 
         .navbar {
-            width: 100%;
+
             position: sticky;
+
             top: 0;
-            z-index: 1000;
-            background: rgba(5, 8, 22, 0.92);
-            backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(255,255,255,0.08);
+
+            z-index: 999;
+
+            background:
+                rgba(5,6,11,.78);
+
+            backdrop-filter:
+                blur(20px);
+
+            border-bottom:
+                1px solid var(--line);
         }
 
-        .nav-container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 18px 25px;
+
+        .nav {
+
+            min-height: 76px;
+
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
         }
 
-        .logo {
-            font-size: 24px;
-            font-weight: 800;
-            letter-spacing: 0.5px;
-        }
 
-        .logo span {
-            color: #6c63ff;
-        }
+        .brand {
 
-        .nav-links {
             display: flex;
-            gap: 28px;
+
             align-items: center;
+
+            gap: 11px;
         }
 
-        .nav-links a {
-            color: #d9dcf0;
-            font-size: 15px;
-            transition: 0.3s;
-        }
 
-        .nav-links a:hover {
-            color: #7c73ff;
-        }
+        .brand-mark {
 
-        .nav-login {
-            border: 1px solid #625bff;
-            padding: 9px 17px;
-            border-radius: 8px;
-        }
+            width: 42px;
+            height: 42px;
 
-        /* =========================
-           HERO
-        ========================== */
+            border-radius: 13px;
 
-        .hero {
-            min-height: 720px;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-            background:
-                radial-gradient(circle at 75% 35%, rgba(105, 82, 255, 0.25), transparent 35%),
-                radial-gradient(circle at 20% 80%, rgba(0, 170, 255, 0.12), transparent 30%),
-                #050816;
-        }
-
-        .hero-container {
-            max-width: 1200px;
-            width: 100%;
-            margin: auto;
-            padding: 80px 25px;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
 
-        .hero-content h1 {
-            font-size: 58px;
-            line-height: 1.08;
-            margin-bottom: 25px;
-        }
+            place-items: center;
 
-        .hero-content h1 span {
-            color: #756cff;
-        }
-
-        .hero-content p {
-            max-width: 570px;
-            color: #aeb4ca;
-            font-size: 18px;
-            margin-bottom: 35px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 14px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 14px 23px;
-            border-radius: 10px;
-            font-weight: 700;
-            transition: 0.3s;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #7067ff, #4c42e8);
-        }
-
-        .btn-secondary {
-            border: 1px solid rgba(255,255,255,0.18);
-            background: rgba(255,255,255,0.05);
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-        }
-
-        /* =========================
-           PHONE MOCKUP
-        ========================== */
-
-        .hero-visual {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .phone {
-            width: 290px;
-            height: 570px;
-            border: 8px solid #1d2235;
-            border-radius: 42px;
-            background: #111528;
-            box-shadow:
-                0 30px 80px rgba(0,0,0,0.6),
-                0 0 60px rgba(105, 91, 255, 0.25);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .phone-camera {
-            width: 95px;
-            height: 25px;
-            border-radius: 20px;
-            background: #050816;
-            position: absolute;
-            top: 8px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 5;
-        }
-
-        .live-screen {
-            height: 100%;
-            padding: 55px 15px 20px;
             background:
                 linear-gradient(
-                    rgba(15, 20, 45, 0.15),
-                    rgba(5, 8, 22, 0.95)
-                ),
-                linear-gradient(135deg, #8d5cff, #151c3d 55%, #050816);
+                    145deg,
+                    var(--primary),
+                    #37229b
+                );
+
+            box-shadow:
+                0 10px 30px
+                rgba(118,87,255,.28);
+
+            font-weight: 900;
+
+            font-size: 18px;
+        }
+
+
+        .brand-name {
+
+            font-weight: 800;
+
+            font-size: 16px;
+
+            letter-spacing: -.2px;
+        }
+
+
+        .brand-name small {
+
+            display: block;
+
+            color: #72798b;
+
+            font-size: 9px;
+
+            letter-spacing: 1.7px;
+
+            margin-top: 1px;
+        }
+
+
+        .nav-links {
+
             display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
 
-        .live-badge {
-            display: inline-block;
-            width: fit-content;
-            padding: 6px 11px;
-            background: #ff315d;
-            border-radius: 7px;
-            font-size: 12px;
-            font-weight: bold;
-        }
-
-        .host-placeholder {
-            width: 145px;
-            height: 145px;
-            border-radius: 50%;
-            margin: auto;
-            background: linear-gradient(135deg, #c6c9ff, #5148a5);
-            border: 5px solid rgba(255,255,255,0.5);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
-        }
-
-        .live-info {
-            background: rgba(0,0,0,0.3);
-            padding: 15px;
-            border-radius: 15px;
-        }
-
-        .live-info h3 {
-            margin-bottom: 4px;
-        }
-
-        .live-info p {
-            font-size: 12px;
-            color: #d2d5e3;
-            margin: 0;
-        }
-
-        .gift {
-            margin-top: 12px;
-            display: inline-block;
-            background: rgba(255,255,255,0.12);
-            padding: 7px 10px;
-            border-radius: 8px;
-            font-size: 12px;
-        }
-
-        /* =========================
-           SECTION
-        ========================== */
-
-        .section {
-            padding: 90px 25px;
-        }
-
-        .section-container {
-            max-width: 1200px;
-            margin: auto;
-        }
-
-        .section-heading {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .section-heading h2 {
-            font-size: 38px;
-            margin-bottom: 12px;
-        }
-
-        .section-heading p {
-            color: #969db7;
-            max-width: 650px;
-            margin: auto;
-        }
-
-        /* =========================
-           SERVICES
-        ========================== */
-
-        .services {
-            background: #080b1c;
-        }
-
-        .service-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-        }
-
-        .service-card {
-            padding: 32px;
-            border-radius: 18px;
-            background: linear-gradient(
-                145deg,
-                rgba(255,255,255,0.07),
-                rgba(255,255,255,0.025)
-            );
-            border: 1px solid rgba(255,255,255,0.08);
-            transition: 0.3s;
-        }
-
-        .service-card:hover {
-            transform: translateY(-7px);
-            border-color: rgba(112,103,255,0.5);
-        }
-
-        .service-icon {
-            width: 58px;
-            height: 58px;
-            display: flex;
             align-items: center;
-            justify-content: center;
-            border-radius: 15px;
-            background: rgba(112,103,255,0.15);
-            font-size: 27px;
-            margin-bottom: 22px;
+
+            gap: 29px;
         }
 
-        .service-card h3 {
-            font-size: 23px;
-            margin-bottom: 10px;
+
+        .nav-links a {
+
+            color: #aeb4c4;
+
+            font-size: 13px;
+
+            transition: .25s ease;
         }
 
-        .service-card p {
-            color: #969db7;
-            font-size: 15px;
-            margin-bottom: 22px;
+
+        .nav-links a:hover {
+            color: #fff;
         }
 
-        .service-btn {
-            display: inline-block;
-            padding: 10px 16px;
-            border-radius: 8px;
-            background: #625bff;
-            font-size: 14px;
-            font-weight: 700;
+
+        .nav-actions {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
         }
 
-        .coming-soon {
-            display: inline-block;
-            padding: 6px 11px;
-            border-radius: 20px;
-            background: rgba(255, 193, 7, 0.12);
-            color: #ffc107;
-            font-size: 12px;
-            font-weight: bold;
-        }
 
-        /* =========================
-           WHY US
-        ========================== */
+        .login-btn {
 
-        .why-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
+            padding: 10px 15px;
 
-        .why-card {
-            text-align: center;
-            padding: 28px 18px;
-            background: rgba(255,255,255,0.035);
-            border-radius: 15px;
-            border: 1px solid rgba(255,255,255,0.06);
-        }
+            color: #d7dbea;
 
-        .why-card strong {
-            display: block;
-            font-size: 20px;
-            margin-bottom: 8px;
-        }
-
-        .why-card span {
-            color: #9299b1;
-            font-size: 14px;
-        }
-
-        /* =========================
-           FOOTER
-        ========================== */
-
-        footer {
-            background: #03050e;
-            border-top: 1px solid rgba(255,255,255,0.07);
-            padding: 55px 25px 25px;
-        }
-
-        .footer-container {
-            max-width: 1200px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 50px;
-        }
-
-        .footer-brand p {
-            color: #858ca5;
-            max-width: 420px;
-            margin-top: 15px;
-        }
-
-        .footer-column h4 {
-            margin-bottom: 18px;
-        }
-
-        .footer-column a {
-            display: block;
-            color: #858ca5;
-            margin-bottom: 9px;
-            font-size: 14px;
-        }
-
-        .footer-column a:hover {
-            color: #ffffff;
-        }
-
-        .footer-bottom {
-            max-width: 1200px;
-            margin: 45px auto 0;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.07);
-            text-align: center;
-            color: #6f758b;
             font-size: 13px;
         }
 
-        .powered {
-            margin-top: 8px;
+
+        .register-btn {
+
+            padding: 10px 17px;
+
+            border-radius: 9px;
+
+            background: #fff;
+
+            color: #08090d;
+
+            font-weight: 700;
+
+            font-size: 13px;
+        }
+
+
+        .menu-btn {
+
+            display: none;
+
+            border: 0;
+
+            background: transparent;
+
+            color: white;
+
+            font-size: 25px;
+
+            cursor: pointer;
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+
+            position: relative;
+
+            padding:
+                105px 0 100px;
+        }
+
+
+        .hero-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                1.02fr .98fr;
+
+            gap: 80px;
+
+            align-items: center;
+        }
+
+
+        .eyebrow {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            border:
+                1px solid
+                rgba(118,87,255,.35);
+
+            background:
+                rgba(118,87,255,.08);
+
+            color: #b9aaff;
+
+            padding: 7px 12px;
+
+            border-radius: 30px;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            letter-spacing: .6px;
+
+            margin-bottom: 22px;
+        }
+
+
+        .hero h1 {
+
+            max-width: 670px;
+
+            font-size:
+                clamp(42px, 5vw, 70px);
+
+            line-height: 1.02;
+
+            letter-spacing: -3px;
+
+            margin-bottom: 24px;
+        }
+
+
+        .hero h1 .gradient {
+
+            background:
+                linear-gradient(
+                    100deg,
+                    #ffffff 10%,
+                    #a68cff 45%,
+                    #5cdeff 100%
+                );
+
+            -webkit-background-clip: text;
+
+            color: transparent;
+        }
+
+
+        .hero-description {
+
+            max-width: 600px;
+
+            color: var(--muted);
+
+            font-size: 17px;
+
+            line-height: 1.8;
+
+            margin-bottom: 31px;
+        }
+
+
+        .hero-actions {
+
+            display: flex;
+
+            gap: 12px;
+
+            flex-wrap: wrap;
+
+            margin-bottom: 35px;
+        }
+
+
+        .primary-btn,
+        .secondary-btn {
+
+            min-height: 48px;
+
+            padding: 0 20px;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 10px;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            transition: .25s ease;
+        }
+
+
+        .primary-btn {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #805fff,
+                    #5739e8
+                );
+
+            box-shadow:
+                0 12px 30px
+                rgba(118,87,255,.25);
+        }
+
+
+        .primary-btn:hover {
+
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                0 16px 35px
+                rgba(118,87,255,.38);
+        }
+
+
+        .secondary-btn {
+
+            border:
+                1px solid var(--line);
+
+            background:
+                rgba(255,255,255,.035);
+
+            color: #dce0eb;
+        }
+
+
+        .secondary-btn:hover {
+
+            background:
+                rgba(255,255,255,.07);
+
+            transform:
+                translateY(-2px);
+        }
+
+
+        .trust-row {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 20px;
+
+            color: #777e91;
+
+            font-size: 11px;
+        }
+
+
+        .trust-item {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 7px;
+        }
+
+
+        .check {
+
+            width: 16px;
+            height: 16px;
+
+            display: grid;
+
+            place-items: center;
+
+            border-radius: 50%;
+
+            background:
+                rgba(56,227,155,.12);
+
+            color:
+                var(--green);
+
+            font-size: 10px;
+        }
+
+
+        /* =====================================================
+           HERO PHONE
+        ===================================================== */
+
+        .hero-visual {
+
+            position: relative;
+
+            min-height: 550px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+        }
+
+
+        .visual-glow {
+
+            position: absolute;
+
+            width: 380px;
+            height: 380px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(118,87,255,.18);
+
+            filter: blur(75px);
+        }
+
+
+        .phone {
+
+            position: relative;
+
+            width: 285px;
+            height: 555px;
+
+            padding: 8px;
+
+            border-radius: 43px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #353a4a,
+                    #090b11 35%,
+                    #1a1d28
+                );
+
+            box-shadow:
+                0 45px 90px
+                rgba(0,0,0,.65),
+
+                0 0 70px
+                rgba(118,87,255,.17);
+
+            z-index: 2;
+
+            transform:
+                rotate(2deg);
+        }
+
+
+        .phone-screen {
+
+            height: 100%;
+
+            border-radius: 36px;
+
+            overflow: hidden;
+
+            position: relative;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #7b45cf,
+                    #243b72 45%,
+                    #0c1124
+                );
+        }
+
+
+        /*
+           =====================================================
+           VIDEO READY AREA
+
+           পরে এখানে:
+
+           assets/hero-live.mp4
+
+           ফাইলটি রাখলে ভিডিও চলবে।
+        =====================================================
+        */
+
+
+        .hero-live-video {
+
+            position: absolute;
+
+            inset: 0;
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            z-index: 1;
+
+            display: none;
+        }
+
+
+        .video-overlay {
+
+            position: absolute;
+
+            inset: 0;
+
+            z-index: 2;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(0,0,0,.05),
+                    rgba(0,0,0,.72)
+                );
+        }
+
+
+        .phone-notch {
+
+            position: absolute;
+
+            top: 9px;
+
+            left: 50%;
+
+            transform:
+                translateX(-50%);
+
+            width: 94px;
+
+            height: 25px;
+
+            border-radius: 20px;
+
+            background: #05060a;
+
+            z-index: 6;
+        }
+
+
+        .stream-top {
+
+            position: absolute;
+
+            left: 17px;
+
+            right: 17px;
+
+            top: 19px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            z-index: 5;
+        }
+
+
+        .live-label {
+
+            background:
+                #ff3e66;
+
+            padding:
+                5px 9px;
+
+            border-radius: 6px;
+
+            font-size: 9px;
+
+            font-weight: 800;
+
+            letter-spacing: .5px;
+        }
+
+
+        .viewers {
+
+            padding:
+                5px 9px;
+
+            border-radius: 6px;
+
+            background:
+                rgba(0,0,0,.45);
+
+            font-size: 9px;
+        }
+
+
+        /* =====================================================
+           FALLBACK PHONE VISUAL
+        ===================================================== */
+
+        .stream-person {
+
+            position: absolute;
+
+            width: 195px;
+
+            height: 245px;
+
+            left: 50%;
+
+            top: 49%;
+
+            transform:
+                translate(-50%, -50%);
+
+            border-radius:
+                100px 100px
+                35px 35px;
+
+            background:
+                radial-gradient(
+                    circle at 50% 27%,
+                    #f3c9b2 0 18%,
+                    transparent 18.5%
+                ),
+
+                linear-gradient(
+                    145deg,
+                    #c9b0ff,
+                    #563ea3 58%,
+                    #211c4a
+                );
+
+            box-shadow:
+                0 25px 50px
+                rgba(0,0,0,.35);
+
+            z-index: 3;
+        }
+
+
+        .stream-person::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 76px;
+            height: 76px;
+
+            border-radius: 50%;
+
+            left: 50%;
+            top: 28px;
+
+            transform:
+                translateX(-50%);
+
+            background:
+                #efc3aa;
+
+            box-shadow:
+                0 -14px 0 7px
+                #30244e;
+        }
+
+
+        .stream-person::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 120px;
+            height: 85px;
+
+            border-radius:
+                65px 65px
+                20px 20px;
+
+            background:
+                #463477;
+
+            left: 50%;
+            bottom: 0;
+
+            transform:
+                translateX(-50%);
+        }
+
+
+        .stream-info {
+
+            position: absolute;
+
+            left: 17px;
+            right: 17px;
+
+            bottom: 18px;
+
+            z-index: 5;
+        }
+
+
+        .stream-name {
+
+            font-size: 13px;
+
+            font-weight: 800;
+
+            margin-bottom: 3px;
+        }
+
+
+        .stream-text {
+
+            font-size: 9px;
+
+            color:
+                #d7d9e5;
+
+            margin-bottom: 12px;
+        }
+
+
+        .stream-actions {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 7px;
+        }
+
+
+        .chat-box {
+
+            flex: 1;
+
+            padding:
+                8px 10px;
+
+            border-radius: 20px;
+
+            background:
+                rgba(0,0,0,.38);
+
+            color:
+                #d9dce7;
+
+            font-size: 8px;
+        }
+
+
+        .gift-btn {
+
+            width: 33px;
+            height: 33px;
+
+            display: grid;
+
+            place-items: center;
+
+            border-radius: 50%;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff58a4,
+                    #ff3f64
+                );
+
             font-size: 14px;
-            color: #ffffff;
-            font-weight: 600;
         }
 
-        .powered span {
-            color: #756cff;
+
+        /* =====================================================
+           FLOATING CARDS
+        ===================================================== */
+
+        .floating-card {
+
+            position: absolute;
+
+            z-index: 7;
+
+            border:
+                1px solid
+                rgba(255,255,255,.1);
+
+            background:
+                rgba(13,16,26,.86);
+
+            backdrop-filter:
+                blur(18px);
+
+            box-shadow:
+                var(--shadow);
+
+            border-radius: 13px;
+
+            padding: 12px;
         }
 
-        /* =========================
-           RESPONSIVE
-        ========================== */
 
-        @media (max-width: 900px) {
+        .floating-card.one {
+
+            left: 10px;
+
+            top: 90px;
+        }
+
+
+        .floating-card.two {
+
+            right: 5px;
+
+            bottom: 100px;
+        }
+
+
+        .float-title {
+
+            color:
+                #858da1;
+
+            font-size: 8px;
+
+            margin-bottom: 3px;
+        }
+
+
+        .float-value {
+
+            font-size: 14px;
+
+            font-weight: 800;
+        }
+
+
+        .float-green {
+
+            color:
+                var(--green);
+
+            font-size: 8px;
+        }
+
+
+        /* =====================================================
+           SERVICES
+        ===================================================== */
+
+        .services-section {
+
+            padding:
+                110px 0;
+
+            background:
+                var(--bg-soft);
+
+            border-top:
+                1px solid var(--line);
+
+            border-bottom:
+                1px solid var(--line);
+        }
+
+
+        .section-header {
+
+            max-width: 680px;
+
+            margin:
+                0 auto 50px;
+
+            text-align: center;
+        }
+
+
+        .section-label {
+
+            color:
+                #a897ff;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                2px;
+
+            font-size:
+                10px;
+
+            font-weight:
+                800;
+
+            margin-bottom:
+                10px;
+        }
+
+
+        .section-header h2 {
+
+            font-size:
+                clamp(30px,4vw,45px);
+
+            line-height:
+                1.1;
+
+            letter-spacing:
+                -1.5px;
+
+            margin-bottom:
+                14px;
+        }
+
+
+        .section-header p {
+
+            color:
+                var(--muted);
+
+            font-size:
+                14px;
+        }
+
+
+        .service-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+            gap:
+                18px;
+        }
+
+
+        .service-card {
+
+            position:
+                relative;
+
+            padding:
+                27px;
+
+            min-height:
+                265px;
+
+            border:
+                1px solid var(--line);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.045),
+                    rgba(255,255,255,.015)
+                );
+
+            border-radius:
+                17px;
+
+            overflow:
+                hidden;
+
+            transition:
+                .3s ease;
+        }
+
+
+        .service-card:hover {
+
+            transform:
+                translateY(-5px);
+
+            border-color:
+                rgba(118,87,255,.4);
+
+            box-shadow:
+                0 20px 45px
+                rgba(0,0,0,.28);
+        }
+
+
+        .service-icon {
+
+            width:
+                48px;
+
+            height:
+                48px;
+
+            border-radius:
+                13px;
+
+            display:
+                grid;
+
+            place-items:
+                center;
+
+            background:
+                rgba(118,87,255,.12);
+
+            border:
+                1px solid
+                rgba(118,87,255,.16);
+
+            font-size:
+                21px;
+
+            margin-bottom:
+                22px;
+        }
+
+
+        .service-card h3 {
+
+            font-size:
+                20px;
+
+            margin-bottom:
+                8px;
+        }
+
+
+        .service-card p {
+
+            color:
+                #838b9e;
+
+            font-size:
+                13px;
+
+            line-height:
+                1.7;
+
+            margin-bottom:
+                20px;
+        }
+
+
+        .service-link {
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            gap:
+                7px;
+
+            color:
+                #b7aaff;
+
+            font-size:
+                12px;
+
+            font-weight:
+                800;
+        }
+
+
+        .service-link:hover {
+            color: white;
+        }
+
+
+        .coming-soon {
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            padding:
+                6px 10px;
+
+            border-radius:
+                30px;
+
+            background:
+                rgba(255,193,7,.08);
+
+            border:
+                1px solid
+                rgba(255,193,7,.15);
+
+            color:
+                #e9b933;
+
+            font-size:
+                9px;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                .7px;
+        }
+
+
+        /* =====================================================
+           FEATURES
+        ===================================================== */
+
+        .features {
+
+            padding:
+                105px 0;
+        }
+
+
+        .feature-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(4,1fr);
+
+            gap:
+                14px;
+        }
+
+
+        .feature {
+
+            padding:
+                24px;
+
+            border:
+                1px solid var(--line);
+
+            border-radius:
+                14px;
+
+            background:
+                rgba(255,255,255,.025);
+        }
+
+
+        .feature-number {
+
+            color:
+                #6f7484;
+
+            font-size:
+                11px;
+
+            margin-bottom:
+                25px;
+        }
+
+
+        .feature h3 {
+
+            font-size:
+                16px;
+
+            margin-bottom:
+                7px;
+        }
+
+
+        .feature p {
+
+            color:
+                #7e8597;
+
+            font-size:
+                12px;
+
+            line-height:
+                1.7;
+        }
+
+
+        /* =====================================================
+           FA-AGENCY CUSTOM WEBSITE SECTION
+        ===================================================== */
+
+        .developer-section {
+
+            padding:
+                35px 0 105px;
+        }
+
+
+        .developer-box {
+
+            position:
+                relative;
+
+            overflow:
+                hidden;
+
+            border:
+                1px solid
+                rgba(118,87,255,.22);
+
+            border-radius:
+                20px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #0c0e17,
+                    #111021
+                );
+
+            padding:
+                48px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            gap:
+                40px;
+        }
+
+
+        .developer-box::before {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            width:
+                220px;
+
+            height:
+                220px;
+
+            border-radius:
+                50%;
+
+            background:
+                rgba(118,87,255,.12);
+
+            filter:
+                blur(55px);
+
+            right:
+                -80px;
+
+            top:
+                -100px;
+        }
+
+
+        .developer-content {
+
+            position:
+                relative;
+
+            z-index:
+                2;
+        }
+
+
+        .developer-label {
+
+            color:
+                #a897ff;
+
+            font-size:
+                10px;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                1.8px;
+
+            text-transform:
+                uppercase;
+
+            margin-bottom:
+                10px;
+        }
+
+
+        .developer-box h2 {
+
+            font-size:
+                30px;
+
+            letter-spacing:
+                -1px;
+
+            margin-bottom:
+                10px;
+        }
+
+
+        .developer-box p {
+
+            max-width:
+                680px;
+
+            color:
+                #858c9f;
+
+            font-size:
+                13px;
+
+            line-height:
+                1.8;
+
+            margin-bottom:
+                17px;
+        }
+
+
+        .developer-services {
+
+            display:
+                flex;
+
+            flex-wrap:
+                wrap;
+
+            gap:
+                8px;
+        }
+
+
+        .developer-services span {
+
+            padding:
+                6px 9px;
+
+            border:
+                1px solid
+                rgba(255,255,255,.07);
+
+            background:
+                rgba(255,255,255,.025);
+
+            color:
+                #8f96a9;
+
+            border-radius:
+                6px;
+
+            font-size:
+                9px;
+        }
+
+
+        .developer-contact {
+
+            position:
+                relative;
+
+            z-index:
+                2;
+
+            min-width:
+                240px;
+
+            padding:
+                22px;
+
+            border:
+                1px solid
+                rgba(255,255,255,.08);
+
+            border-radius:
+                13px;
+
+            background:
+                rgba(255,255,255,.035);
+        }
+
+
+        .developer-contact small {
+
+            display:
+                block;
+
+            color:
+                #707789;
+
+            font-size:
+                9px;
+
+            margin-bottom:
+                7px;
+        }
+
+
+        .developer-email {
+
+            color:
+                #d8d1ff;
+
+            font-size:
+                13px;
+
+            font-weight:
+                700;
+
+            word-break:
+                break-word;
+        }
+
+
+        .developer-email:hover {
+
+            color:
+                #ffffff;
+        }
+
+
+        .developer-contact-button {
+
+            display:
+                inline-flex;
+
+            margin-top:
+                13px;
+
+            padding:
+                9px 13px;
+
+            border-radius:
+                8px;
+
+            background:
+                #7657ff;
+
+            font-size:
+                11px;
+
+            font-weight:
+                800;
+        }
+
+
+        /* =====================================================
+           CTA
+        ===================================================== */
+
+        .cta-section {
+
+            padding:
+                0 0 110px;
+        }
+
+
+        .cta-box {
+
+            position:
+                relative;
+
+            overflow:
+                hidden;
+
+            border-radius:
+                22px;
+
+            border:
+                1px solid
+                rgba(118,87,255,.28);
+
+            background:
+                radial-gradient(
+                    circle at 85% 20%,
+                    rgba(118,87,255,.25),
+                    transparent 35%
+                ),
+
+                linear-gradient(
+                    120deg,
+                    #0e1020,
+                    #0b0d16
+                );
+
+            padding:
+                65px;
+
+            text-align:
+                center;
+        }
+
+
+        .cta-box h2 {
+
+            font-size:
+                38px;
+
+            letter-spacing:
+                -1px;
+
+            margin-bottom:
+                12px;
+        }
+
+
+        .cta-box p {
+
+            color:
+                #8e95a8;
+
+            font-size:
+                14px;
+
+            margin-bottom:
+                25px;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+
+            border-top:
+                1px solid var(--line);
+
+            background:
+                #030408;
+
+            padding:
+                65px 0 25px;
+        }
+
+
+        .footer-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                2fr 1fr 1fr 1fr;
+
+            gap:
+                40px;
+        }
+
+
+        .footer-about p {
+
+            max-width:
+                350px;
+
+            color:
+                #747b8e;
+
+            font-size:
+                12px;
+
+            line-height:
+                1.8;
+
+            margin-top:
+                14px;
+        }
+
+
+        .footer-col h4 {
+
+            font-size:
+                12px;
+
+            margin-bottom:
+                17px;
+        }
+
+
+        .footer-col a {
+
+            display:
+                block;
+
+            color:
+                #70778a;
+
+            font-size:
+                11px;
+
+            margin-bottom:
+                10px;
+
+            transition:
+                .2s;
+        }
+
+
+        .footer-col a:hover {
+            color: #fff;
+        }
+
+
+        .footer-bottom {
+
+            border-top:
+                1px solid var(--line);
+
+            margin-top:
+                50px;
+
+            padding-top:
+                22px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            color:
+                #555b6b;
+
+            font-size:
+                10px;
+        }
+
+
+        /*
+           স্থায়ী Developer Credit
+        */
+
+        .powered-brand {
+
+            color:
+                #858b9c;
+        }
+
+
+        .powered-brand strong {
+
+            color:
+                #a996ff;
+
+            font-weight:
+                800;
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 1000px) {
 
             .nav-links {
                 display: none;
             }
 
-            .hero-container {
-                grid-template-columns: 1fr;
+
+            .menu-btn {
+                display: block;
+            }
+
+
+            .nav-actions {
+                display: none;
+            }
+
+
+            .hero-grid {
+
+                grid-template-columns:
+                    1fr;
+
+                gap:
+                    50px;
+            }
+
+
+            .hero-content {
                 text-align: center;
             }
 
-            .hero-content p {
-                margin-left: auto;
-                margin-right: auto;
+
+            .hero-description {
+
+                margin-left:
+                    auto;
+
+                margin-right:
+                    auto;
             }
 
-            .hero-buttons {
-                justify-content: center;
+
+            .hero-actions,
+            .trust-row {
+
+                justify-content:
+                    center;
             }
+
+
+            .hero-visual {
+
+                min-height:
+                    600px;
+            }
+
 
             .service-grid {
-                grid-template-columns: 1fr 1fr;
+
+                grid-template-columns:
+                    1fr 1fr;
             }
 
-            .why-grid {
-                grid-template-columns: 1fr 1fr;
+
+            .feature-grid {
+
+                grid-template-columns:
+                    1fr 1fr;
             }
 
-            .footer-container {
-                grid-template-columns: 1fr 1fr;
+
+            .footer-grid {
+
+                grid-template-columns:
+                    1fr 1fr;
+            }
+
+
+            .developer-box {
+
+                flex-direction:
+                    column;
+
+                align-items:
+                    flex-start;
+            }
+
+
+            .developer-contact {
+
+                width:
+                    100%;
             }
         }
 
-        @media (max-width: 600px) {
+
+        @media (max-width: 650px) {
+
+            .container {
+
+                width:
+                    min(
+                        100% - 28px,
+                        1180px
+                    );
+            }
+
+
+            .top-notice-inner {
+
+                font-size:
+                    10px;
+            }
+
 
             .hero {
-                min-height: auto;
+
+                padding:
+                    65px 0 75px;
             }
 
-            .hero-container {
-                padding-top: 60px;
-                padding-bottom: 70px;
+
+            .hero h1 {
+
+                font-size:
+                    43px;
+
+                letter-spacing:
+                    -2px;
             }
 
-            .hero-content h1 {
-                font-size: 39px;
+
+            .hero-description {
+
+                font-size:
+                    14px;
             }
 
-            .hero-content p {
-                font-size: 16px;
+
+            .hero-visual {
+
+                min-height:
+                    560px;
             }
+
 
             .phone {
-                width: 255px;
-                height: 510px;
+
+                width:
+                    255px;
+
+                height:
+                    500px;
             }
+
+
+            .floating-card.one {
+
+                left:
+                    0;
+
+                top:
+                    75px;
+            }
+
+
+            .floating-card.two {
+
+                right:
+                    0;
+
+                bottom:
+                    80px;
+            }
+
+
+            .services-section,
+            .features {
+
+                padding:
+                    80px 0;
+            }
+
 
             .service-grid {
-                grid-template-columns: 1fr;
+
+                grid-template-columns:
+                    1fr;
             }
 
-            .why-grid {
-                grid-template-columns: 1fr 1fr;
+
+            .feature-grid {
+
+                grid-template-columns:
+                    1fr;
             }
 
-            .footer-container {
-                grid-template-columns: 1fr;
+
+            .developer-section {
+
+                padding-bottom:
+                    80px;
             }
 
-            .section-heading h2 {
-                font-size: 30px;
+
+            .developer-box {
+
+                padding:
+                    30px 22px;
+            }
+
+
+            .developer-box h2 {
+
+                font-size:
+                    25px;
+            }
+
+
+            .developer-box p {
+
+                font-size:
+                    12px;
+            }
+
+
+            .cta-box {
+
+                padding:
+                    42px 20px;
+            }
+
+
+            .cta-box h2 {
+
+                font-size:
+                    29px;
+            }
+
+
+            .footer-grid {
+
+                grid-template-columns:
+                    1fr 1fr;
+
+                gap:
+                    30px 20px;
+            }
+
+
+            .footer-about {
+
+                grid-column:
+                    1 / -1;
+            }
+
+
+            .footer-bottom {
+
+                flex-direction:
+                    column;
+
+                gap:
+                    10px;
+
+                text-align:
+                    center;
             }
         }
+
     </style>
+
 </head>
+
 
 <body>
 
-    <!-- =========================
-         NAVBAR
-    ========================== -->
 
-    <header class="navbar">
-        <div class="nav-container">
+    <!-- =====================================================
+         TOP NOTICE
+    ===================================================== -->
 
-            <a href="#" class="logo">
-                POWER BY <span>FA-AGENCY™</span>
-            </a>
+    <div class="top-notice">
 
-            <nav class="nav-links">
-                <a href="#home">Home</a>
-                <a href="#services">Agency</a>
-                <a href="#services">Host</a>
-                <a href="#services">Top Up</a>
-                <a href="#contact">Contact</a>
-                <a href="#">Login</a>
-                <a href="#" class="nav-login">Register</a>
-            </nav>
+        <div class="container top-notice-inner">
+
+            <span class="live-dot"></span>
+
+            <span>
+                Live Streaming • Agency • Host • Top Up Services
+            </span>
 
         </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         NAVBAR
+    ===================================================== -->
+
+    <header class="navbar">
+
+        <div class="container nav">
+
+
+            <a href="#" class="brand">
+
+                <div class="brand-mark">
+                    RA
+                </div>
+
+                <div class="brand-name">
+
+                    রায়হান এজেন্সি
+
+                    <small>
+                        LIVE STREAMING SERVICES
+                    </small>
+
+                </div>
+
+            </a>
+
+
+            <nav class="nav-links">
+
+                <a href="#home">
+                    Home
+                </a>
+
+                <a href="#services">
+                    Agency
+                </a>
+
+                <a href="#services">
+                    Host
+                </a>
+
+                <a href="#services">
+                    Top Up
+                </a>
+
+                <a href="#contact">
+                    Contact
+                </a>
+
+            </nav>
+
+
+            <div class="nav-actions">
+
+                <a href="#" class="login-btn">
+                    Login
+                </a>
+
+                <a href="#" class="register-btn">
+                    Create Account
+                </a>
+
+            </div>
+
+
+            <button
+                class="menu-btn"
+                aria-label="Open Menu"
+            >
+                ☰
+            </button>
+
+        </div>
+
     </header>
 
 
-    <!-- =========================
-         HERO
-    ========================== -->
+    <!-- =====================================================
+         MAIN
+    ===================================================== -->
 
     <main id="home">
 
+
+        <!-- =================================================
+             HERO
+        ================================================== -->
+
         <section class="hero">
 
-            <div class="hero-container">
+            <div class="container hero-grid">
+
 
                 <div class="hero-content">
 
+
+                    <div class="eyebrow">
+
+                        <span class="live-dot"></span>
+
+                        YOUR LIVE STREAMING PARTNER
+
+                    </div>
+
+
                     <h1>
-                        Your Gateway to
-                        <span>Live Streaming</span>
-                        Services
+
+                        Connect.
+
+                        <span class="gradient">
+                            Stream.
+                        </span>
+
+                        Grow.
+
                     </h1>
 
-                    <p>
-                        Join an agency, become a live streaming host,
-                        or recharge your favorite platform.
-                        Everything you need in one powerful platform.
+
+                    <p class="hero-description">
+
+                        রায়হান এজেন্সির মাধ্যমে Agency,
+                        Host Registration এবং Live Streaming
+                        Top Up Services — সবকিছু এক প্ল্যাটফর্মে।
+
                     </p>
 
-                    <div class="hero-buttons">
 
-                        <a href="#services" class="btn btn-primary">
-                            Join Agency
+                    <div class="hero-actions">
+
+                        <a
+                            href="#services"
+                            class="primary-btn"
+                        >
+                            Explore Services →
                         </a>
 
-                        <a href="#services" class="btn btn-secondary">
+
+                        <a
+                            href="#services"
+                            class="secondary-btn"
+                        >
                             Become a Host
                         </a>
 
-                        <a href="#services" class="btn btn-secondary">
-                            Top Up Now
-                        </a>
+                    </div>
+
+
+                    <div class="trust-row">
+
+
+                        <div class="trust-item">
+
+                            <span class="check">
+                                ✓
+                            </span>
+
+                            Secure Platform
+
+                        </div>
+
+
+                        <div class="trust-item">
+
+                            <span class="check">
+                                ✓
+                            </span>
+
+                            Fast Support
+
+                        </div>
+
+
+                        <div class="trust-item">
+
+                            <span class="check">
+                                ✓
+                            </span>
+
+                            More Platforms Coming
+
+                        </div>
+
 
                     </div>
 
                 </div>
 
 
-                <!-- PHONE -->
+                <!-- =================================================
+                     PHONE / VIDEO AREA
+                ================================================== -->
 
                 <div class="hero-visual">
 
+
+                    <div class="visual-glow"></div>
+
+
+                    <div class="floating-card one">
+
+                        <div class="float-title">
+                            LIVE NOW
+                        </div>
+
+                        <div class="float-value">
+                            12.8K
+                        </div>
+
+                        <div class="float-green">
+                            ● Active viewers
+                        </div>
+
+                    </div>
+
+
                     <div class="phone">
 
-                        <div class="phone-camera"></div>
 
-                        <div class="live-screen">
+                        <div class="phone-screen">
 
-                            <div>
-                                <span class="live-badge">
+
+                            <!-- =================================================
+                                 FUTURE LIVE VIDEO
+
+                                 assets/hero-live.mp4
+
+                                 ফাইলটি দিলে নিচের video display হবে।
+                            ================================================== -->
+
+                            <video
+                                class="hero-live-video"
+                                id="heroVideo"
+                                autoplay
+                                muted
+                                loop
+                                playsinline
+                                preload="auto"
+                            >
+
+                                <source
+                                    src="assets/hero-live.mp4"
+                                    type="video/mp4"
+                                >
+
+                            </video>
+
+
+                            <div class="video-overlay"></div>
+
+
+                            <div class="phone-notch"></div>
+
+
+                            <div class="stream-top">
+
+                                <span class="live-label">
                                     ● LIVE
                                 </span>
+
+
+                                <span class="viewers">
+                                    👁 12.8K
+                                </span>
+
                             </div>
 
-                            <div class="host-placeholder"></div>
 
-                            <div class="live-info">
+                            <!-- VIDEO না থাকলে এই fallback দেখা যাবে -->
 
-                                <h3>
-                                    Live Streaming
-                                </h3>
+                            <div
+                                class="stream-person"
+                                id="fallbackPerson"
+                            ></div>
 
-                                <p>
-                                    Enjoy live conversation,
-                                    virtual gifts and entertainment.
-                                </p>
 
-                                <div class="gift">
-                                    🎁 Virtual Gift
+                            <div class="stream-info">
+
+                                <div class="stream-name">
+                                    Live Host
+                                </div>
+
+
+                                <div class="stream-text">
+                                    Having a great time with everyone ✨
+                                </div>
+
+
+                                <div class="stream-actions">
+
+                                    <div class="chat-box">
+                                        Say something...
+                                    </div>
+
+
+                                    <div class="gift-btn">
+                                        🎁
+                                    </div>
+
                                 </div>
 
                             </div>
@@ -634,6 +2494,23 @@
 
                     </div>
 
+
+                    <div class="floating-card two">
+
+                        <div class="float-title">
+                            VIRTUAL GIFT
+                        </div>
+
+                        <div class="float-value">
+                            🎁 +500
+                        </div>
+
+                        <div class="float-green">
+                            Gift received
+                        </div>
+
+                    </div>
+
                 </div>
 
             </div>
@@ -641,23 +2518,33 @@
         </section>
 
 
-        <!-- =========================
+        <!-- =================================================
              SERVICES
-        ========================== -->
+        ================================================== -->
 
-        <section class="section services" id="services">
+        <section
+            class="services-section"
+            id="services"
+        >
 
-            <div class="section-container">
+            <div class="container">
 
-                <div class="section-heading">
+
+                <div class="section-header">
+
+                    <div class="section-label">
+                        OUR SERVICES
+                    </div>
+
 
                     <h2>
-                        What Are You Looking For?
+                        আপনার প্রয়োজনীয় সার্ভিস বেছে নিন
                     </h2>
 
+
                     <p>
-                        Choose the service you need and
-                        continue to the relevant section.
+                        Agency, Hosting এবং Top Up —
+                        আপনার প্রয়োজন অনুযায়ী সার্ভিস নির্বাচন করুন।
                     </p>
 
                 </div>
@@ -665,148 +2552,177 @@
 
                 <div class="service-grid">
 
-                    <!-- AGENCY -->
 
-                    <div class="service-card">
+                    <!-- CHAMET AGENCY -->
+
+                    <article class="service-card">
 
                         <div class="service-icon">
                             🏢
                         </div>
 
+
                         <h3>
                             Chamet Agency
                         </h3>
 
+
                         <p>
-                            Want to work with Chamet as an agency?
-                            Enter the agency section to learn more.
+                            Chamet Agency হিসেবে কাজ করতে চাইলে
+                            বিস্তারিত জানতে এই সেকশনে প্রবেশ করুন।
                         </p>
 
-                        <a href="#" class="service-btn">
-                            বিস্তারিত জানতে ভিতরে প্রবেশ করুন
+
+                        <a
+                            href="#"
+                            class="service-link"
+                        >
+                            বিস্তারিত জানতে ভিতরে প্রবেশ করুন →
                         </a>
 
-                    </div>
+                    </article>
 
 
                     <!-- HOST -->
 
-                    <div class="service-card">
+                    <article class="service-card">
 
                         <div class="service-icon">
-                            🎥
+                            🎙️
                         </div>
+
 
                         <h3>
                             Host Registration
                         </h3>
 
+
                         <p>
-                            Become a live streaming host and
-                            start your journey with us.
+                            Live Streaming Host হিসেবে কাজ করতে
+                            চাইলে এখানে প্রবেশ করে আবেদন করুন।
                         </p>
 
-                        <a href="#" class="service-btn">
-                            ভিতরে প্রবেশ করুন
+
+                        <a
+                            href="#"
+                            class="service-link"
+                        >
+                            ভিতরে প্রবেশ করুন →
                         </a>
 
-                    </div>
+                    </article>
 
 
                     <!-- TOP UP -->
 
-                    <div class="service-card">
+                    <article class="service-card">
 
                         <div class="service-icon">
                             💎
                         </div>
 
+
                         <h3>
                             Chamet Diamond Top Up
                         </h3>
 
+
                         <p>
-                            Recharge your Chamet account
-                            quickly and securely.
+                            আপনার Chamet Account-এর জন্য
+                            প্রয়োজনীয় Diamond Top Up নির্বাচন করুন।
                         </p>
 
-                        <a href="#" class="service-btn">
-                            Top Up করুন
+
+                        <a
+                            href="#"
+                            class="service-link"
+                        >
+                            Top Up করুন →
                         </a>
 
-                    </div>
+                    </article>
 
 
                     <!-- OTHER AGENCY -->
 
-                    <div class="service-card">
+                    <article class="service-card">
 
                         <div class="service-icon">
                             🌐
                         </div>
 
+
                         <h3>
                             Other Agencies
                         </h3>
 
+
                         <p>
-                            More live streaming agencies will
-                            be added to the platform soon.
+                            ভবিষ্যতে অন্যান্য Live Streaming
+                            Agency এই প্ল্যাটফর্মে যুক্ত করা যাবে।
                         </p>
+
 
                         <span class="coming-soon">
                             COMING SOON
                         </span>
 
-                    </div>
+                    </article>
 
 
-                    <!-- OTHER HOSTING -->
+                    <!-- OTHER HOST -->
 
-                    <div class="service-card">
+                    <article class="service-card">
 
                         <div class="service-icon">
-                            📱
+                            📡
                         </div>
+
 
                         <h3>
                             Other App Hosting
                         </h3>
 
+
                         <p>
-                            Hosting opportunities for other
-                            live streaming applications.
+                            অন্যান্য Live Streaming Application-এর
+                            Hosting Service ভবিষ্যতে যুক্ত হবে।
                         </p>
+
 
                         <span class="coming-soon">
                             COMING SOON
                         </span>
 
-                    </div>
+                    </article>
 
 
                     <!-- OTHER TOP UP -->
 
-                    <div class="service-card">
+                    <article class="service-card">
 
                         <div class="service-icon">
                             🎮
                         </div>
 
+
                         <h3>
                             Gaming & Other Top Up
                         </h3>
 
+
                         <p>
-                            Other gaming and live streaming
-                            top-up services will be available soon.
+                            অন্যান্য Gaming এবং Live Streaming
+                            Top Up Service ভবিষ্যতে যুক্ত করা যাবে।
                         </p>
+
 
                         <span class="coming-soon">
                             COMING SOON
                         </span>
 
-                    </div>
+                    </article>
+
 
                 </div>
 
@@ -815,48 +2731,109 @@
         </section>
 
 
-        <!-- =========================
-             WHY CHOOSE US
-        ========================== -->
+        <!-- =================================================
+             FEATURES
+        ================================================== -->
 
-        <section class="section">
+        <section class="features">
 
-            <div class="section-container">
+            <div class="container">
 
-                <div class="section-heading">
+
+                <div class="section-header">
+
+                    <div class="section-label">
+                        PLATFORM
+                    </div>
+
 
                     <h2>
-                        Why Choose Us?
+                        Simple. Modern. Powerful.
                     </h2>
 
+
                     <p>
-                        A simple and convenient platform for
-                        live streaming related services.
+                        Customer-এর জন্য সহজ navigation এবং
+                        ভবিষ্যতে আরও service যুক্ত করার সুবিধা।
                     </p>
 
                 </div>
 
-                <div class="why-grid">
 
-                    <div class="why-card">
-                        <strong>Secure</strong>
-                        <span>Safe service experience</span>
+                <div class="feature-grid">
+
+
+                    <div class="feature">
+
+                        <div class="feature-number">
+                            01
+                        </div>
+
+                        <h3>
+                            Easy Navigation
+                        </h3>
+
+                        <p>
+                            প্রয়োজনীয় service খুব সহজেই
+                            খুঁজে পাওয়া যাবে।
+                        </p>
+
                     </div>
 
-                    <div class="why-card">
-                        <strong>Fast</strong>
-                        <span>Quick service processing</span>
+
+                    <div class="feature">
+
+                        <div class="feature-number">
+                            02
+                        </div>
+
+                        <h3>
+                            More Platforms
+                        </h3>
+
+                        <p>
+                            ভবিষ্যতে নতুন Agency এবং
+                            Live Streaming Platform যুক্ত করা যাবে।
+                        </p>
+
                     </div>
 
-                    <div class="why-card">
-                        <strong>Support</strong>
-                        <span>Customer support available</span>
+
+                    <div class="feature">
+
+                        <div class="feature-number">
+                            03
+                        </div>
+
+                        <h3>
+                            Customer Support
+                        </h3>
+
+                        <p>
+                            Customer-এর প্রয়োজন অনুযায়ী
+                            Support System যুক্ত করা যাবে।
+                        </p>
+
                     </div>
 
-                    <div class="why-card">
-                        <strong>Growing</strong>
-                        <span>More platforms coming soon</span>
+
+                    <div class="feature">
+
+                        <div class="feature-number">
+                            04
+                        </div>
+
+                        <h3>
+                            Admin Controlled
+                        </h3>
+
+                        <p>
+                            ভবিষ্যতের Admin Panel থেকে
+                            Services ও Content পরিচালনা করা যাবে।
+                        </p>
+
                     </div>
+
 
                 </div>
 
@@ -864,99 +2841,425 @@
 
         </section>
 
+
+        <!-- =================================================
+             FA-AGENCY CUSTOM WEBSITE SECTION
+        ================================================== -->
+
+        <section class="developer-section">
+
+            <div class="container">
+
+
+                <div class="developer-box">
+
+
+                    <div class="developer-content">
+
+
+                        <div class="developer-label">
+                            Custom Digital Solutions
+                        </div>
+
+
+                        <h2>
+                            আপনার ব্র্যান্ডের জন্য এমন একটি
+                            Website প্রয়োজন?
+                        </h2>
+
+
+                        <p>
+                            আপনার ব্যবসা বা ব্র্যান্ডের জন্য
+                            Professional Branding Website,
+                            Agency Platform, Dashboard,
+                            Admin Panel অথবা Custom Digital
+                            Solution তৈরি করতে চাইলে
+                            FA-AGENCY™-এর সাথে যোগাযোগ করুন।
+                        </p>
+
+
+                        <div class="developer-services">
+
+                            <span>
+                                Branding Website
+                            </span>
+
+                            <span>
+                                Agency Platform
+                            </span>
+
+                            <span>
+                                Admin Panel
+                            </span>
+
+                            <span>
+                                Dashboard
+                            </span>
+
+                            <span>
+                                Custom Website
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="developer-contact">
+
+
+                        <small>
+                            যোগাযোগের জন্য
+                        </small>
+
+
+                        <a
+                            href="mailto:agency.official@outlook.com"
+                            class="developer-email"
+                        >
+                            agency.official@outlook.com
+                        </a>
+
+
+                        <a
+                            href="mailto:agency.official@outlook.com?subject=Website%20Development%20Inquiry"
+                            class="developer-contact-button"
+                        >
+                            FA-AGENCY™-এর সাথে যোগাযোগ করুন →
+                        </a>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             CTA
+        ================================================== -->
+
+        <section class="cta-section">
+
+            <div class="container">
+
+
+                <div class="cta-box">
+
+
+                    <div class="section-label">
+                        GET STARTED
+                    </div>
+
+
+                    <h2>
+                        Ready to Start Your Journey?
+                    </h2>
+
+
+                    <p>
+                        Agency, Host অথবা Top Up —
+                        আপনার প্রয়োজনীয় সার্ভিস নির্বাচন করুন।
+                    </p>
+
+
+                    <a
+                        href="#services"
+                        class="primary-btn"
+                    >
+                        Explore Services →
+                    </a>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
     </main>
 
 
-    <!-- =========================
+    <!-- =====================================================
          FOOTER
-    ========================== -->
+    ===================================================== -->
 
     <footer id="contact">
 
-        <div class="footer-container">
+        <div class="container">
 
-            <div class="footer-brand">
 
-                <h2>
-                    Power by FA-AGENCY™
-                </h2>
+            <div class="footer-grid">
 
-                <p>
-                    A modern platform for live streaming
-                    agency services, host registration,
-                    top-up and upcoming digital services.
-                </p>
+
+                <div class="footer-about">
+
+
+                    <a
+                        href="#"
+                        class="brand"
+                    >
+
+                        <div class="brand-mark">
+                            RA
+                        </div>
+
+
+                        <div class="brand-name">
+
+                            রায়হান এজেন্সি
+
+                            <small>
+                                LIVE STREAMING SERVICES
+                            </small>
+
+                        </div>
+
+                    </a>
+
+
+                    <p>
+                        Live Streaming Agency, Host এবং
+                        Top Up Services-এর জন্য একটি
+                        আধুনিক digital platform।
+                    </p>
+
+                </div>
+
+
+                <div class="footer-col">
+
+                    <h4>
+                        Services
+                    </h4>
+
+                    <a href="#">
+                        Chamet Agency
+                    </a>
+
+                    <a href="#">
+                        Host Registration
+                    </a>
+
+                    <a href="#">
+                        Chamet Top Up
+                    </a>
+
+                    <a href="#">
+                        Other Services
+                    </a>
+
+                </div>
+
+
+                <div class="footer-col">
+
+                    <h4>
+                        Platform
+                    </h4>
+
+                    <a href="#">
+                        About Us
+                    </a>
+
+                    <a href="#contact">
+                        Contact
+                    </a>
+
+                    <a href="#">
+                        FAQ
+                    </a>
+
+                    <a href="#">
+                        Support
+                    </a>
+
+                </div>
+
+
+                <div class="footer-col">
+
+                    <h4>
+                        Account
+                    </h4>
+
+                    <a href="#">
+                        Login
+                    </a>
+
+                    <a href="#">
+                        Register
+                    </a>
+
+                    <a href="#">
+                        Dashboard
+                    </a>
+
+                </div>
+
 
             </div>
 
 
-            <div class="footer-column">
-
-                <h4>
-                    Services
-                </h4>
-
-                <a href="#">
-                    Chamet Agency
-                </a>
-
-                <a href="#">
-                    Host Registration
-                </a>
-
-                <a href="#">
-                    Chamet Top Up
-                </a>
-
-                <a href="#">
-                    Coming Soon
-                </a>
-
-            </div>
+            <div class="footer-bottom">
 
 
-            <div class="footer-column">
-
-                <h4>
-                    Quick Links
-                </h4>
-
-                <a href="#home">
-                    Home
-                </a>
-
-                <a href="#services">
-                    Services
-                </a>
-
-                <a href="#">
-                    Login
-                </a>
-
-                <a href="#">
-                    Register
-                </a>
-
-            </div>
-
-        </div>
+                <div>
+                    © 2026 রায়হান এজেন্সি. All rights reserved.
+                </div>
 
 
-        <div class="footer-bottom">
+                <!-- =================================================
+                     PERMANENT DEVELOPER BRANDING
+                ================================================== -->
 
-            <div>
-                © 2026 All Rights Reserved.
-            </div>
+                <div class="powered-brand">
 
-            <!-- PERMANENT BRANDING -->
+                    Powered by
+                    <strong>
+                        FA-AGENCY™
+                    </strong>
 
-            <div class="powered">
-                Powered by <span>FA-AGENCY™</span>
+                </div>
+
+
             </div>
 
         </div>
 
     </footer>
 
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ===================================================== -->
+
+    <script>
+
+
+        /* =====================================================
+           MOBILE MENU
+        ===================================================== */
+
+        const menuButton =
+            document.querySelector(".menu-btn");
+
+        const navLinks =
+            document.querySelector(".nav-links");
+
+
+        if (menuButton) {
+
+            menuButton.addEventListener(
+                "click",
+                () => {
+
+                    const isOpen =
+                        navLinks.style.display === "flex";
+
+
+                    navLinks.style.display =
+                        isOpen
+                            ? "none"
+                            : "flex";
+
+
+                    if (!isOpen) {
+
+                        navLinks.style.position =
+                            "absolute";
+
+                        navLinks.style.top =
+                            "76px";
+
+                        navLinks.style.left =
+                            "0";
+
+                        navLinks.style.right =
+                            "0";
+
+                        navLinks.style.padding =
+                            "20px";
+
+                        navLinks.style.background =
+                            "#080a12";
+
+                        navLinks.style.flexDirection =
+                            "column";
+
+                        navLinks.style.borderBottom =
+                            "1px solid rgba(255,255,255,.09)";
+                    }
+
+                }
+            );
+
+        }
+
+
+        /* =====================================================
+           HERO VIDEO
+
+           assets/hero-live.mp4 থাকলে:
+           - Video দেখাবে
+           - Fallback illustration লুকাবে
+
+           Video না থাকলে:
+           - Fallback illustration থাকবে
+        ===================================================== */
+
+        const heroVideo =
+            document.getElementById("heroVideo");
+
+        const fallbackPerson =
+            document.getElementById("fallbackPerson");
+
+
+        if (heroVideo) {
+
+            heroVideo.addEventListener(
+                "canplay",
+                () => {
+
+                    heroVideo.style.display =
+                        "block";
+
+                    if (fallbackPerson) {
+
+                        fallbackPerson.style.display =
+                            "none";
+                    }
+
+                }
+            );
+
+
+            heroVideo.addEventListener(
+                "error",
+                () => {
+
+                    heroVideo.style.display =
+                        "none";
+
+                    if (fallbackPerson) {
+
+                        fallbackPerson.style.display =
+                            "block";
+                    }
+
+                }
+            );
+
+        }
+
+    </script>
+
+
 </body>
+
 </html>
+```
