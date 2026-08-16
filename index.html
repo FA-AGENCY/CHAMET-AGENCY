@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ভিডিও চ্যাট ও টপ-আপ প্ল্যাটফর্ম</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; color: #333; }
+        header { background: #ff4081; color: white; padding: 20px; text-align: center; }
+        nav { display: flex; justify-content: center; background: #333; padding: 10px; }
+        nav a { color: white; margin: 0 15px; text-decoration: none; }
+        .hero { text-align: center; padding: 50px 20px; background: #f0f2f5; }
+        .counter { font-size: 24px; font-weight: bold; color: #ff4081; }
+        .section { padding: 40px 20px; text-align: center; }
+        .footer { background: #333; color: white; padding: 10px; text-align: center; position: fixed; width: 100%; bottom: 0; }
+        .btn { display: inline-block; padding: 10px 20px; background: #ff4081; color: white; text-decoration: none; border-radius: 5px; margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>ভিডিও চ্যাট ও ডায়মন্ড টপ-আপ</h1>
+    </header>
+
+    <nav>
+        <a href="#home">হোম</a>
+        <a href="#features">ফিচারসমূহ</a>
+        <a href="#topup">ডায়মন্ড টপ-আপ</a>
+    </nav>
+
+    <div class="hero">
+        <h2>বিশ্বের সাথে সংযুক্ত হন</h2>
+        <p>সেরা ভিডিও চ্যাটিং এবং লাইভ স্ট্রিমিংয়ের অভিজ্ঞতা নিন।</p>
+        <div class="counter">মোট ব্যবহারকারী: <span id="live-counter">১,০০০,০০০</span></div>
+    </div>
+
+    <div id="features" class="section">
+        <h2>আমাদের ফিচারগুলো</h2>
+        <p>ভিডিও চ্যাট, লাইভ স্ট্রিমিং, পার্টি রুম এবং আরও অনেক কিছু।</p>
+    </div>
+
+    <div id="topup" class="section" style="background: #e9ecef;">
+        <h2>ডায়মন্ড টপ-আপ করুন</h2>
+        <p>আপনার ইউজার আইডি ব্যবহার করে খুব সহজেই ডায়মন্ড টপ-আপ করুন।</p>
+        <a href="#" class="btn">এখনই টপ-আপ করুন</a>
+    </div>
+
+    <div class="footer">
+        <p>© ২০২৬ ভিডিও চ্যাট প্ল্যাটফর্ম</p>
+    </div>
+
+    <script>
+        // রিয়েল-টাইম লাইভ কাউন্টার সিমুলেশন
+        setInterval(() => {
+            let current = parseInt(document.getElementById('live-counter').innerText.replace(/,/g, '')) + 1;
+            document.getElementById('live-counter').innerText = current.toLocaleString('bn-BD');
+        }, 5000);
+    </script>
+
+</body>
+</html>
