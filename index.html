@@ -1,64 +1,962 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ভিডিও চ্যাট ও টপ-আপ প্ল্যাটফর্ম</title>
+
+    <title>Power by FA-AGENCY™ | Live Streaming Services</title>
+
+    <meta
+        name="description"
+        content="Live streaming agency, host registration and top-up services powered by FA-AGENCY™."
+    >
+
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; color: #fff; background-color: #0d1136; }
-        header { background-color: #1a1f59; color: #fff; padding: 20px; text-align: center; }
-        nav { display: flex; justify-content: center; background-color: #0b0e26; padding: 10px; }
-        nav a { color: #fff; margin: 0 15px; text-decoration: none; font-weight: bold; }
-        nav a:hover { color: #ff9d00; }
-        .hero { text-align: center; padding: 50px 20px; background: linear-gradient(135deg, #2b1055 0%, #7597de 100%); }
-        .counter { font-size: 24px; font-weight: bold; color: #ff9d00; margin-top: 20px; }
-        .section { padding: 40px 20px; text-align: center; color: #000; background-color: #f9f9f9; border-bottom: 1px solid #ddd; }
-        .section h2 { color: #1a1f59; }
-        .footer { background-color: #0b0e26; color: #fff; padding: 15px; text-align: center; bottom: 0; width: 100%; }
-        .btn { display: inline-block; padding: 12px 30px; background-color: #ff9d00; color: #fff; text-decoration: none; font-weight: bold; border-radius: 30px; margin-top: 20px; transition: 0.3s; }
-        .btn:hover { background-color: #e68e00; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #050816;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================== */
+
+        .navbar {
+            width: 100%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(5, 8, 22, 0.92);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 18px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+        }
+
+        .logo span {
+            color: #6c63ff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #d9dcf0;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #7c73ff;
+        }
+
+        .nav-login {
+            border: 1px solid #625bff;
+            padding: 9px 17px;
+            border-radius: 8px;
+        }
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+            min-height: 720px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 75% 35%, rgba(105, 82, 255, 0.25), transparent 35%),
+                radial-gradient(circle at 20% 80%, rgba(0, 170, 255, 0.12), transparent 30%),
+                #050816;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            width: 100%;
+            margin: auto;
+            padding: 80px 25px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 58px;
+            line-height: 1.08;
+            margin-bottom: 25px;
+        }
+
+        .hero-content h1 span {
+            color: #756cff;
+        }
+
+        .hero-content p {
+            max-width: 570px;
+            color: #aeb4ca;
+            font-size: 18px;
+            margin-bottom: 35px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 23px;
+            border-radius: 10px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #7067ff, #4c42e8);
+        }
+
+        .btn-secondary {
+            border: 1px solid rgba(255,255,255,0.18);
+            background: rgba(255,255,255,0.05);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+        /* =========================
+           PHONE MOCKUP
+        ========================== */
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .phone {
+            width: 290px;
+            height: 570px;
+            border: 8px solid #1d2235;
+            border-radius: 42px;
+            background: #111528;
+            box-shadow:
+                0 30px 80px rgba(0,0,0,0.6),
+                0 0 60px rgba(105, 91, 255, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .phone-camera {
+            width: 95px;
+            height: 25px;
+            border-radius: 20px;
+            background: #050816;
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 5;
+        }
+
+        .live-screen {
+            height: 100%;
+            padding: 55px 15px 20px;
+            background:
+                linear-gradient(
+                    rgba(15, 20, 45, 0.15),
+                    rgba(5, 8, 22, 0.95)
+                ),
+                linear-gradient(135deg, #8d5cff, #151c3d 55%, #050816);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .live-badge {
+            display: inline-block;
+            width: fit-content;
+            padding: 6px 11px;
+            background: #ff315d;
+            border-radius: 7px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .host-placeholder {
+            width: 145px;
+            height: 145px;
+            border-radius: 50%;
+            margin: auto;
+            background: linear-gradient(135deg, #c6c9ff, #5148a5);
+            border: 5px solid rgba(255,255,255,0.5);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+
+        .live-info {
+            background: rgba(0,0,0,0.3);
+            padding: 15px;
+            border-radius: 15px;
+        }
+
+        .live-info h3 {
+            margin-bottom: 4px;
+        }
+
+        .live-info p {
+            font-size: 12px;
+            color: #d2d5e3;
+            margin: 0;
+        }
+
+        .gift {
+            margin-top: 12px;
+            display: inline-block;
+            background: rgba(255,255,255,0.12);
+            padding: 7px 10px;
+            border-radius: 8px;
+            font-size: 12px;
+        }
+
+        /* =========================
+           SECTION
+        ========================== */
+
+        .section {
+            padding: 90px 25px;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-heading h2 {
+            font-size: 38px;
+            margin-bottom: 12px;
+        }
+
+        .section-heading p {
+            color: #969db7;
+            max-width: 650px;
+            margin: auto;
+        }
+
+        /* =========================
+           SERVICES
+        ========================== */
+
+        .services {
+            background: #080b1c;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .service-card {
+            padding: 32px;
+            border-radius: 18px;
+            background: linear-gradient(
+                145deg,
+                rgba(255,255,255,0.07),
+                rgba(255,255,255,0.025)
+            );
+            border: 1px solid rgba(255,255,255,0.08);
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-7px);
+            border-color: rgba(112,103,255,0.5);
+        }
+
+        .service-icon {
+            width: 58px;
+            height: 58px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 15px;
+            background: rgba(112,103,255,0.15);
+            font-size: 27px;
+            margin-bottom: 22px;
+        }
+
+        .service-card h3 {
+            font-size: 23px;
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            color: #969db7;
+            font-size: 15px;
+            margin-bottom: 22px;
+        }
+
+        .service-btn {
+            display: inline-block;
+            padding: 10px 16px;
+            border-radius: 8px;
+            background: #625bff;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .coming-soon {
+            display: inline-block;
+            padding: 6px 11px;
+            border-radius: 20px;
+            background: rgba(255, 193, 7, 0.12);
+            color: #ffc107;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        /* =========================
+           WHY US
+        ========================== */
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .why-card {
+            text-align: center;
+            padding: 28px 18px;
+            background: rgba(255,255,255,0.035);
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .why-card strong {
+            display: block;
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .why-card span {
+            color: #9299b1;
+            font-size: 14px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            background: #03050e;
+            border-top: 1px solid rgba(255,255,255,0.07);
+            padding: 55px 25px 25px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 50px;
+        }
+
+        .footer-brand p {
+            color: #858ca5;
+            max-width: 420px;
+            margin-top: 15px;
+        }
+
+        .footer-column h4 {
+            margin-bottom: 18px;
+        }
+
+        .footer-column a {
+            display: block;
+            color: #858ca5;
+            margin-bottom: 9px;
+            font-size: 14px;
+        }
+
+        .footer-column a:hover {
+            color: #ffffff;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 45px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.07);
+            text-align: center;
+            color: #6f758b;
+            font-size: 13px;
+        }
+
+        .powered {
+            margin-top: 8px;
+            font-size: 14px;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .powered span {
+            color: #756cff;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================== */
+
+        @media (max-width: 900px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .hero {
+                min-height: auto;
+            }
+
+            .hero-container {
+                padding-top: 60px;
+                padding-bottom: 70px;
+            }
+
+            .hero-content h1 {
+                font-size: 39px;
+            }
+
+            .hero-content p {
+                font-size: 16px;
+            }
+
+            .phone {
+                width: 255px;
+                height: 510px;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+
+            .section-heading h2 {
+                font-size: 30px;
+            }
+        }
     </style>
 </head>
+
 <body>
 
-    <header>
-        <h1>ভিডিও চ্যাট ও ডায়মন্ড টপ-আপ</h1>
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <header class="navbar">
+        <div class="nav-container">
+
+            <a href="#" class="logo">
+                POWER BY <span>FA-AGENCY™</span>
+            </a>
+
+            <nav class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#services">Agency</a>
+                <a href="#services">Host</a>
+                <a href="#services">Top Up</a>
+                <a href="#contact">Contact</a>
+                <a href="#">Login</a>
+                <a href="#" class="nav-login">Register</a>
+            </nav>
+
+        </div>
     </header>
 
-    <nav>
-        <a href="#home">হোম</a>
-        <a href="#features">ফিচারসমূহ</a>
-        <a href="#topup">ডায়মন্ড টপ-আপ</a>
-    </nav>
 
-    <div class="hero">
-        <h2>বিশ্বের সাথে সংযুক্ত হন</h2>
-        <p>সেরা ভিডিও চ্যাটিং এবং লাইভ স্ট্রিমিংয়ের অভিজ্ঞতা নিন।</p>
-        <div class="counter">মোট ব্যবহারকারী: <span id="live-counter">১,০০০,০০০</span></div>
-    </div>
+    <!-- =========================
+         HERO
+    ========================== -->
 
-    <div id="features" class="section">
-        <h2>আমাদের ফিচারগুলো</h2>
-        <p>ভিডিও চ্যাট, লাইভ স্ট্রিমিং, পার্টি রুম এবং আরও অনেক কিছু।</p>
-    </div>
+    <main id="home">
 
-    <div id="topup" class="section" style="background-color: #fff;">
-        <h2>ডায়মন্ড টপ-আপ করুন</h2>
-        <p>আপনার ইউজার আইডি ব্যবহার করে খুব সহজেই ডায়মন্ড টপ-আপ করুন।</p>
-        <a href="#" class="btn">এখনই টপ-আপ করুন</a>
-    </div>
+        <section class="hero">
 
-    <div class="footer">
-        <p>© ২০২৬ ভিডিও চ্যাট প্ল্যাটফর্ম</p>
-    </div>
+            <div class="hero-container">
 
-    <script>
-        let counterValue = 1000000;
-        setInterval(() => {
-            counterValue += 1;
-            document.getElementById('live-counter').innerText = counterValue.toLocaleString('bn-BD');
-        }, 5000);
-    </script>
+                <div class="hero-content">
+
+                    <h1>
+                        Your Gateway to
+                        <span>Live Streaming</span>
+                        Services
+                    </h1>
+
+                    <p>
+                        Join an agency, become a live streaming host,
+                        or recharge your favorite platform.
+                        Everything you need in one powerful platform.
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a href="#services" class="btn btn-primary">
+                            Join Agency
+                        </a>
+
+                        <a href="#services" class="btn btn-secondary">
+                            Become a Host
+                        </a>
+
+                        <a href="#services" class="btn btn-secondary">
+                            Top Up Now
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PHONE -->
+
+                <div class="hero-visual">
+
+                    <div class="phone">
+
+                        <div class="phone-camera"></div>
+
+                        <div class="live-screen">
+
+                            <div>
+                                <span class="live-badge">
+                                    ● LIVE
+                                </span>
+                            </div>
+
+                            <div class="host-placeholder"></div>
+
+                            <div class="live-info">
+
+                                <h3>
+                                    Live Streaming
+                                </h3>
+
+                                <p>
+                                    Enjoy live conversation,
+                                    virtual gifts and entertainment.
+                                </p>
+
+                                <div class="gift">
+                                    🎁 Virtual Gift
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             SERVICES
+        ========================== -->
+
+        <section class="section services" id="services">
+
+            <div class="section-container">
+
+                <div class="section-heading">
+
+                    <h2>
+                        What Are You Looking For?
+                    </h2>
+
+                    <p>
+                        Choose the service you need and
+                        continue to the relevant section.
+                    </p>
+
+                </div>
+
+
+                <div class="service-grid">
+
+                    <!-- AGENCY -->
+
+                    <div class="service-card">
+
+                        <div class="service-icon">
+                            🏢
+                        </div>
+
+                        <h3>
+                            Chamet Agency
+                        </h3>
+
+                        <p>
+                            Want to work with Chamet as an agency?
+                            Enter the agency section to learn more.
+                        </p>
+
+                        <a href="#" class="service-btn">
+                            বিস্তারিত জানতে ভিতরে প্রবেশ করুন
+                        </a>
+
+                    </div>
+
+
+                    <!-- HOST -->
+
+                    <div class="service-card">
+
+                        <div class="service-icon">
+                            🎥
+                        </div>
+
+                        <h3>
+                            Host Registration
+                        </h3>
+
+                        <p>
+                            Become a live streaming host and
+                            start your journey with us.
+                        </p>
+
+                        <a href="#" class="service-btn">
+                            ভিতরে প্রবেশ করুন
+                        </a>
+
+                    </div>
+
+
+                    <!-- TOP UP -->
+
+                    <div class="service-card">
+
+                        <div class="service-icon">
+                            💎
+                        </div>
+
+                        <h3>
+                            Chamet Diamond Top Up
+                        </h3>
+
+                        <p>
+                            Recharge your Chamet account
+                            quickly and securely.
+                        </p>
+
+                        <a href="#" class="service-btn">
+                            Top Up করুন
+                        </a>
+
+                    </div>
+
+
+                    <!-- OTHER AGENCY -->
+
+                    <div class="service-card">
+
+                        <div class="service-icon">
+                            🌐
+                        </div>
+
+                        <h3>
+                            Other Agencies
+                        </h3>
+
+                        <p>
+                            More live streaming agencies will
+                            be added to the platform soon.
+                        </p>
+
+                        <span class="coming-soon">
+                            COMING SOON
+                        </span>
+
+                    </div>
+
+
+                    <!-- OTHER HOSTING -->
+
+                    <div class="service-card">
+
+                        <div class="service-icon">
+                            📱
+                        </div>
+
+                        <h3>
+                            Other App Hosting
+                        </h3>
+
+                        <p>
+                            Hosting opportunities for other
+                            live streaming applications.
+                        </p>
+
+                        <span class="coming-soon">
+                            COMING SOON
+                        </span>
+
+                    </div>
+
+
+                    <!-- OTHER TOP UP -->
+
+                    <div class="service-card">
+
+                        <div class="service-icon">
+                            🎮
+                        </div>
+
+                        <h3>
+                            Gaming & Other Top Up
+                        </h3>
+
+                        <p>
+                            Other gaming and live streaming
+                            top-up services will be available soon.
+                        </p>
+
+                        <span class="coming-soon">
+                            COMING SOON
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             WHY CHOOSE US
+        ========================== -->
+
+        <section class="section">
+
+            <div class="section-container">
+
+                <div class="section-heading">
+
+                    <h2>
+                        Why Choose Us?
+                    </h2>
+
+                    <p>
+                        A simple and convenient platform for
+                        live streaming related services.
+                    </p>
+
+                </div>
+
+                <div class="why-grid">
+
+                    <div class="why-card">
+                        <strong>Secure</strong>
+                        <span>Safe service experience</span>
+                    </div>
+
+                    <div class="why-card">
+                        <strong>Fast</strong>
+                        <span>Quick service processing</span>
+                    </div>
+
+                    <div class="why-card">
+                        <strong>Support</strong>
+                        <span>Customer support available</span>
+                    </div>
+
+                    <div class="why-card">
+                        <strong>Growing</strong>
+                        <span>More platforms coming soon</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer id="contact">
+
+        <div class="footer-container">
+
+            <div class="footer-brand">
+
+                <h2>
+                    Power by FA-AGENCY™
+                </h2>
+
+                <p>
+                    A modern platform for live streaming
+                    agency services, host registration,
+                    top-up and upcoming digital services.
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Services
+                </h4>
+
+                <a href="#">
+                    Chamet Agency
+                </a>
+
+                <a href="#">
+                    Host Registration
+                </a>
+
+                <a href="#">
+                    Chamet Top Up
+                </a>
+
+                <a href="#">
+                    Coming Soon
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Quick Links
+                </h4>
+
+                <a href="#home">
+                    Home
+                </a>
+
+                <a href="#services">
+                    Services
+                </a>
+
+                <a href="#">
+                    Login
+                </a>
+
+                <a href="#">
+                    Register
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <div>
+                © 2026 All Rights Reserved.
+            </div>
+
+            <!-- PERMANENT BRANDING -->
+
+            <div class="powered">
+                Powered by <span>FA-AGENCY™</span>
+            </div>
+
+        </div>
+
+    </footer>
 
 </body>
 </html>
