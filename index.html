@@ -1,45 +1,15 @@
 <!DOCTYPE html>
 <html lang="bn">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>রায়হান এজেন্সি | Live Streaming Services</title>
+    <title>রায়হান এজেন্সি | Live Streaming Platform</title>
 
-    <meta
-        name="description"
-        content="রায়হান এজেন্সি — লাইভ স্ট্রিমিং এজেন্সি, হোস্ট রেজিস্ট্রেশন এবং ডায়মন্ড টপ-আপ সার্ভিস।"
-    >
+    <meta name="description"
+          content="রায়হান এজেন্সি — লাইভ স্ট্রিমিং এজেন্সি, হোস্ট রেজিস্ট্রেশন এবং ডায়মন্ড টপ-আপ প্ল্যাটফর্ম।">
 
     <style>
-
-        /* =====================================================
-           GLOBAL
-        ===================================================== */
-
-        :root {
-            --bg: #05060b;
-            --bg-soft: #090b13;
-            --card: #0d101a;
-            --card-2: #111522;
-
-            --text: #ffffff;
-            --muted: #9299aa;
-
-            --line: rgba(255,255,255,0.09);
-
-            --primary: #7657ff;
-            --primary-2: #9b7cff;
-
-            --cyan: #32d9ff;
-            --green: #38e39b;
-
-            --danger: #ff4d70;
-
-            --shadow:
-                0 25px 70px rgba(0,0,0,.45);
-        }
 
         * {
             margin: 0;
@@ -53,373 +23,244 @@
 
         body {
             font-family:
-                Inter,
+                "Noto Sans Bengali",
                 "Segoe UI",
-                Roboto,
                 Arial,
                 sans-serif;
 
-            background: var(--bg);
-            color: var(--text);
+            background: #05060b;
+            color: #ffffff;
+
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        body::before {
-            content: "";
-
-            position: fixed;
-
-            width: 700px;
-            height: 700px;
-
-            border-radius: 50%;
-
-            background:
-                rgba(118,87,255,.08);
-
-            filter: blur(100px);
-
-            top: -300px;
-            left: -250px;
-
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        body::after {
-            content: "";
-
-            position: fixed;
-
-            width: 600px;
-            height: 600px;
-
-            border-radius: 50%;
-
-            background:
-                rgba(50,217,255,.05);
-
-            filter: blur(110px);
-
-            right: -300px;
-            bottom: -200px;
-
-            pointer-events: none;
-            z-index: -1;
-        }
-
         a {
-            color: inherit;
             text-decoration: none;
-        }
-
-        button {
-            font: inherit;
+            color: inherit;
         }
 
         .container {
-            width:
-                min(
-                    1180px,
-                    calc(100% - 40px)
-                );
-
+            width: min(1180px, calc(100% - 40px));
             margin: auto;
         }
 
 
-        /* =====================================================
-           TOP NOTICE
-        ===================================================== */
-
-        .top-notice {
-            border-bottom:
-                1px solid var(--line);
-
-            background:
-                rgba(255,255,255,.018);
-        }
-
-        .top-notice-inner {
-            min-height: 38px;
-
-            display: flex;
-
-            justify-content: center;
-            align-items: center;
-
-            gap: 9px;
-
-            color: #aeb5c7;
-
-            font-size: 12px;
-        }
-
-        .live-dot {
-            width: 7px;
-            height: 7px;
-
-            background: var(--green);
-
-            border-radius: 50%;
-
-            box-shadow:
-                0 0 12px var(--green);
-        }
-
-
-        /* =====================================================
+        /* =========================
            NAVBAR
-        ===================================================== */
+        ========================== */
 
         .navbar {
             position: sticky;
-
             top: 0;
+            z-index: 1000;
 
-            z-index: 999;
-
-            background:
-                rgba(5,6,11,.78);
-
-            backdrop-filter:
-                blur(20px);
+            background: rgba(5, 6, 11, .88);
+            backdrop-filter: blur(18px);
 
             border-bottom:
-                1px solid var(--line);
+                1px solid rgba(255,255,255,.08);
         }
 
         .nav {
-            min-height: 76px;
+            height: 76px;
 
             display: flex;
-
             align-items: center;
-
             justify-content: space-between;
         }
 
         .brand {
             display: flex;
-
             align-items: center;
-
             gap: 11px;
         }
 
-        .brand-mark {
-            width: 42px;
-            height: 42px;
+        .brand-logo {
+            width: 43px;
+            height: 43px;
+
+            display: grid;
+            place-items: center;
 
             border-radius: 13px;
 
-            display: grid;
-
-            place-items: center;
-
             background:
                 linear-gradient(
-                    145deg,
-                    var(--primary),
-                    #37229b
+                    135deg,
+                    #805fff,
+                    #4930c9
                 );
+
+            font-size: 15px;
+            font-weight: 900;
 
             box-shadow:
                 0 10px 30px
-                rgba(118,87,255,.28);
-
-            font-weight: 900;
-            font-size: 18px;
+                rgba(118,87,255,.25);
         }
 
-        .brand-name {
-            font-weight: 800;
-
+        .brand-text {
             font-size: 16px;
-
-            letter-spacing: -.2px;
+            font-weight: 800;
         }
 
-        .brand-name small {
+        .brand-text small {
             display: block;
 
-            color: #72798b;
+            color: #70778a;
 
-            font-size: 9px;
-
-            letter-spacing: 1.7px;
-
-            margin-top: 1px;
+            font-size: 8px;
+            letter-spacing: 1.5px;
         }
 
         .nav-links {
             display: flex;
-
-            align-items: center;
-
-            gap: 29px;
+            gap: 28px;
         }
 
         .nav-links a {
             color: #aeb4c4;
-
             font-size: 13px;
 
-            transition: .25s ease;
+            transition: .25s;
         }
 
         .nav-links a:hover {
-            color: #fff;
+            color: white;
         }
 
-        .nav-actions {
+        .nav-buttons {
             display: flex;
-
-            align-items: center;
-
             gap: 10px;
+            align-items: center;
         }
 
-        .login-btn {
-            padding: 10px 15px;
-
-            color: #d7dbea;
-
+        .login {
+            color: #c5cad7;
             font-size: 13px;
+            padding: 9px 12px;
         }
 
-        .register-btn {
-            padding: 10px 17px;
+        .register {
+            background: white;
+            color: #08090d;
+
+            padding: 10px 16px;
 
             border-radius: 9px;
 
-            background: #fff;
-
-            color: #08090d;
-
-            font-weight: 700;
-
-            font-size: 13px;
-        }
-
-        .menu-btn {
-            display: none;
-
-            border: 0;
-
-            background: transparent;
-
-            color: white;
-
-            font-size: 25px;
-
-            cursor: pointer;
+            font-size: 12px;
+            font-weight: 800;
         }
 
 
-        /* =====================================================
+        /* =========================
            HERO
-        ===================================================== */
+        ========================== */
 
         .hero {
-            position: relative;
-
-            padding:
-                105px 0 100px;
+            padding: 100px 0 95px;
         }
 
         .hero-grid {
             display: grid;
 
             grid-template-columns:
-                1.02fr .98fr;
-
-            gap: 80px;
+                1fr 1fr;
 
             align-items: center;
+
+            gap: 75px;
         }
 
         .eyebrow {
             display: inline-flex;
-
             align-items: center;
-
             gap: 8px;
-
-            border:
-                1px solid
-                rgba(118,87,255,.35);
-
-            background:
-                rgba(118,87,255,.08);
-
-            color: #b9aaff;
 
             padding: 7px 12px;
 
             border-radius: 30px;
 
-            font-size: 11px;
+            background:
+                rgba(118,87,255,.09);
 
-            font-weight: 700;
+            border:
+                1px solid
+                rgba(118,87,255,.28);
 
-            letter-spacing: .6px;
+            color: #b7a8ff;
+
+            font-size: 10px;
+            font-weight: 800;
 
             margin-bottom: 22px;
         }
 
+        .live-dot {
+            width: 7px;
+            height: 7px;
+
+            border-radius: 50%;
+
+            background: #39e49b;
+
+            box-shadow:
+                0 0 12px
+                #39e49b;
+        }
+
         .hero h1 {
-            max-width: 670px;
-
             font-size:
-                clamp(42px, 5vw, 70px);
+                clamp(42px, 5vw, 67px);
 
-            line-height: 1.02;
+            line-height: 1.04;
 
             letter-spacing: -3px;
 
-            margin-bottom: 24px;
+            margin-bottom: 23px;
         }
 
-        .hero h1 .gradient {
+        .gradient-text {
             background:
                 linear-gradient(
                     100deg,
-                    #ffffff 10%,
-                    #a68cff 45%,
-                    #5cdeff 100%
+                    #ffffff,
+                    #a88cff,
+                    #5bdcff
                 );
 
             -webkit-background-clip: text;
-
             color: transparent;
         }
 
         .hero-description {
-            max-width: 600px;
+            max-width: 590px;
 
-            color: var(--muted);
+            color: #9299aa;
 
-            font-size: 17px;
+            font-size: 16px;
 
-            line-height: 1.8;
+            line-height: 1.85;
 
-            margin-bottom: 31px;
+            margin-bottom: 30px;
         }
 
-        .hero-actions {
+        .hero-description strong {
+            color: white;
+        }
+
+        .hero-buttons {
             display: flex;
-
             gap: 12px;
-
             flex-wrap: wrap;
 
-            margin-bottom: 35px;
+            margin-bottom: 32px;
         }
 
-        .primary-btn,
-        .secondary-btn {
+        .btn-primary,
+        .btn-secondary {
             min-height: 48px;
 
             padding: 0 20px;
@@ -427,64 +268,49 @@
             display: inline-flex;
 
             align-items: center;
-
             justify-content: center;
 
             border-radius: 10px;
 
             font-size: 13px;
+            font-weight: 800;
 
-            font-weight: 700;
-
-            transition: .25s ease;
+            transition: .25s;
         }
 
-        .primary-btn {
+        .btn-primary {
             background:
                 linear-gradient(
                     135deg,
                     #805fff,
-                    #5739e8
+                    #5738e5
                 );
 
             box-shadow:
-                0 12px 30px
+                0 14px 32px
                 rgba(118,87,255,.25);
         }
 
-        .primary-btn:hover {
-            transform:
-                translateY(-2px);
-
-            box-shadow:
-                0 16px 35px
-                rgba(118,87,255,.38);
-        }
-
-        .secondary-btn {
+        .btn-secondary {
             border:
-                1px solid var(--line);
+                1px solid
+                rgba(255,255,255,.1);
 
             background:
                 rgba(255,255,255,.035);
 
-            color: #dce0eb;
+            color: #d9ddea;
         }
 
-        .secondary-btn:hover {
-            background:
-                rgba(255,255,255,.07);
-
-            transform:
-                translateY(-2px);
+        .btn-primary:hover,
+        .btn-secondary:hover {
+            transform: translateY(-2px);
         }
 
-        .trust-row {
+        .trust {
             display: flex;
-
             flex-wrap: wrap;
-
-            gap: 20px;
+            gap: 18px;
 
             color: #777e91;
 
@@ -493,47 +319,39 @@
 
         .trust-item {
             display: flex;
-
             align-items: center;
-
-            gap: 7px;
+            gap: 6px;
         }
 
-        .check {
+        .trust-check {
             width: 16px;
             height: 16px;
 
             display: grid;
-
             place-items: center;
 
             border-radius: 50%;
 
             background:
-                rgba(56,227,155,.12);
+                rgba(57,228,155,.12);
 
-            color:
-                var(--green);
+            color: #39e49b;
 
-            font-size: 10px;
+            font-size: 9px;
         }
 
 
-        /* =====================================================
-           HERO PHONE
-           IMPORTANT:
-           মোবাইল সোজা রাখা হয়েছে।
-        ===================================================== */
+        /* =========================
+           PHONE AREA
+        ========================== */
 
         .hero-visual {
-            position: relative;
-
             min-height: 550px;
 
+            position: relative;
+
             display: flex;
-
             align-items: center;
-
             justify-content: center;
         }
 
@@ -546,13 +364,19 @@
             border-radius: 50%;
 
             background:
-                rgba(118,87,255,.18);
+                rgba(118,87,255,.17);
 
             filter: blur(75px);
         }
 
+        /*
+            PHONE একদম সোজা রাখা হয়েছে।
+            কোনো rotate ব্যবহার করা হয়নি।
+        */
+
         .phone {
             position: relative;
+            z-index: 2;
 
             width: 285px;
             height: 555px;
@@ -564,48 +388,62 @@
             background:
                 linear-gradient(
                     145deg,
-                    #353a4a,
-                    #090b11 35%,
-                    #1a1d28
+                    #343948,
+                    #080a10 40%,
+                    #1b1e29
                 );
 
             box-shadow:
                 0 45px 90px
                 rgba(0,0,0,.65),
 
-                0 0 70px
-                rgba(118,87,255,.17);
-
-            z-index: 2;
-
-            /* আগের rotate বাদ দেওয়া হয়েছে */
-            transform: rotate(0deg);
+                0 0 65px
+                rgba(118,87,255,.16);
         }
 
         .phone-screen {
-            height: 100%;
+            position: relative;
 
-            border-radius: 36px;
+            width: 100%;
+            height: 100%;
 
             overflow: hidden;
 
-            position: relative;
+            border-radius: 36px;
 
             background:
                 linear-gradient(
                     145deg,
-                    #7b45cf,
-                    #243b72 45%,
-                    #0c1124
+                    #7544c9,
+                    #24396e 50%,
+                    #0b1022
                 );
         }
 
+        .phone-notch {
+            position: absolute;
 
-        /* =====================================================
-           LIVE VIDEO
-        ===================================================== */
+            top: 9px;
+            left: 50%;
 
-        .hero-live-video {
+            transform: translateX(-50%);
+
+            width: 95px;
+            height: 25px;
+
+            background: #05060a;
+
+            border-radius: 20px;
+
+            z-index: 10;
+        }
+
+
+        /* =========================
+           VIDEO
+        ========================== */
+
+        #heroVideo {
             position: absolute;
 
             inset: 0;
@@ -615,9 +453,9 @@
 
             object-fit: cover;
 
-            z-index: 1;
-
             display: none;
+
+            z-index: 2;
         }
 
         .video-overlay {
@@ -625,91 +463,60 @@
 
             inset: 0;
 
-            z-index: 2;
+            z-index: 3;
 
             background:
                 linear-gradient(
                     to bottom,
                     rgba(0,0,0,.05),
-                    rgba(0,0,0,.72)
+                    rgba(0,0,0,.7)
                 );
-        }
-
-        .phone-notch {
-            position: absolute;
-
-            top: 9px;
-
-            left: 50%;
-
-            transform:
-                translateX(-50%);
-
-            width: 94px;
-            height: 25px;
-
-            border-radius: 20px;
-
-            background: #05060a;
-
-            z-index: 6;
         }
 
         .stream-top {
             position: absolute;
 
+            top: 18px;
             left: 17px;
             right: 17px;
 
-            top: 19px;
-
             display: flex;
-
             justify-content: space-between;
 
-            align-items: center;
-
-            z-index: 5;
+            z-index: 8;
         }
 
         .live-label {
-            background:
-                #ff3e66;
+            background: #ff3e66;
 
-            padding:
-                5px 9px;
+            padding: 5px 9px;
 
             border-radius: 6px;
 
             font-size: 9px;
-
-            font-weight: 800;
-
-            letter-spacing: .5px;
+            font-weight: 900;
         }
 
-        .viewers {
-            padding:
-                5px 9px;
-
-            border-radius: 6px;
-
+        .viewer-count {
             background:
                 rgba(0,0,0,.45);
 
+            padding: 5px 9px;
+
+            border-radius: 6px;
+
             font-size: 9px;
         }
 
 
-        /* =====================================================
-           FALLBACK PHONE VISUAL
-        ===================================================== */
+        /* =========================
+           FALLBACK STREAM VISUAL
+        ========================== */
 
         .stream-person {
             position: absolute;
 
-            width: 195px;
-            height: 245px;
+            z-index: 4;
 
             left: 50%;
             top: 49%;
@@ -717,29 +524,24 @@
             transform:
                 translate(-50%, -50%);
 
+            width: 195px;
+            height: 245px;
+
             border-radius:
                 100px 100px
                 35px 35px;
 
             background:
-                radial-gradient(
-                    circle at 50% 27%,
-                    #f3c9b2 0 18%,
-                    transparent 18.5%
-                ),
-
                 linear-gradient(
                     145deg,
-                    #c9b0ff,
-                    #563ea3 58%,
-                    #211c4a
+                    #cab2ff,
+                    #5941a8,
+                    #221b4a
                 );
 
             box-shadow:
                 0 25px 50px
                 rgba(0,0,0,.35);
-
-            z-index: 3;
         }
 
         .stream-person::before {
@@ -750,16 +552,15 @@
             width: 76px;
             height: 76px;
 
-            border-radius: 50%;
-
             left: 50%;
             top: 28px;
 
             transform:
                 translateX(-50%);
 
-            background:
-                #efc3aa;
+            border-radius: 50%;
+
+            background: #efc4ad;
 
             box-shadow:
                 0 -14px 0 7px
@@ -771,6 +572,12 @@
 
             position: absolute;
 
+            left: 50%;
+            bottom: 0;
+
+            transform:
+                translateX(-50%);
+
             width: 120px;
             height: 85px;
 
@@ -778,14 +585,7 @@
                 65px 65px
                 20px 20px;
 
-            background:
-                #463477;
-
-            left: 50%;
-            bottom: 0;
-
-            transform:
-                translateX(-50%);
+            background: #463477;
         }
 
         .stream-info {
@@ -793,60 +593,49 @@
 
             left: 17px;
             right: 17px;
-
             bottom: 18px;
 
-            z-index: 5;
+            z-index: 8;
         }
 
         .stream-name {
             font-size: 13px;
-
             font-weight: 800;
-
-            margin-bottom: 3px;
         }
 
         .stream-text {
+            color: #d7d9e5;
+
             font-size: 9px;
 
-            color:
-                #d7d9e5;
-
-            margin-bottom: 12px;
+            margin: 3px 0 12px;
         }
 
         .stream-actions {
             display: flex;
-
-            align-items: center;
-
             gap: 7px;
         }
 
-        .chat-box {
+        .chat {
             flex: 1;
 
-            padding:
-                8px 10px;
+            padding: 8px 10px;
 
             border-radius: 20px;
 
             background:
                 rgba(0,0,0,.38);
 
-            color:
-                #d9dce7;
+            color: #d9dce7;
 
             font-size: 8px;
         }
 
-        .gift-btn {
+        .gift {
             width: 33px;
             height: 33px;
 
             display: grid;
-
             place-items: center;
 
             border-radius: 50%;
@@ -862,14 +651,15 @@
         }
 
 
-        /* =====================================================
+        /* =========================
            FLOATING CARDS
-        ===================================================== */
+        ========================== */
 
         .floating-card {
             position: absolute;
+            z-index: 15;
 
-            z-index: 7;
+            padding: 12px;
 
             border:
                 1px solid
@@ -878,69 +668,60 @@
             background:
                 rgba(13,16,26,.86);
 
-            backdrop-filter:
-                blur(18px);
-
-            box-shadow:
-                var(--shadow);
+            backdrop-filter: blur(15px);
 
             border-radius: 13px;
 
-            padding: 12px;
+            box-shadow:
+                0 25px 60px
+                rgba(0,0,0,.45);
         }
 
-        .floating-card.one {
-            left: 10px;
+        .floating-one {
+            left: 5px;
             top: 90px;
         }
 
-        .floating-card.two {
-            right: 5px;
-            bottom: 100px;
+        .floating-two {
+            right: 0;
+            bottom: 90px;
         }
 
         .float-title {
-            color:
-                #858da1;
-
+            color: #81889b;
             font-size: 8px;
-
-            margin-bottom: 3px;
         }
 
         .float-value {
             font-size: 14px;
-
-            font-weight: 800;
+            font-weight: 900;
         }
 
-        .float-green {
-            color:
-                var(--green);
-
+        .float-success {
+            color: #39e49b;
             font-size: 8px;
         }
 
 
-        /* =====================================================
+        /* =========================
            SERVICES
-        ===================================================== */
+        ========================== */
 
-        .services-section {
-            padding:
-                110px 0;
+        .services {
+            padding: 105px 0;
 
-            background:
-                var(--bg-soft);
+            background: #090b13;
 
             border-top:
-                1px solid var(--line);
+                1px solid
+                rgba(255,255,255,.08);
 
             border-bottom:
-                1px solid var(--line);
+                1px solid
+                rgba(255,255,255,.08);
         }
 
-        .section-header {
+        .section-heading {
             max-width: 680px;
 
             margin:
@@ -950,45 +731,31 @@
         }
 
         .section-label {
-            color:
-                #a897ff;
+            color: #a897ff;
 
-            text-transform:
-                uppercase;
+            font-size: 10px;
 
-            letter-spacing:
-                2px;
+            font-weight: 900;
 
-            font-size:
-                10px;
+            letter-spacing: 2px;
 
-            font-weight:
-                800;
-
-            margin-bottom:
-                10px;
+            margin-bottom: 10px;
         }
 
-        .section-header h2 {
+        .section-heading h2 {
             font-size:
-                clamp(30px,4vw,45px);
+                clamp(30px,4vw,44px);
 
-            line-height:
-                1.1;
+            line-height: 1.1;
 
-            letter-spacing:
-                -1.5px;
+            letter-spacing: -1.5px;
 
-            margin-bottom:
-                14px;
+            margin-bottom: 13px;
         }
 
-        .section-header p {
-            color:
-                var(--muted);
-
-            font-size:
-                14px;
+        .section-heading p {
+            color: #858c9e;
+            font-size: 14px;
         }
 
         .service-grid {
@@ -997,38 +764,24 @@
             grid-template-columns:
                 repeat(3,1fr);
 
-            gap:
-                18px;
+            gap: 18px;
         }
 
         .service-card {
-            position:
-                relative;
+            min-height: 265px;
 
-            padding:
-                27px;
-
-            min-height:
-                265px;
+            padding: 27px;
 
             border:
-                1px solid var(--line);
+                1px solid
+                rgba(255,255,255,.08);
+
+            border-radius: 17px;
 
             background:
-                linear-gradient(
-                    145deg,
-                    rgba(255,255,255,.045),
-                    rgba(255,255,255,.015)
-                );
+                rgba(255,255,255,.025);
 
-            border-radius:
-                17px;
-
-            overflow:
-                hidden;
-
-            transition:
-                .3s ease;
+            transition: .3s;
         }
 
         .service-card:hover {
@@ -1037,100 +790,53 @@
 
             border-color:
                 rgba(118,87,255,.4);
-
-            box-shadow:
-                0 20px 45px
-                rgba(0,0,0,.28);
         }
 
         .service-icon {
-            width:
-                48px;
+            width: 48px;
+            height: 48px;
 
-            height:
-                48px;
+            display: grid;
+            place-items: center;
 
-            border-radius:
-                13px;
-
-            display:
-                grid;
-
-            place-items:
-                center;
+            border-radius: 13px;
 
             background:
                 rgba(118,87,255,.12);
 
-            border:
-                1px solid
-                rgba(118,87,255,.16);
+            margin-bottom: 21px;
 
-            font-size:
-                21px;
-
-            margin-bottom:
-                22px;
+            font-size: 21px;
         }
 
         .service-card h3 {
-            font-size:
-                20px;
-
-            margin-bottom:
-                8px;
+            font-size: 19px;
+            margin-bottom: 8px;
         }
 
         .service-card p {
-            color:
-                #838b9e;
+            color: #828a9d;
 
-            font-size:
-                13px;
+            font-size: 13px;
 
-            line-height:
-                1.7;
+            line-height: 1.75;
 
-            margin-bottom:
-                20px;
+            margin-bottom: 20px;
         }
 
         .service-link {
-            display:
-                inline-flex;
+            color: #b5a8ff;
 
-            align-items:
-                center;
-
-            gap:
-                7px;
-
-            color:
-                #b7aaff;
-
-            font-size:
-                12px;
-
-            font-weight:
-                800;
-        }
-
-        .service-link:hover {
-            color: white;
+            font-size: 12px;
+            font-weight: 800;
         }
 
         .coming-soon {
-            display:
-                inline-flex;
+            display: inline-block;
 
-            align-items:
-                center;
+            padding: 6px 10px;
 
-            padding:
-                6px 10px;
-
-            border-radius:
-                30px;
+            border-radius: 30px;
 
             background:
                 rgba(255,193,7,.08);
@@ -1139,107 +845,94 @@
                 1px solid
                 rgba(255,193,7,.15);
 
-            color:
-                #e9b933;
+            color: #e6b932;
 
-            font-size:
-                9px;
+            font-size: 9px;
+            font-weight: 900;
 
-            font-weight:
-                800;
-
-            letter-spacing:
-                .7px;
+            letter-spacing: .7px;
         }
 
 
-        /* =====================================================
+        /* =========================
            FEATURES
-        ===================================================== */
+        ========================== */
 
         .features {
-            padding:
-                105px 0;
+            padding: 105px 0;
         }
 
         .feature-grid {
-            display:
-                grid;
+            display: grid;
 
             grid-template-columns:
                 repeat(4,1fr);
 
-            gap:
-                14px;
+            gap: 14px;
         }
 
         .feature {
-            padding:
-                24px;
+            padding: 24px;
 
             border:
-                1px solid var(--line);
+                1px solid
+                rgba(255,255,255,.08);
 
-            border-radius:
-                14px;
+            border-radius: 14px;
 
             background:
                 rgba(255,255,255,.025);
         }
 
         .feature-number {
-            color:
-                #6f7484;
+            color: #646b7b;
 
-            font-size:
-                11px;
+            font-size: 10px;
 
-            margin-bottom:
-                25px;
+            margin-bottom: 23px;
         }
 
         .feature h3 {
-            font-size:
-                16px;
+            font-size: 16px;
 
-            margin-bottom:
-                7px;
+            margin-bottom: 7px;
         }
 
         .feature p {
-            color:
-                #7e8597;
+            color: #7e8597;
 
-            font-size:
-                12px;
+            font-size: 12px;
 
-            line-height:
-                1.7;
+            line-height: 1.7;
         }
 
 
-        /* =====================================================
-           FA-AGENCY DEVELOPER SECTION
-        ===================================================== */
+        /* =========================
+           FA-AGENCY SECTION
+        ========================== */
 
-        .developer-section {
-            padding:
-                35px 0 105px;
+        .agency-credit {
+            padding: 10px 0 105px;
         }
 
-        .developer-box {
-            position:
-                relative;
+        .agency-box {
+            position: relative;
 
-            overflow:
-                hidden;
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 35px;
+
+            padding: 45px;
+
+            border-radius: 20px;
 
             border:
                 1px solid
                 rgba(118,87,255,.22);
-
-            border-radius:
-                20px;
 
             background:
                 linear-gradient(
@@ -1248,658 +941,382 @@
                     #111021
                 );
 
-            padding:
-                48px;
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                space-between;
-
-            gap:
-                40px;
+            overflow: hidden;
         }
 
-        .developer-box::before {
-            content:
-                "";
+        .agency-box::after {
+            content: "";
 
-            position:
-                absolute;
+            position: absolute;
 
-            width:
-                220px;
+            width: 250px;
+            height: 250px;
 
-            height:
-                220px;
-
-            border-radius:
-                50%;
+            border-radius: 50%;
 
             background:
                 rgba(118,87,255,.12);
 
-            filter:
-                blur(55px);
+            filter: blur(60px);
 
-            right:
-                -80px;
-
-            top:
-                -100px;
+            right: -100px;
+            top: -120px;
         }
 
-        .developer-content {
-            position:
-                relative;
-
-            z-index:
-                2;
+        .agency-content {
+            position: relative;
+            z-index: 2;
         }
 
-        .developer-label {
-            color:
-                #a897ff;
+        .agency-small {
+            color: #a897ff;
 
-            font-size:
-                10px;
+            font-size: 10px;
 
-            font-weight:
-                800;
+            font-weight: 900;
 
-            letter-spacing:
-                1.8px;
+            letter-spacing: 2px;
 
-            text-transform:
-                uppercase;
-
-            margin-bottom:
-                10px;
+            margin-bottom: 10px;
         }
 
-        .developer-box h2 {
-            font-size:
-                30px;
+        .agency-box h2 {
+            font-size: 29px;
 
-            letter-spacing:
-                -1px;
+            letter-spacing: -1px;
 
-            margin-bottom:
-                10px;
+            margin-bottom: 10px;
         }
 
-        .developer-box p {
-            max-width:
-                680px;
+        .agency-box p {
+            max-width: 690px;
 
-            color:
-                #858c9f;
+            color: #858c9e;
 
-            font-size:
-                13px;
+            font-size: 13px;
 
-            line-height:
-                1.8;
-
-            margin-bottom:
-                17px;
+            line-height: 1.8;
         }
 
-        .developer-services {
-            display:
-                flex;
+        .agency-contact {
+            position: relative;
+            z-index: 2;
 
-            flex-wrap:
-                wrap;
+            min-width: 245px;
 
-            gap:
-                8px;
-        }
-
-        .developer-services span {
-            padding:
-                6px 9px;
-
-            border:
-                1px solid
-                rgba(255,255,255,.07);
-
-            background:
-                rgba(255,255,255,.025);
-
-            color:
-                #8f96a9;
-
-            border-radius:
-                6px;
-
-            font-size:
-                9px;
-        }
-
-        .developer-contact {
-            position:
-                relative;
-
-            z-index:
-                2;
-
-            min-width:
-                240px;
-
-            padding:
-                22px;
+            padding: 21px;
 
             border:
                 1px solid
                 rgba(255,255,255,.08);
 
-            border-radius:
-                13px;
+            border-radius: 13px;
 
             background:
                 rgba(255,255,255,.035);
         }
 
-        .developer-contact small {
-            display:
-                block;
+        .agency-contact small {
+            display: block;
 
-            color:
-                #707789;
+            color: #707789;
 
-            font-size:
-                9px;
+            font-size: 9px;
 
-            margin-bottom:
-                7px;
+            margin-bottom: 7px;
         }
 
-        .developer-email {
-            color:
-                #d8d1ff;
+        .agency-email {
+            color: #d6cfff;
 
-            font-size:
-                13px;
+            font-size: 13px;
 
-            font-weight:
-                700;
+            font-weight: 800;
 
-            word-break:
-                break-word;
+            word-break: break-word;
         }
 
-        .developer-email:hover {
-            color:
-                #ffffff;
-        }
+        .contact-btn {
+            display: inline-flex;
 
-        .developer-contact-button {
-            display:
-                inline-flex;
+            margin-top: 13px;
 
-            margin-top:
-                13px;
+            padding: 9px 13px;
 
-            padding:
-                9px 13px;
+            border-radius: 8px;
 
-            border-radius:
-                8px;
+            background: #7657ff;
 
-            background:
-                #7657ff;
+            font-size: 10px;
 
-            font-size:
-                11px;
-
-            font-weight:
-                800;
+            font-weight: 900;
         }
 
 
-        /* =====================================================
+        /* =========================
            CTA
-        ===================================================== */
+        ========================== */
 
-        .cta-section {
-            padding:
-                0 0 110px;
+        .cta {
+            padding: 0 0 105px;
         }
 
         .cta-box {
-            position:
-                relative;
+            padding: 60px 25px;
 
-            overflow:
-                hidden;
+            text-align: center;
 
-            border-radius:
-                22px;
+            border-radius: 22px;
 
             border:
                 1px solid
-                rgba(118,87,255,.28);
+                rgba(118,87,255,.25);
 
             background:
                 radial-gradient(
                     circle at 85% 20%,
-                    rgba(118,87,255,.25),
-                    transparent 35%
+                    rgba(118,87,255,.23),
+                    transparent 36%
                 ),
 
-                linear-gradient(
-                    120deg,
-                    #0e1020,
-                    #0b0d16
-                );
-
-            padding:
-                65px;
-
-            text-align:
-                center;
+                #0c0e17;
         }
 
         .cta-box h2 {
-            font-size:
-                38px;
+            font-size: 37px;
 
-            letter-spacing:
-                -1px;
+            letter-spacing: -1px;
 
-            margin-bottom:
-                12px;
+            margin-bottom: 12px;
         }
 
         .cta-box p {
-            color:
-                #8e95a8;
+            color: #858c9e;
 
-            font-size:
-                14px;
+            font-size: 14px;
 
-            margin-bottom:
-                25px;
+            margin-bottom: 25px;
         }
 
 
-        /* =====================================================
+        /* =========================
            FOOTER
-        ===================================================== */
+        ========================== */
 
         footer {
+            padding: 60px 0 25px;
+
+            background: #030408;
+
             border-top:
-                1px solid var(--line);
-
-            background:
-                #030408;
-
-            padding:
-                65px 0 25px;
+                1px solid
+                rgba(255,255,255,.08);
         }
 
         .footer-grid {
-            display:
-                grid;
+            display: grid;
 
             grid-template-columns:
                 2fr 1fr 1fr 1fr;
 
-            gap:
-                40px;
+            gap: 40px;
         }
 
         .footer-about p {
-            max-width:
-                350px;
+            max-width: 350px;
 
-            color:
-                #747b8e;
+            color: #747b8e;
 
-            font-size:
-                12px;
+            font-size: 12px;
 
-            line-height:
-                1.8;
+            line-height: 1.8;
 
-            margin-top:
-                14px;
+            margin-top: 14px;
         }
 
         .footer-col h4 {
-            font-size:
-                12px;
+            font-size: 12px;
 
-            margin-bottom:
-                17px;
+            margin-bottom: 17px;
         }
 
         .footer-col a {
-            display:
-                block;
+            display: block;
 
-            color:
-                #70778a;
+            color: #70778a;
 
-            font-size:
-                11px;
+            font-size: 11px;
 
-            margin-bottom:
-                10px;
-
-            transition:
-                .2s;
-        }
-
-        .footer-col a:hover {
-            color:
-                #fff;
+            margin-bottom: 10px;
         }
 
         .footer-bottom {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-top: 48px;
+
+            padding-top: 22px;
+
             border-top:
-                1px solid var(--line);
+                1px solid
+                rgba(255,255,255,.08);
 
-            margin-top:
-                50px;
+            color: #555b6b;
 
-            padding-top:
-                22px;
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                space-between;
-
-            color:
-                #555b6b;
-
-            font-size:
-                10px;
+            font-size: 10px;
         }
 
-        .powered-brand {
-            color:
-                #858b9c;
+        .powered {
+            color: #858b9c;
         }
 
-        .powered-brand strong {
-            color:
-                #a996ff;
-
-            font-weight:
-                800;
+        .powered strong {
+            color: #a996ff;
         }
 
 
-        /* =====================================================
-           MOBILE
-        ===================================================== */
+        /* =========================
+           RESPONSIVE
+        ========================== */
 
-        @media (max-width: 1000px) {
+        @media(max-width: 1000px) {
 
             .nav-links {
-                display:
-                    none;
+                display: none;
             }
 
-            .menu-btn {
-                display:
-                    block;
-            }
-
-            .nav-actions {
-                display:
-                    none;
+            .nav-buttons {
+                display: none;
             }
 
             .hero-grid {
-                grid-template-columns:
-                    1fr;
-
-                gap:
-                    50px;
+                grid-template-columns: 1fr;
             }
 
             .hero-content {
-                text-align:
-                    center;
+                text-align: center;
             }
 
             .hero-description {
-                margin-left:
-                    auto;
-
-                margin-right:
-                    auto;
+                margin-left: auto;
+                margin-right: auto;
             }
 
-            .hero-actions,
-            .trust-row {
-                justify-content:
-                    center;
-            }
-
-            .hero-visual {
-                min-height:
-                    600px;
+            .hero-buttons,
+            .trust {
+                justify-content: center;
             }
 
             .service-grid {
-                grid-template-columns:
-                    1fr 1fr;
+                grid-template-columns: 1fr 1fr;
             }
 
             .feature-grid {
-                grid-template-columns:
-                    1fr 1fr;
+                grid-template-columns: 1fr 1fr;
             }
 
             .footer-grid {
-                grid-template-columns:
-                    1fr 1fr;
+                grid-template-columns: 1fr 1fr;
             }
 
-            .developer-box {
-                flex-direction:
-                    column;
-
-                align-items:
-                    flex-start;
+            .agency-box {
+                flex-direction: column;
+                align-items: flex-start;
             }
 
-            .developer-contact {
-                width:
-                    100%;
+            .agency-contact {
+                width: 100%;
             }
         }
 
 
-        @media (max-width: 650px) {
+        @media(max-width: 650px) {
 
             .container {
                 width:
-                    min(
-                        100% - 28px,
-                        1180px
-                    );
-            }
-
-            .top-notice-inner {
-                font-size:
-                    10px;
+                    calc(100% - 28px);
             }
 
             .hero {
                 padding:
-                    65px 0 75px;
+                    65px 0 70px;
             }
 
             .hero h1 {
-                font-size:
-                    43px;
-
-                letter-spacing:
-                    -2px;
+                font-size: 42px;
+                letter-spacing: -2px;
             }
 
             .hero-description {
-                font-size:
-                    14px;
+                font-size: 14px;
             }
 
             .hero-visual {
-                min-height:
-                    560px;
+                min-height: 540px;
             }
 
             .phone {
-                width:
-                    255px;
-
-                height:
-                    500px;
-            }
-
-            .floating-card.one {
-                left:
-                    0;
-
-                top:
-                    75px;
-            }
-
-            .floating-card.two {
-                right:
-                    0;
-
-                bottom:
-                    80px;
-            }
-
-            .services-section,
-            .features {
-                padding:
-                    80px 0;
+                width: 255px;
+                height: 500px;
             }
 
             .service-grid {
-                grid-template-columns:
-                    1fr;
+                grid-template-columns: 1fr;
             }
 
             .feature-grid {
-                grid-template-columns:
-                    1fr;
+                grid-template-columns: 1fr;
             }
 
-            .developer-section {
-                padding-bottom:
-                    80px;
+            .agency-box {
+                padding: 30px 22px;
             }
 
-            .developer-box {
-                padding:
-                    30px 22px;
-            }
-
-            .developer-box h2 {
-                font-size:
-                    25px;
-            }
-
-            .developer-box p {
-                font-size:
-                    12px;
-            }
-
-            .cta-box {
-                padding:
-                    42px 20px;
+            .agency-box h2 {
+                font-size: 25px;
             }
 
             .cta-box h2 {
-                font-size:
-                    29px;
+                font-size: 29px;
             }
 
             .footer-grid {
-                grid-template-columns:
-                    1fr 1fr;
-
-                gap:
-                    30px 20px;
-            }
-
-            .footer-about {
-                grid-column:
-                    1 / -1;
+                grid-template-columns: 1fr 1fr;
             }
 
             .footer-bottom {
-                flex-direction:
-                    column;
-
-                gap:
-                    10px;
-
-                text-align:
-                    center;
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
             }
         }
 
     </style>
-
 </head>
 
 
 <body>
 
 
-    <!-- =====================================================
-         TOP NOTICE
-    ===================================================== -->
-
-    <div class="top-notice">
-
-        <div class="container top-notice-inner">
-
-            <span class="live-dot"></span>
-
-            <span>
-                লাইভ স্ট্রিমিং • এজেন্সি • হোস্ট • ডায়মন্ড টপ-আপ
-            </span>
-
-        </div>
-
-    </div>
-
-
-    <!-- =====================================================
+    <!-- =========================
          NAVBAR
-    ===================================================== -->
+    ========================== -->
 
     <header class="navbar">
 
         <div class="container nav">
 
+            <a href="#home" class="brand">
 
-            <a href="#" class="brand">
-
-                <div class="brand-mark">
+                <div class="brand-logo">
                     RA
                 </div>
 
-                <div class="brand-name">
+                <div class="brand-text">
 
                     রায়হান এজেন্সি
 
@@ -1914,71 +1331,50 @@
 
             <nav class="nav-links">
 
-                <a href="#home">
-                    হোম
-                </a>
+                <a href="#home">হোম</a>
 
-                <a href="#services">
-                    এজেন্সি
-                </a>
+                <a href="#services">এজেন্সি</a>
 
-                <a href="#services">
-                    হোস্ট
-                </a>
+                <a href="#services">হোস্ট</a>
 
-                <a href="#services">
-                    টপ-আপ
-                </a>
+                <a href="#services">টপ-আপ</a>
 
-                <a href="#contact">
-                    যোগাযোগ
-                </a>
+                <a href="#contact">যোগাযোগ</a>
 
             </nav>
 
 
-            <div class="nav-actions">
+            <div class="nav-buttons">
 
-                <a href="#" class="login-btn">
+                <a href="#" class="login">
                     লগইন
                 </a>
 
-                <a href="#" class="register-btn">
+                <a href="#" class="register">
                     অ্যাকাউন্ট তৈরি করুন
                 </a>
 
             </div>
-
-
-            <button
-                class="menu-btn"
-                aria-label="Menu"
-            >
-                ☰
-            </button>
 
         </div>
 
     </header>
 
 
-    <!-- =====================================================
-         MAIN
-    ===================================================== -->
 
     <main id="home">
 
 
-        <!-- =================================================
+        <!-- =========================
              HERO
-        ================================================== -->
+        ========================== -->
 
         <section class="hero">
 
             <div class="container hero-grid">
 
 
-                <div class="hero-content">
+                <div>
 
 
                     <div class="eyebrow">
@@ -1992,32 +1388,33 @@
 
                     <h1>
 
-                        লাইভ করুন।
+                        লাইভ স্ট্রিমিংয়ের
 
-                        <span class="gradient">
-                            সংযুক্ত থাকুন।
+                        <span class="gradient-text">
+                            নতুন অভিজ্ঞতা
                         </span>
 
-                        এগিয়ে যান।
+                        এক প্ল্যাটফর্মে।
 
                     </h1>
 
 
                     <p class="hero-description">
 
-                        <strong>রায়হান এজেন্সি</strong>-এর মাধ্যমে
-                        লাইভ স্ট্রিমিং এজেন্সি, হোস্ট হিসেবে যোগদান
-                        এবং ডায়মন্ড টপ-আপ — প্রয়োজনীয় সার্ভিসগুলো
-                        এখন এক জায়গায়।
+                        <strong>রায়হান এজেন্সি</strong>-এ
+                        লাইভ স্ট্রিমিং এজেন্সি,
+                        হোস্ট রেজিস্ট্রেশন এবং
+                        ডায়মন্ড টপ-আপ —
+                        সবকিছু এক প্ল্যাটফর্মে।
 
                     </p>
 
 
-                    <div class="hero-actions">
+                    <div class="hero-buttons">
 
                         <a
                             href="#services"
-                            class="primary-btn"
+                            class="btn-primary"
                         >
                             সার্ভিস দেখুন →
                         </a>
@@ -2025,7 +1422,7 @@
 
                         <a
                             href="#services"
-                            class="secondary-btn"
+                            class="btn-secondary"
                         >
                             হোস্ট হিসেবে যোগ দিন
                         </a>
@@ -2033,12 +1430,11 @@
                     </div>
 
 
-                    <div class="trust-row">
-
+                    <div class="trust">
 
                         <div class="trust-item">
 
-                            <span class="check">
+                            <span class="trust-check">
                                 ✓
                             </span>
 
@@ -2049,7 +1445,7 @@
 
                         <div class="trust-item">
 
-                            <span class="check">
+                            <span class="trust-check">
                                 ✓
                             </span>
 
@@ -2060,23 +1456,21 @@
 
                         <div class="trust-item">
 
-                            <span class="check">
+                            <span class="trust-check">
                                 ✓
                             </span>
 
-                            নতুন প্ল্যাটফর্ম আসছে
+                            ভবিষ্যতে আরও প্ল্যাটফর্ম
 
                         </div>
-
 
                     </div>
 
                 </div>
 
 
-                <!-- =================================================
-                     PHONE
-                ================================================== -->
+
+                <!-- PHONE -->
 
                 <div class="hero-visual">
 
@@ -2084,7 +1478,7 @@
                     <div class="visual-glow"></div>
 
 
-                    <div class="floating-card one">
+                    <div class="floating-card floating-one">
 
                         <div class="float-title">
                             বর্তমানে লাইভ
@@ -2094,7 +1488,7 @@
                             12.8K
                         </div>
 
-                        <div class="float-green">
+                        <div class="float-success">
                             ● সক্রিয় দর্শক
                         </div>
 
@@ -2103,24 +1497,25 @@
 
                     <div class="phone">
 
-
                         <div class="phone-screen">
 
 
                             <!--
-                                পরে এখানে ভিডিও বসবে:
+                                ভিডিও এখানে বসবে।
 
+                                ফাইল:
                                 assets/hero-live.mp4
+
+                                ভিডিও থাকলে JavaScript
+                                নিজে থেকেই এটি দেখাবে।
                             -->
 
                             <video
-                                class="hero-live-video"
                                 id="heroVideo"
                                 autoplay
                                 muted
                                 loop
                                 playsinline
-                                preload="auto"
                             >
 
                                 <source
@@ -2143,15 +1538,16 @@
                                     ● LIVE
                                 </span>
 
-
-                                <span class="viewers">
+                                <span class="viewer-count">
                                     👁 12.8K
                                 </span>
 
                             </div>
 
 
-                            <!-- Video না থাকলে fallback -->
+                            <!--
+                                ভিডিও না থাকলে এই visual দেখা যাবে।
+                            -->
 
                             <div
                                 class="stream-person"
@@ -2165,7 +1561,6 @@
                                     লাইভ স্ট্রিমার
                                 </div>
 
-
                                 <div class="stream-text">
                                     দর্শকদের সাথে লাইভ আড্ডা চলছে ✨
                                 </div>
@@ -2173,12 +1568,11 @@
 
                                 <div class="stream-actions">
 
-                                    <div class="chat-box">
+                                    <div class="chat">
                                         মেসেজ লিখুন...
                                     </div>
 
-
-                                    <div class="gift-btn">
+                                    <div class="gift">
                                         🎁
                                     </div>
 
@@ -2191,7 +1585,7 @@
                     </div>
 
 
-                    <div class="floating-card two">
+                    <div class="floating-card floating-two">
 
                         <div class="float-title">
                             ভার্চুয়াল গিফট
@@ -2201,7 +1595,7 @@
                             🎁 +500
                         </div>
 
-                        <div class="float-green">
+                        <div class="float-success">
                             গিফট গ্রহণ করা হয়েছে
                         </div>
 
@@ -2214,32 +1608,31 @@
         </section>
 
 
-        <!-- =================================================
+
+        <!-- =========================
              SERVICES
-        ================================================== -->
+        ========================== -->
 
         <section
-            class="services-section"
+            class="services"
             id="services"
         >
 
             <div class="container">
 
 
-                <div class="section-header">
+                <div class="section-heading">
 
                     <div class="section-label">
                         আমাদের সার্ভিস
                     </div>
 
-
                     <h2>
                         আপনার প্রয়োজনীয় সার্ভিস বেছে নিন
                     </h2>
 
-
                     <p>
-                        এজেন্সি, হোস্ট এবং ডায়মন্ড টপ-আপ —
+                        Agency, Host অথবা Top Up —
                         আপনার প্রয়োজন অনুযায়ী সার্ভিস নির্বাচন করুন।
                     </p>
 
@@ -2251,23 +1644,20 @@
 
                     <!-- CHAMET AGENCY -->
 
-                    <article class="service-card">
+                    <div class="service-card">
 
                         <div class="service-icon">
                             🏢
                         </div>
 
-
                         <h3>
                             Chamet Agency
                         </h3>
 
-
                         <p>
-                            Chamet Agency হিসেবে কাজ করতে চাইলে
+                            Chamet Agency নিয়ে কাজ করতে চাইলে
                             বিস্তারিত জানতে এখানে প্রবেশ করুন।
                         </p>
-
 
                         <a
                             href="#"
@@ -2276,28 +1666,25 @@
                             বিস্তারিত জানতে প্রবেশ করুন →
                         </a>
 
-                    </article>
+                    </div>
 
 
                     <!-- HOST -->
 
-                    <article class="service-card">
+                    <div class="service-card">
 
                         <div class="service-icon">
                             🎙️
                         </div>
 
-
                         <h3>
                             হোস্ট হিসেবে যোগ দিন
                         </h3>
-
 
                         <p>
                             লাইভ স্ট্রিমিং Host হিসেবে কাজ করতে
                             চাইলে এখানে প্রবেশ করে আবেদন করুন।
                         </p>
-
 
                         <a
                             href="#"
@@ -2306,28 +1693,25 @@
                             হোস্ট হিসেবে যোগ দিন →
                         </a>
 
-                    </article>
+                    </div>
 
 
                     <!-- TOP UP -->
 
-                    <article class="service-card">
+                    <div class="service-card">
 
                         <div class="service-icon">
                             💎
                         </div>
 
-
                         <h3>
                             Chamet ডায়মন্ড টপ-আপ
                         </h3>
 
-
                         <p>
                             আপনার Chamet Account-এর জন্য
-                            সহজেই ডায়মন্ড টপ-আপ করুন।
+                            সহজে ডায়মন্ড টপ-আপ করুন।
                         </p>
-
 
                         <a
                             href="#"
@@ -2336,88 +1720,79 @@
                             টপ-আপ করুন →
                         </a>
 
-                    </article>
+                    </div>
 
 
                     <!-- OTHER AGENCY -->
 
-                    <article class="service-card">
+                    <div class="service-card">
 
                         <div class="service-icon">
                             🌐
                         </div>
 
-
                         <h3>
                             অন্যান্য এজেন্সি
                         </h3>
-
 
                         <p>
                             ভবিষ্যতে অন্যান্য Live Streaming
                             Agency এই প্ল্যাটফর্মে যুক্ত করা যাবে।
                         </p>
 
-
                         <span class="coming-soon">
                             COMING SOON
                         </span>
 
-                    </article>
+                    </div>
 
 
                     <!-- OTHER HOSTING -->
 
-                    <article class="service-card">
+                    <div class="service-card">
 
                         <div class="service-icon">
                             📡
                         </div>
 
-
                         <h3>
                             অন্যান্য অ্যাপ হোস্টিং
                         </h3>
-
 
                         <p>
                             অন্যান্য Live Streaming Application-এর
                             Hosting Service ভবিষ্যতে যুক্ত হবে।
                         </p>
 
-
                         <span class="coming-soon">
                             COMING SOON
                         </span>
 
-                    </article>
+                    </div>
 
 
                     <!-- OTHER TOP UP -->
 
-                    <article class="service-card">
+                    <div class="service-card">
 
                         <div class="service-icon">
                             🎮
                         </div>
 
-
                         <h3>
-                            গেমিং ও অন্যান্য টপ-আপ
+                            অন্যান্য গেমিং ও টপ-আপ
                         </h3>
-
 
                         <p>
                             অন্যান্য Gaming এবং Live Streaming
                             Top Up Service ভবিষ্যতে যুক্ত করা যাবে।
                         </p>
 
-
                         <span class="coming-soon">
                             COMING SOON
                         </span>
 
-                    </article>
+                    </div>
 
 
                 </div>
@@ -2427,26 +1802,25 @@
         </section>
 
 
-        <!-- =================================================
+
+        <!-- =========================
              FEATURES
-        ================================================== -->
+        ========================== -->
 
         <section class="features">
 
             <div class="container">
 
 
-                <div class="section-header">
+                <div class="section-heading">
 
                     <div class="section-label">
                         প্ল্যাটফর্ম
                     </div>
 
-
                     <h2>
                         সহজ। আধুনিক। শক্তিশালী।
                     </h2>
-
 
                     <p>
                         সহজ navigation এবং ভবিষ্যতে আরও
@@ -2538,22 +1912,22 @@
         </section>
 
 
-        <!-- =================================================
-             FA-AGENCY DEVELOPER CREDIT
-        ================================================== -->
 
-        <section class="developer-section">
+        <!-- =========================
+             FA AGENCY
+        ========================== -->
+
+        <section class="agency-credit">
 
             <div class="container">
 
 
-                <div class="developer-box">
+                <div class="agency-box">
 
 
-                    <div class="developer-content">
+                    <div class="agency-content">
 
-
-                        <div class="developer-label">
+                        <div class="agency-small">
                             FA-AGENCY™
                         </div>
 
@@ -2572,36 +1946,10 @@
                             FA-AGENCY™-এর সাথে যোগাযোগ করুন।
                         </p>
 
-
-                        <div class="developer-services">
-
-                            <span>
-                                Branding Website
-                            </span>
-
-                            <span>
-                                Agency Platform
-                            </span>
-
-                            <span>
-                                Admin Panel
-                            </span>
-
-                            <span>
-                                Dashboard
-                            </span>
-
-                            <span>
-                                Custom Website
-                            </span>
-
-                        </div>
-
                     </div>
 
 
-                    <div class="developer-contact">
-
+                    <div class="agency-contact">
 
                         <small>
                             যোগাযোগের ইমেইল
@@ -2609,18 +1957,18 @@
 
 
                         <a
+                            class="agency-email"
                             href="mailto:agency.official@outlook.com"
-                            class="developer-email"
                         >
                             agency.official@outlook.com
                         </a>
 
 
                         <a
+                            class="contact-btn"
                             href="mailto:agency.official@outlook.com?subject=Website%20Development"
-                            class="developer-contact-button"
                         >
-                            FA-AGENCY™-এর সাথে যোগাযোগ করুন →
+                            যোগাযোগ করুন →
                         </a>
 
                     </div>
@@ -2633,17 +1981,17 @@
         </section>
 
 
-        <!-- =================================================
-             CTA
-        ================================================== -->
 
-        <section class="cta-section">
+        <!-- =========================
+             CTA
+        ========================== -->
+
+        <section class="cta">
 
             <div class="container">
 
 
                 <div class="cta-box">
-
 
                     <div class="section-label">
                         শুরু করুন
@@ -2663,11 +2011,10 @@
 
                     <a
                         href="#services"
-                        class="primary-btn"
+                        class="btn-primary"
                     >
                         সার্ভিস দেখুন →
                     </a>
-
 
                 </div>
 
@@ -2679,9 +2026,10 @@
     </main>
 
 
-    <!-- =====================================================
+
+    <!-- =========================
          FOOTER
-    ===================================================== -->
+    ========================== -->
 
     <footer id="contact">
 
@@ -2693,18 +2041,16 @@
 
                 <div class="footer-about">
 
-
                     <a
                         href="#"
                         class="brand"
                     >
 
-                        <div class="brand-mark">
+                        <div class="brand-logo">
                             RA
                         </div>
 
-
-                        <div class="brand-name">
+                        <div class="brand-text">
 
                             রায়হান এজেন্সি
 
@@ -2802,17 +2148,12 @@
 
             <div class="footer-bottom">
 
-
                 <div>
                     © 2026 রায়হান এজেন্সি. All rights reserved.
                 </div>
 
 
-                <!--
-                    স্থায়ী Developer Credit
-                -->
-
-                <div class="powered-brand">
+                <div class="powered">
 
                     Powered by
 
@@ -2822,7 +2163,6 @@
 
                 </div>
 
-
             </div>
 
         </div>
@@ -2830,79 +2170,23 @@
     </footer>
 
 
-    <!-- =====================================================
+
+    <!-- =========================
          JAVASCRIPT
-    ===================================================== -->
+    ========================== -->
 
     <script>
 
-        /* =====================================================
-           MOBILE MENU
-        ===================================================== */
-
-        const menuButton =
-            document.querySelector(".menu-btn");
-
-        const navLinks =
-            document.querySelector(".nav-links");
-
-
-        if (menuButton) {
-
-            menuButton.addEventListener(
-                "click",
-                () => {
-
-                    const isOpen =
-                        navLinks.style.display === "flex";
-
-
-                    navLinks.style.display =
-                        isOpen
-                            ? "none"
-                            : "flex";
-
-
-                    if (!isOpen) {
-
-                        navLinks.style.position =
-                            "absolute";
-
-                        navLinks.style.top =
-                            "76px";
-
-                        navLinks.style.left =
-                            "0";
-
-                        navLinks.style.right =
-                            "0";
-
-                        navLinks.style.padding =
-                            "20px";
-
-                        navLinks.style.background =
-                            "#080a12";
-
-                        navLinks.style.flexDirection =
-                            "column";
-
-                        navLinks.style.borderBottom =
-                            "1px solid rgba(255,255,255,.09)";
-                    }
-
-                }
-            );
-
-        }
-
-
-        /* =====================================================
-           HERO VIDEO
-
-           assets/hero-live.mp4 থাকলে ভিডিও চলবে।
-
-           ভিডিও না থাকলে fallback visual থাকবে।
-        ===================================================== */
+        /*
+         * Hero Video
+         *
+         * ভিডিও ফাইল:
+         *
+         * assets/hero-live.mp4
+         *
+         * ভিডিও থাকলে phone-এর ভিতরে
+         * automatically চলবে।
+         */
 
         const heroVideo =
             document.getElementById("heroVideo");
@@ -2914,16 +2198,13 @@
         if (heroVideo) {
 
             heroVideo.addEventListener(
-                "canplay",
-                () => {
+                "loadeddata",
+                function () {
 
-                    heroVideo.style.display =
-                        "block";
+                    heroVideo.style.display = "block";
 
                     if (fallbackPerson) {
-
-                        fallbackPerson.style.display =
-                            "none";
+                        fallbackPerson.style.display = "none";
                     }
 
                 }
@@ -2932,15 +2213,12 @@
 
             heroVideo.addEventListener(
                 "error",
-                () => {
+                function () {
 
-                    heroVideo.style.display =
-                        "none";
+                    heroVideo.style.display = "none";
 
                     if (fallbackPerson) {
-
-                        fallbackPerson.style.display =
-                            "block";
+                        fallbackPerson.style.display = "block";
                     }
 
                 }
@@ -2950,7 +2228,5 @@
 
     </script>
 
-
 </body>
-
 </html>
