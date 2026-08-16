@@ -1,37 +1,24 @@
-```html
 <!DOCTYPE html>
 <html lang="bn">
 
 <head>
-
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <!-- =====================================================
-         WEBSITE BRAND
-         পরে Admin Panel থেকে পরিবর্তন করার জন্য
-         এই নামটি backend configuration-এর সাথে connect করা যাবে।
-    ====================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>রায়হান এজেন্সি | Live Streaming Services</title>
 
     <meta
         name="description"
-        content="রায়হান এজেন্সি — Live Streaming Agency, Host Registration এবং Top Up Services."
+        content="রায়হান এজেন্সি — লাইভ স্ট্রিমিং এজেন্সি, হোস্ট রেজিস্ট্রেশন এবং ডায়মন্ড টপ-আপ সার্ভিস।"
     >
 
     <style>
 
         /* =====================================================
-           GLOBAL VARIABLES
+           GLOBAL
         ===================================================== */
 
         :root {
-
             --bg: #05060b;
             --bg-soft: #090b13;
             --card: #0d101a;
@@ -54,25 +41,17 @@
                 0 25px 70px rgba(0,0,0,.45);
         }
 
-
-        /* =====================================================
-           RESET
-        ===================================================== */
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-
         html {
             scroll-behavior: smooth;
         }
 
-
         body {
-
             font-family:
                 Inter,
                 "Segoe UI",
@@ -81,17 +60,12 @@
                 sans-serif;
 
             background: var(--bg);
-
             color: var(--text);
-
             line-height: 1.6;
-
             overflow-x: hidden;
         }
 
-
         body::before {
-
             content: "";
 
             position: fixed;
@@ -110,13 +84,10 @@
             left: -250px;
 
             pointer-events: none;
-
             z-index: -1;
         }
 
-
         body::after {
-
             content: "";
 
             position: fixed;
@@ -135,24 +106,19 @@
             bottom: -200px;
 
             pointer-events: none;
-
             z-index: -1;
         }
-
 
         a {
             color: inherit;
             text-decoration: none;
         }
 
-
         button {
             font: inherit;
         }
 
-
         .container {
-
             width:
                 min(
                     1180px,
@@ -168,7 +134,6 @@
         ===================================================== */
 
         .top-notice {
-
             border-bottom:
                 1px solid var(--line);
 
@@ -176,15 +141,12 @@
                 rgba(255,255,255,.018);
         }
 
-
         .top-notice-inner {
-
             min-height: 38px;
 
             display: flex;
 
             justify-content: center;
-
             align-items: center;
 
             gap: 9px;
@@ -194,14 +156,11 @@
             font-size: 12px;
         }
 
-
         .live-dot {
-
             width: 7px;
             height: 7px;
 
-            background:
-                var(--green);
+            background: var(--green);
 
             border-radius: 50%;
 
@@ -215,7 +174,6 @@
         ===================================================== */
 
         .navbar {
-
             position: sticky;
 
             top: 0;
@@ -232,9 +190,7 @@
                 1px solid var(--line);
         }
 
-
         .nav {
-
             min-height: 76px;
 
             display: flex;
@@ -244,9 +200,7 @@
             justify-content: space-between;
         }
 
-
         .brand {
-
             display: flex;
 
             align-items: center;
@@ -254,9 +208,7 @@
             gap: 11px;
         }
 
-
         .brand-mark {
-
             width: 42px;
             height: 42px;
 
@@ -278,13 +230,10 @@
                 rgba(118,87,255,.28);
 
             font-weight: 900;
-
             font-size: 18px;
         }
 
-
         .brand-name {
-
             font-weight: 800;
 
             font-size: 16px;
@@ -292,9 +241,7 @@
             letter-spacing: -.2px;
         }
 
-
         .brand-name small {
-
             display: block;
 
             color: #72798b;
@@ -306,9 +253,7 @@
             margin-top: 1px;
         }
 
-
         .nav-links {
-
             display: flex;
 
             align-items: center;
@@ -316,9 +261,7 @@
             gap: 29px;
         }
 
-
         .nav-links a {
-
             color: #aeb4c4;
 
             font-size: 13px;
@@ -326,14 +269,11 @@
             transition: .25s ease;
         }
 
-
         .nav-links a:hover {
             color: #fff;
         }
 
-
         .nav-actions {
-
             display: flex;
 
             align-items: center;
@@ -341,9 +281,7 @@
             gap: 10px;
         }
 
-
         .login-btn {
-
             padding: 10px 15px;
 
             color: #d7dbea;
@@ -351,9 +289,7 @@
             font-size: 13px;
         }
 
-
         .register-btn {
-
             padding: 10px 17px;
 
             border-radius: 9px;
@@ -367,9 +303,7 @@
             font-size: 13px;
         }
 
-
         .menu-btn {
-
             display: none;
 
             border: 0;
@@ -389,16 +323,13 @@
         ===================================================== */
 
         .hero {
-
             position: relative;
 
             padding:
                 105px 0 100px;
         }
 
-
         .hero-grid {
-
             display: grid;
 
             grid-template-columns:
@@ -409,9 +340,7 @@
             align-items: center;
         }
 
-
         .eyebrow {
-
             display: inline-flex;
 
             align-items: center;
@@ -440,9 +369,7 @@
             margin-bottom: 22px;
         }
 
-
         .hero h1 {
-
             max-width: 670px;
 
             font-size:
@@ -455,9 +382,7 @@
             margin-bottom: 24px;
         }
 
-
         .hero h1 .gradient {
-
             background:
                 linear-gradient(
                     100deg,
@@ -471,9 +396,7 @@
             color: transparent;
         }
 
-
         .hero-description {
-
             max-width: 600px;
 
             color: var(--muted);
@@ -485,9 +408,7 @@
             margin-bottom: 31px;
         }
 
-
         .hero-actions {
-
             display: flex;
 
             gap: 12px;
@@ -497,10 +418,8 @@
             margin-bottom: 35px;
         }
 
-
         .primary-btn,
         .secondary-btn {
-
             min-height: 48px;
 
             padding: 0 20px;
@@ -520,9 +439,7 @@
             transition: .25s ease;
         }
 
-
         .primary-btn {
-
             background:
                 linear-gradient(
                     135deg,
@@ -535,9 +452,7 @@
                 rgba(118,87,255,.25);
         }
 
-
         .primary-btn:hover {
-
             transform:
                 translateY(-2px);
 
@@ -546,9 +461,7 @@
                 rgba(118,87,255,.38);
         }
 
-
         .secondary-btn {
-
             border:
                 1px solid var(--line);
 
@@ -558,9 +471,7 @@
             color: #dce0eb;
         }
 
-
         .secondary-btn:hover {
-
             background:
                 rgba(255,255,255,.07);
 
@@ -568,9 +479,7 @@
                 translateY(-2px);
         }
 
-
         .trust-row {
-
             display: flex;
 
             flex-wrap: wrap;
@@ -582,9 +491,7 @@
             font-size: 11px;
         }
 
-
         .trust-item {
-
             display: flex;
 
             align-items: center;
@@ -592,9 +499,7 @@
             gap: 7px;
         }
 
-
         .check {
-
             width: 16px;
             height: 16px;
 
@@ -616,10 +521,11 @@
 
         /* =====================================================
            HERO PHONE
+           IMPORTANT:
+           মোবাইল সোজা রাখা হয়েছে।
         ===================================================== */
 
         .hero-visual {
-
             position: relative;
 
             min-height: 550px;
@@ -631,9 +537,7 @@
             justify-content: center;
         }
 
-
         .visual-glow {
-
             position: absolute;
 
             width: 380px;
@@ -647,9 +551,7 @@
             filter: blur(75px);
         }
 
-
         .phone {
-
             position: relative;
 
             width: 285px;
@@ -676,13 +578,11 @@
 
             z-index: 2;
 
-            transform:
-                rotate(2deg);
+            /* আগের rotate বাদ দেওয়া হয়েছে */
+            transform: rotate(0deg);
         }
 
-
         .phone-screen {
-
             height: 100%;
 
             border-radius: 36px;
@@ -701,27 +601,16 @@
         }
 
 
-        /*
-           =====================================================
-           VIDEO READY AREA
-
-           পরে এখানে:
-
-           assets/hero-live.mp4
-
-           ফাইলটি রাখলে ভিডিও চলবে।
-        =====================================================
-        */
-
+        /* =====================================================
+           LIVE VIDEO
+        ===================================================== */
 
         .hero-live-video {
-
             position: absolute;
 
             inset: 0;
 
             width: 100%;
-
             height: 100%;
 
             object-fit: cover;
@@ -731,9 +620,7 @@
             display: none;
         }
 
-
         .video-overlay {
-
             position: absolute;
 
             inset: 0;
@@ -748,9 +635,7 @@
                 );
         }
 
-
         .phone-notch {
-
             position: absolute;
 
             top: 9px;
@@ -761,7 +646,6 @@
                 translateX(-50%);
 
             width: 94px;
-
             height: 25px;
 
             border-radius: 20px;
@@ -771,13 +655,10 @@
             z-index: 6;
         }
 
-
         .stream-top {
-
             position: absolute;
 
             left: 17px;
-
             right: 17px;
 
             top: 19px;
@@ -791,9 +672,7 @@
             z-index: 5;
         }
 
-
         .live-label {
-
             background:
                 #ff3e66;
 
@@ -809,9 +688,7 @@
             letter-spacing: .5px;
         }
 
-
         .viewers {
-
             padding:
                 5px 9px;
 
@@ -829,15 +706,12 @@
         ===================================================== */
 
         .stream-person {
-
             position: absolute;
 
             width: 195px;
-
             height: 245px;
 
             left: 50%;
-
             top: 49%;
 
             transform:
@@ -868,9 +742,7 @@
             z-index: 3;
         }
 
-
         .stream-person::before {
-
             content: "";
 
             position: absolute;
@@ -894,9 +766,7 @@
                 #30244e;
         }
 
-
         .stream-person::after {
-
             content: "";
 
             position: absolute;
@@ -918,9 +788,7 @@
                 translateX(-50%);
         }
 
-
         .stream-info {
-
             position: absolute;
 
             left: 17px;
@@ -931,9 +799,7 @@
             z-index: 5;
         }
 
-
         .stream-name {
-
             font-size: 13px;
 
             font-weight: 800;
@@ -941,9 +807,7 @@
             margin-bottom: 3px;
         }
 
-
         .stream-text {
-
             font-size: 9px;
 
             color:
@@ -952,9 +816,7 @@
             margin-bottom: 12px;
         }
 
-
         .stream-actions {
-
             display: flex;
 
             align-items: center;
@@ -962,9 +824,7 @@
             gap: 7px;
         }
 
-
         .chat-box {
-
             flex: 1;
 
             padding:
@@ -981,9 +841,7 @@
             font-size: 8px;
         }
 
-
         .gift-btn {
-
             width: 33px;
             height: 33px;
 
@@ -1009,7 +867,6 @@
         ===================================================== */
 
         .floating-card {
-
             position: absolute;
 
             z-index: 7;
@@ -1032,25 +889,17 @@
             padding: 12px;
         }
 
-
         .floating-card.one {
-
             left: 10px;
-
             top: 90px;
         }
 
-
         .floating-card.two {
-
             right: 5px;
-
             bottom: 100px;
         }
 
-
         .float-title {
-
             color:
                 #858da1;
 
@@ -1059,17 +908,13 @@
             margin-bottom: 3px;
         }
 
-
         .float-value {
-
             font-size: 14px;
 
             font-weight: 800;
         }
 
-
         .float-green {
-
             color:
                 var(--green);
 
@@ -1082,7 +927,6 @@
         ===================================================== */
 
         .services-section {
-
             padding:
                 110px 0;
 
@@ -1096,9 +940,7 @@
                 1px solid var(--line);
         }
 
-
         .section-header {
-
             max-width: 680px;
 
             margin:
@@ -1107,9 +949,7 @@
             text-align: center;
         }
 
-
         .section-label {
-
             color:
                 #a897ff;
 
@@ -1129,9 +969,7 @@
                 10px;
         }
 
-
         .section-header h2 {
-
             font-size:
                 clamp(30px,4vw,45px);
 
@@ -1145,9 +983,7 @@
                 14px;
         }
 
-
         .section-header p {
-
             color:
                 var(--muted);
 
@@ -1155,9 +991,7 @@
                 14px;
         }
 
-
         .service-grid {
-
             display: grid;
 
             grid-template-columns:
@@ -1167,9 +1001,7 @@
                 18px;
         }
 
-
         .service-card {
-
             position:
                 relative;
 
@@ -1199,9 +1031,7 @@
                 .3s ease;
         }
 
-
         .service-card:hover {
-
             transform:
                 translateY(-5px);
 
@@ -1213,9 +1043,7 @@
                 rgba(0,0,0,.28);
         }
 
-
         .service-icon {
-
             width:
                 48px;
 
@@ -1245,9 +1073,7 @@
                 22px;
         }
 
-
         .service-card h3 {
-
             font-size:
                 20px;
 
@@ -1255,9 +1081,7 @@
                 8px;
         }
 
-
         .service-card p {
-
             color:
                 #838b9e;
 
@@ -1271,9 +1095,7 @@
                 20px;
         }
 
-
         .service-link {
-
             display:
                 inline-flex;
 
@@ -1293,14 +1115,11 @@
                 800;
         }
 
-
         .service-link:hover {
             color: white;
         }
 
-
         .coming-soon {
-
             display:
                 inline-flex;
 
@@ -1339,14 +1158,11 @@
         ===================================================== */
 
         .features {
-
             padding:
                 105px 0;
         }
 
-
         .feature-grid {
-
             display:
                 grid;
 
@@ -1357,9 +1173,7 @@
                 14px;
         }
 
-
         .feature {
-
             padding:
                 24px;
 
@@ -1373,9 +1187,7 @@
                 rgba(255,255,255,.025);
         }
 
-
         .feature-number {
-
             color:
                 #6f7484;
 
@@ -1386,9 +1198,7 @@
                 25px;
         }
 
-
         .feature h3 {
-
             font-size:
                 16px;
 
@@ -1396,9 +1206,7 @@
                 7px;
         }
 
-
         .feature p {
-
             color:
                 #7e8597;
 
@@ -1411,18 +1219,15 @@
 
 
         /* =====================================================
-           FA-AGENCY CUSTOM WEBSITE SECTION
+           FA-AGENCY DEVELOPER SECTION
         ===================================================== */
 
         .developer-section {
-
             padding:
                 35px 0 105px;
         }
 
-
         .developer-box {
-
             position:
                 relative;
 
@@ -1459,9 +1264,7 @@
                 40px;
         }
 
-
         .developer-box::before {
-
             content:
                 "";
 
@@ -1490,9 +1293,7 @@
                 -100px;
         }
 
-
         .developer-content {
-
             position:
                 relative;
 
@@ -1500,9 +1301,7 @@
                 2;
         }
 
-
         .developer-label {
-
             color:
                 #a897ff;
 
@@ -1522,9 +1321,7 @@
                 10px;
         }
 
-
         .developer-box h2 {
-
             font-size:
                 30px;
 
@@ -1535,9 +1332,7 @@
                 10px;
         }
 
-
         .developer-box p {
-
             max-width:
                 680px;
 
@@ -1554,9 +1349,7 @@
                 17px;
         }
 
-
         .developer-services {
-
             display:
                 flex;
 
@@ -1567,9 +1360,7 @@
                 8px;
         }
 
-
         .developer-services span {
-
             padding:
                 6px 9px;
 
@@ -1590,9 +1381,7 @@
                 9px;
         }
 
-
         .developer-contact {
-
             position:
                 relative;
 
@@ -1616,9 +1405,7 @@
                 rgba(255,255,255,.035);
         }
 
-
         .developer-contact small {
-
             display:
                 block;
 
@@ -1632,9 +1419,7 @@
                 7px;
         }
 
-
         .developer-email {
-
             color:
                 #d8d1ff;
 
@@ -1648,16 +1433,12 @@
                 break-word;
         }
 
-
         .developer-email:hover {
-
             color:
                 #ffffff;
         }
 
-
         .developer-contact-button {
-
             display:
                 inline-flex;
 
@@ -1686,14 +1467,11 @@
         ===================================================== */
 
         .cta-section {
-
             padding:
                 0 0 110px;
         }
 
-
         .cta-box {
-
             position:
                 relative;
 
@@ -1727,9 +1505,7 @@
                 center;
         }
 
-
         .cta-box h2 {
-
             font-size:
                 38px;
 
@@ -1740,9 +1516,7 @@
                 12px;
         }
 
-
         .cta-box p {
-
             color:
                 #8e95a8;
 
@@ -1759,7 +1533,6 @@
         ===================================================== */
 
         footer {
-
             border-top:
                 1px solid var(--line);
 
@@ -1770,9 +1543,7 @@
                 65px 0 25px;
         }
 
-
         .footer-grid {
-
             display:
                 grid;
 
@@ -1783,9 +1554,7 @@
                 40px;
         }
 
-
         .footer-about p {
-
             max-width:
                 350px;
 
@@ -1802,9 +1571,7 @@
                 14px;
         }
 
-
         .footer-col h4 {
-
             font-size:
                 12px;
 
@@ -1812,9 +1579,7 @@
                 17px;
         }
 
-
         .footer-col a {
-
             display:
                 block;
 
@@ -1831,14 +1596,12 @@
                 .2s;
         }
 
-
         .footer-col a:hover {
-            color: #fff;
+            color:
+                #fff;
         }
 
-
         .footer-bottom {
-
             border-top:
                 1px solid var(--line);
 
@@ -1864,20 +1627,12 @@
                 10px;
         }
 
-
-        /*
-           স্থায়ী Developer Credit
-        */
-
         .powered-brand {
-
             color:
                 #858b9c;
         }
 
-
         .powered-brand strong {
-
             color:
                 #a996ff;
 
@@ -1893,22 +1648,21 @@
         @media (max-width: 1000px) {
 
             .nav-links {
-                display: none;
+                display:
+                    none;
             }
-
 
             .menu-btn {
-                display: block;
+                display:
+                    block;
             }
-
 
             .nav-actions {
-                display: none;
+                display:
+                    none;
             }
 
-
             .hero-grid {
-
                 grid-template-columns:
                     1fr;
 
@@ -1916,14 +1670,12 @@
                     50px;
             }
 
-
             .hero-content {
-                text-align: center;
+                text-align:
+                    center;
             }
 
-
             .hero-description {
-
                 margin-left:
                     auto;
 
@@ -1931,45 +1683,33 @@
                     auto;
             }
 
-
             .hero-actions,
             .trust-row {
-
                 justify-content:
                     center;
             }
 
-
             .hero-visual {
-
                 min-height:
                     600px;
             }
 
-
             .service-grid {
-
                 grid-template-columns:
                     1fr 1fr;
             }
-
 
             .feature-grid {
-
                 grid-template-columns:
                     1fr 1fr;
             }
-
 
             .footer-grid {
-
                 grid-template-columns:
                     1fr 1fr;
             }
 
-
             .developer-box {
-
                 flex-direction:
                     column;
 
@@ -1977,9 +1717,7 @@
                     flex-start;
             }
 
-
             .developer-contact {
-
                 width:
                     100%;
             }
@@ -1989,7 +1727,6 @@
         @media (max-width: 650px) {
 
             .container {
-
                 width:
                     min(
                         100% - 28px,
@@ -1997,23 +1734,17 @@
                     );
             }
 
-
             .top-notice-inner {
-
                 font-size:
                     10px;
             }
 
-
             .hero {
-
                 padding:
                     65px 0 75px;
             }
 
-
             .hero h1 {
-
                 font-size:
                     43px;
 
@@ -2021,23 +1752,17 @@
                     -2px;
             }
 
-
             .hero-description {
-
                 font-size:
                     14px;
             }
 
-
             .hero-visual {
-
                 min-height:
                     560px;
             }
 
-
             .phone {
-
                 width:
                     255px;
 
@@ -2045,9 +1770,7 @@
                     500px;
             }
 
-
             .floating-card.one {
-
                 left:
                     0;
 
@@ -2055,9 +1778,7 @@
                     75px;
             }
 
-
             .floating-card.two {
-
                 right:
                     0;
 
@@ -2065,73 +1786,53 @@
                     80px;
             }
 
-
             .services-section,
             .features {
-
                 padding:
                     80px 0;
             }
 
-
             .service-grid {
-
                 grid-template-columns:
                     1fr;
             }
-
 
             .feature-grid {
-
                 grid-template-columns:
                     1fr;
             }
 
-
             .developer-section {
-
                 padding-bottom:
                     80px;
             }
 
-
             .developer-box {
-
                 padding:
                     30px 22px;
             }
 
-
             .developer-box h2 {
-
                 font-size:
                     25px;
             }
 
-
             .developer-box p {
-
                 font-size:
                     12px;
             }
 
-
             .cta-box {
-
                 padding:
                     42px 20px;
             }
 
-
             .cta-box h2 {
-
                 font-size:
                     29px;
             }
 
-
             .footer-grid {
-
                 grid-template-columns:
                     1fr 1fr;
 
@@ -2139,16 +1840,12 @@
                     30px 20px;
             }
 
-
             .footer-about {
-
                 grid-column:
                     1 / -1;
             }
 
-
             .footer-bottom {
-
                 flex-direction:
                     column;
 
@@ -2179,7 +1876,7 @@
             <span class="live-dot"></span>
 
             <span>
-                Live Streaming • Agency • Host • Top Up Services
+                লাইভ স্ট্রিমিং • এজেন্সি • হোস্ট • ডায়মন্ড টপ-আপ
             </span>
 
         </div>
@@ -2218,23 +1915,23 @@
             <nav class="nav-links">
 
                 <a href="#home">
-                    Home
+                    হোম
                 </a>
 
                 <a href="#services">
-                    Agency
+                    এজেন্সি
                 </a>
 
                 <a href="#services">
-                    Host
+                    হোস্ট
                 </a>
 
                 <a href="#services">
-                    Top Up
+                    টপ-আপ
                 </a>
 
                 <a href="#contact">
-                    Contact
+                    যোগাযোগ
                 </a>
 
             </nav>
@@ -2243,11 +1940,11 @@
             <div class="nav-actions">
 
                 <a href="#" class="login-btn">
-                    Login
+                    লগইন
                 </a>
 
                 <a href="#" class="register-btn">
-                    Create Account
+                    অ্যাকাউন্ট তৈরি করুন
                 </a>
 
             </div>
@@ -2255,7 +1952,7 @@
 
             <button
                 class="menu-btn"
-                aria-label="Open Menu"
+                aria-label="Menu"
             >
                 ☰
             </button>
@@ -2288,29 +1985,30 @@
 
                         <span class="live-dot"></span>
 
-                        YOUR LIVE STREAMING PARTNER
+                        লাইভ স্ট্রিমিং প্ল্যাটফর্ম
 
                     </div>
 
 
                     <h1>
 
-                        Connect.
+                        লাইভ করুন।
 
                         <span class="gradient">
-                            Stream.
+                            সংযুক্ত থাকুন।
                         </span>
 
-                        Grow.
+                        এগিয়ে যান।
 
                     </h1>
 
 
                     <p class="hero-description">
 
-                        রায়হান এজেন্সির মাধ্যমে Agency,
-                        Host Registration এবং Live Streaming
-                        Top Up Services — সবকিছু এক প্ল্যাটফর্মে।
+                        <strong>রায়হান এজেন্সি</strong>-এর মাধ্যমে
+                        লাইভ স্ট্রিমিং এজেন্সি, হোস্ট হিসেবে যোগদান
+                        এবং ডায়মন্ড টপ-আপ — প্রয়োজনীয় সার্ভিসগুলো
+                        এখন এক জায়গায়।
 
                     </p>
 
@@ -2321,7 +2019,7 @@
                             href="#services"
                             class="primary-btn"
                         >
-                            Explore Services →
+                            সার্ভিস দেখুন →
                         </a>
 
 
@@ -2329,7 +2027,7 @@
                             href="#services"
                             class="secondary-btn"
                         >
-                            Become a Host
+                            হোস্ট হিসেবে যোগ দিন
                         </a>
 
                     </div>
@@ -2344,7 +2042,7 @@
                                 ✓
                             </span>
 
-                            Secure Platform
+                            নিরাপদ সার্ভিস
 
                         </div>
 
@@ -2355,7 +2053,7 @@
                                 ✓
                             </span>
 
-                            Fast Support
+                            দ্রুত সাপোর্ট
 
                         </div>
 
@@ -2366,7 +2064,7 @@
                                 ✓
                             </span>
 
-                            More Platforms Coming
+                            নতুন প্ল্যাটফর্ম আসছে
 
                         </div>
 
@@ -2377,7 +2075,7 @@
 
 
                 <!-- =================================================
-                     PHONE / VIDEO AREA
+                     PHONE
                 ================================================== -->
 
                 <div class="hero-visual">
@@ -2389,7 +2087,7 @@
                     <div class="floating-card one">
 
                         <div class="float-title">
-                            LIVE NOW
+                            বর্তমানে লাইভ
                         </div>
 
                         <div class="float-value">
@@ -2397,7 +2095,7 @@
                         </div>
 
                         <div class="float-green">
-                            ● Active viewers
+                            ● সক্রিয় দর্শক
                         </div>
 
                     </div>
@@ -2409,13 +2107,11 @@
                         <div class="phone-screen">
 
 
-                            <!-- =================================================
-                                 FUTURE LIVE VIDEO
+                            <!--
+                                পরে এখানে ভিডিও বসবে:
 
-                                 assets/hero-live.mp4
-
-                                 ফাইলটি দিলে নিচের video display হবে।
-                            ================================================== -->
+                                assets/hero-live.mp4
+                            -->
 
                             <video
                                 class="hero-live-video"
@@ -2455,7 +2151,7 @@
                             </div>
 
 
-                            <!-- VIDEO না থাকলে এই fallback দেখা যাবে -->
+                            <!-- Video না থাকলে fallback -->
 
                             <div
                                 class="stream-person"
@@ -2466,19 +2162,19 @@
                             <div class="stream-info">
 
                                 <div class="stream-name">
-                                    Live Host
+                                    লাইভ স্ট্রিমার
                                 </div>
 
 
                                 <div class="stream-text">
-                                    Having a great time with everyone ✨
+                                    দর্শকদের সাথে লাইভ আড্ডা চলছে ✨
                                 </div>
 
 
                                 <div class="stream-actions">
 
                                     <div class="chat-box">
-                                        Say something...
+                                        মেসেজ লিখুন...
                                     </div>
 
 
@@ -2498,7 +2194,7 @@
                     <div class="floating-card two">
 
                         <div class="float-title">
-                            VIRTUAL GIFT
+                            ভার্চুয়াল গিফট
                         </div>
 
                         <div class="float-value">
@@ -2506,7 +2202,7 @@
                         </div>
 
                         <div class="float-green">
-                            Gift received
+                            গিফট গ্রহণ করা হয়েছে
                         </div>
 
                     </div>
@@ -2533,18 +2229,18 @@
                 <div class="section-header">
 
                     <div class="section-label">
-                        OUR SERVICES
+                        আমাদের সার্ভিস
                     </div>
 
 
                     <h2>
-                        আপনার প্রয়োজনীয় সার্ভিস বেছে নিন
+                        আপনার প্রয়োজনীয় সার্ভিস বেছে নিন
                     </h2>
 
 
                     <p>
-                        Agency, Hosting এবং Top Up —
-                        আপনার প্রয়োজন অনুযায়ী সার্ভিস নির্বাচন করুন।
+                        এজেন্সি, হোস্ট এবং ডায়মন্ড টপ-আপ —
+                        আপনার প্রয়োজন অনুযায়ী সার্ভিস নির্বাচন করুন।
                     </p>
 
                 </div>
@@ -2569,7 +2265,7 @@
 
                         <p>
                             Chamet Agency হিসেবে কাজ করতে চাইলে
-                            বিস্তারিত জানতে এই সেকশনে প্রবেশ করুন।
+                            বিস্তারিত জানতে এখানে প্রবেশ করুন।
                         </p>
 
 
@@ -2577,7 +2273,7 @@
                             href="#"
                             class="service-link"
                         >
-                            বিস্তারিত জানতে ভিতরে প্রবেশ করুন →
+                            বিস্তারিত জানতে প্রবেশ করুন →
                         </a>
 
                     </article>
@@ -2593,12 +2289,12 @@
 
 
                         <h3>
-                            Host Registration
+                            হোস্ট হিসেবে যোগ দিন
                         </h3>
 
 
                         <p>
-                            Live Streaming Host হিসেবে কাজ করতে
+                            লাইভ স্ট্রিমিং Host হিসেবে কাজ করতে
                             চাইলে এখানে প্রবেশ করে আবেদন করুন।
                         </p>
 
@@ -2607,7 +2303,7 @@
                             href="#"
                             class="service-link"
                         >
-                            ভিতরে প্রবেশ করুন →
+                            হোস্ট হিসেবে যোগ দিন →
                         </a>
 
                     </article>
@@ -2623,13 +2319,13 @@
 
 
                         <h3>
-                            Chamet Diamond Top Up
+                            Chamet ডায়মন্ড টপ-আপ
                         </h3>
 
 
                         <p>
                             আপনার Chamet Account-এর জন্য
-                            প্রয়োজনীয় Diamond Top Up নির্বাচন করুন।
+                            সহজেই ডায়মন্ড টপ-আপ করুন।
                         </p>
 
 
@@ -2637,7 +2333,7 @@
                             href="#"
                             class="service-link"
                         >
-                            Top Up করুন →
+                            টপ-আপ করুন →
                         </a>
 
                     </article>
@@ -2653,7 +2349,7 @@
 
 
                         <h3>
-                            Other Agencies
+                            অন্যান্য এজেন্সি
                         </h3>
 
 
@@ -2670,7 +2366,7 @@
                     </article>
 
 
-                    <!-- OTHER HOST -->
+                    <!-- OTHER HOSTING -->
 
                     <article class="service-card">
 
@@ -2680,7 +2376,7 @@
 
 
                         <h3>
-                            Other App Hosting
+                            অন্যান্য অ্যাপ হোস্টিং
                         </h3>
 
 
@@ -2707,7 +2403,7 @@
 
 
                         <h3>
-                            Gaming & Other Top Up
+                            গেমিং ও অন্যান্য টপ-আপ
                         </h3>
 
 
@@ -2743,18 +2439,18 @@
                 <div class="section-header">
 
                     <div class="section-label">
-                        PLATFORM
+                        প্ল্যাটফর্ম
                     </div>
 
 
                     <h2>
-                        Simple. Modern. Powerful.
+                        সহজ। আধুনিক। শক্তিশালী।
                     </h2>
 
 
                     <p>
-                        Customer-এর জন্য সহজ navigation এবং
-                        ভবিষ্যতে আরও service যুক্ত করার সুবিধা।
+                        সহজ navigation এবং ভবিষ্যতে আরও
+                        service যুক্ত করার সুবিধা।
                     </p>
 
                 </div>
@@ -2770,12 +2466,12 @@
                         </div>
 
                         <h3>
-                            Easy Navigation
+                            সহজ ব্যবহার
                         </h3>
 
                         <p>
-                            প্রয়োজনীয় service খুব সহজেই
-                            খুঁজে পাওয়া যাবে।
+                            প্রয়োজনীয় সার্ভিস খুব সহজেই
+                            খুঁজে পাওয়া যাবে।
                         </p>
 
                     </div>
@@ -2788,7 +2484,7 @@
                         </div>
 
                         <h3>
-                            More Platforms
+                            একাধিক প্ল্যাটফর্ম
                         </h3>
 
                         <p>
@@ -2806,11 +2502,11 @@
                         </div>
 
                         <h3>
-                            Customer Support
+                            কাস্টমার সাপোর্ট
                         </h3>
 
                         <p>
-                            Customer-এর প্রয়োজন অনুযায়ী
+                            Customer-এর প্রয়োজন অনুযায়ী
                             Support System যুক্ত করা যাবে।
                         </p>
 
@@ -2824,12 +2520,12 @@
                         </div>
 
                         <h3>
-                            Admin Controlled
+                            অ্যাডমিন নিয়ন্ত্রিত
                         </h3>
 
                         <p>
-                            ভবিষ্যতের Admin Panel থেকে
-                            Services ও Content পরিচালনা করা যাবে।
+                            Admin Panel থেকে Services ও
+                            Content পরিচালনা করা যাবে।
                         </p>
 
                     </div>
@@ -2843,7 +2539,7 @@
 
 
         <!-- =================================================
-             FA-AGENCY CUSTOM WEBSITE SECTION
+             FA-AGENCY DEVELOPER CREDIT
         ================================================== -->
 
         <section class="developer-section">
@@ -2858,18 +2554,17 @@
 
 
                         <div class="developer-label">
-                            Custom Digital Solutions
+                            FA-AGENCY™
                         </div>
 
 
                         <h2>
-                            আপনার ব্র্যান্ডের জন্য এমন একটি
-                            Website প্রয়োজন?
+                            আপনার ব্র্যান্ডের জন্য Website প্রয়োজন?
                         </h2>
 
 
                         <p>
-                            আপনার ব্যবসা বা ব্র্যান্ডের জন্য
+                            আপনার ব্র্যান্ড বা ব্যবসার জন্য
                             Professional Branding Website,
                             Agency Platform, Dashboard,
                             Admin Panel অথবা Custom Digital
@@ -2909,7 +2604,7 @@
 
 
                         <small>
-                            যোগাযোগের জন্য
+                            যোগাযোগের ইমেইল
                         </small>
 
 
@@ -2922,7 +2617,7 @@
 
 
                         <a
-                            href="mailto:agency.official@outlook.com?subject=Website%20Development%20Inquiry"
+                            href="mailto:agency.official@outlook.com?subject=Website%20Development"
                             class="developer-contact-button"
                         >
                             FA-AGENCY™-এর সাথে যোগাযোগ করুন →
@@ -2951,18 +2646,18 @@
 
 
                     <div class="section-label">
-                        GET STARTED
+                        শুরু করুন
                     </div>
 
 
                     <h2>
-                        Ready to Start Your Journey?
+                        আপনার যাত্রা শুরু করতে প্রস্তুত?
                     </h2>
 
 
                     <p>
                         Agency, Host অথবা Top Up —
-                        আপনার প্রয়োজনীয় সার্ভিস নির্বাচন করুন।
+                        আপনার প্রয়োজনীয় সার্ভিস নির্বাচন করুন।
                     </p>
 
 
@@ -2970,7 +2665,7 @@
                         href="#services"
                         class="primary-btn"
                     >
-                        Explore Services →
+                        সার্ভিস দেখুন →
                     </a>
 
 
@@ -3034,7 +2729,7 @@
                 <div class="footer-col">
 
                     <h4>
-                        Services
+                        সার্ভিস
                     </h4>
 
                     <a href="#">
@@ -3042,15 +2737,15 @@
                     </a>
 
                     <a href="#">
-                        Host Registration
+                        হোস্ট রেজিস্ট্রেশন
                     </a>
 
                     <a href="#">
-                        Chamet Top Up
+                        Chamet ডায়মন্ড টপ-আপ
                     </a>
 
                     <a href="#">
-                        Other Services
+                        অন্যান্য সার্ভিস
                     </a>
 
                 </div>
@@ -3059,23 +2754,23 @@
                 <div class="footer-col">
 
                     <h4>
-                        Platform
+                        প্ল্যাটফর্ম
                     </h4>
 
                     <a href="#">
-                        About Us
+                        আমাদের সম্পর্কে
                     </a>
 
                     <a href="#contact">
-                        Contact
+                        যোগাযোগ
                     </a>
 
                     <a href="#">
-                        FAQ
+                        সাধারণ প্রশ্ন
                     </a>
 
                     <a href="#">
-                        Support
+                        সাপোর্ট
                     </a>
 
                 </div>
@@ -3084,19 +2779,19 @@
                 <div class="footer-col">
 
                     <h4>
-                        Account
+                        অ্যাকাউন্ট
                     </h4>
 
                     <a href="#">
-                        Login
+                        লগইন
                     </a>
 
                     <a href="#">
-                        Register
+                        রেজিস্ট্রেশন
                     </a>
 
                     <a href="#">
-                        Dashboard
+                        ড্যাশবোর্ড
                     </a>
 
                 </div>
@@ -3113,13 +2808,14 @@
                 </div>
 
 
-                <!-- =================================================
-                     PERMANENT DEVELOPER BRANDING
-                ================================================== -->
+                <!--
+                    স্থায়ী Developer Credit
+                -->
 
                 <div class="powered-brand">
 
                     Powered by
+
                     <strong>
                         FA-AGENCY™
                     </strong>
@@ -3139,7 +2835,6 @@
     ===================================================== -->
 
     <script>
-
 
         /* =====================================================
            MOBILE MENU
@@ -3204,12 +2899,9 @@
         /* =====================================================
            HERO VIDEO
 
-           assets/hero-live.mp4 থাকলে:
-           - Video দেখাবে
-           - Fallback illustration লুকাবে
+           assets/hero-live.mp4 থাকলে ভিডিও চলবে।
 
-           Video না থাকলে:
-           - Fallback illustration থাকবে
+           ভিডিও না থাকলে fallback visual থাকবে।
         ===================================================== */
 
         const heroVideo =
@@ -3262,4 +2954,3 @@
 </body>
 
 </html>
-```
