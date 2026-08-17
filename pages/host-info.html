@@ -31,6 +31,20 @@ textarea{min-height:120px;resize:vertical}
 .row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .help{font-size:12px;color:#9891a8;margin-top:-7px}
 .footer{text-align:center;color:#8f889f;font-size:12px;padding:35px 0 45px}
+
+.job-card-wrap{margin:0 0 28px}
+.job-card{background:linear-gradient(145deg,rgba(35,25,63,.98),rgba(13,10,28,.98));border:1px solid rgba(213,140,255,.28);border-radius:28px;padding:30px;box-shadow:0 22px 70px rgba(0,0,0,.28);position:relative;overflow:hidden}
+.job-card:before{content:"";position:absolute;inset:-120px auto auto -80px;width:240px;height:240px;background:radial-gradient(circle,rgba(142,92,255,.22),transparent 68%);pointer-events:none}
+.job-badge{display:inline-flex;padding:9px 13px;border-radius:999px;background:rgba(142,92,255,.13);border:1px solid rgba(213,140,255,.22);color:#e4d2ff;font-size:12px;font-weight:900;letter-spacing:.3px}
+.job-card h2{font-size:clamp(25px,4vw,38px);margin:18px 0 10px}.job-intro{color:#c5bdd2;line-height:1.8;max-width:850px}
+.job-highlights{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:24px 0}
+.job-highlights>div{background:rgba(255,255,255,.035);border:1px solid rgba(213,140,255,.12);border-radius:18px;padding:17px;display:flex;flex-direction:column;gap:5px}.job-highlights span{font-size:23px}.job-highlights b{font-size:15px}.job-highlights small{color:#9f97ad;line-height:1.5}
+.job-details{margin-top:22px;padding:22px;border-radius:20px;background:rgba(255,255,255,.025);border:1px solid rgba(213,140,255,.1)}
+.job-details h3,.job-cta h3{margin:0 0 12px}.job-details ul{margin:0;padding-left:20px;color:#c2bacd;line-height:1.9}.job-details li{margin:4px 0}
+.earning-box{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}.earning-box>div{padding:19px;border-radius:18px;background:linear-gradient(135deg,rgba(142,92,255,.13),rgba(209,140,255,.06));border:1px solid rgba(213,140,255,.14);display:flex;flex-direction:column;gap:6px}.earning-box strong{font-size:18px}.earning-box span{color:#a9a1b4;font-size:13px;line-height:1.5}.job-note{margin-top:14px;padding:14px 16px;border-radius:14px;background:rgba(255,193,7,.05);border:1px solid rgba(255,193,7,.14);color:#b8b0c0;font-size:12px;line-height:1.7}.job-cta{margin-top:20px;padding-top:20px;border-top:1px solid rgba(213,140,255,.12);display:flex;justify-content:space-between;align-items:center;gap:20px}.job-cta p{margin:0;color:#9f97ad;line-height:1.6}.job-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}.cta.secondary{background:rgba(255,255,255,.07);border:1px solid rgba(213,140,255,.18)}
+@media(max-width:850px){.job-highlights{grid-template-columns:repeat(2,1fr)}.job-cta{flex-direction:column;align-items:flex-start}.job-actions{justify-content:flex-start}}
+@media(max-width:560px){.job-card{padding:20px}.job-highlights,.earning-box{grid-template-columns:1fr}.job-actions{width:100%}.job-actions .cta{width:100%}}
+
 @media(max-width:700px){.grid,.row{grid-template-columns:1fr}}
 </style>
 </head>
@@ -46,6 +60,50 @@ textarea{min-height:120px;resize:vertical}
   <h1>Become a Host</h1>
   <p class="lead">Chamet Host হিসেবে কাজ করার আগে প্রয়োজনীয় তথ্য, সুবিধা এবং গুরুত্বপূর্ণ নির্দেশনাগুলো জেনে নিন।</p>
 </section>
+<section class="job-card-wrap">
+  <div class="job-card">
+    <div class="job-badge">♥️ CHAMET LIVE HOST JOB • NO REGISTRATION FEE</div>
+    <h2>আসসালামু আলাইকুম আপু 🌸</h2>
+    <p class="job-intro">Chamet Apps-এ Live Host হিসেবে কাজ করার সুযোগ। কোনো Registration Fee বা Investment ছাড়াই কাজ শুরু করার তথ্য ও নির্দেশনা দেওয়া হবে।</p>
+
+    <div class="job-highlights">
+      <div><span>📞</span><b>Random Calls</b><small>বিভিন্ন দেশ থেকে কল আসতে পারে</small></div>
+      <div><span>💎</span><b>1,200 Points</b><small>প্রতি মিনিটের জন্য আপনার দেওয়া earning structure</small></div>
+      <div><span>😷</span><b>Face Optional</b><small>Random call-এ Face/কথা বলা বাধ্যতামূলক নয়—আপনার দেওয়া তথ্য অনুযায়ী</small></div>
+      <div><span>💵</span><b>$10 Withdrawal</b><small>আপনার দেওয়া তথ্য অনুযায়ী $10 হলে withdrawal</small></div>
+    </div>
+
+    <div class="job-details">
+      <h3>কাজের ধরন</h3>
+      <ul>
+        <li>📱 Smartphone ব্যবহার করে কাজ করা যাবে।</li>
+        <li>📞 Random international call এলে তা receive করে connected থাকা—আপনার দেওয়া কাজের বিবরণ অনুযায়ী।</li>
+        <li>💬 Random call-এ কথা বলা বা Face দেখানো বাধ্যতামূলক নয়—আপনার দেওয়া তথ্য অনুযায়ী।</li>
+        <li>😷 চাইলে Mask পরে কাজ করার অপশন থাকবে।</li>
+        <li>⏱️ নিজের সুবিধামতো সময় দেওয়া যাবে।</li>
+        <li>💳 প্রতিদিনের payment/withdrawal আপনার উল্লেখ করা নিয়ম ও platform-এর প্রযোজ্য শর্তের ওপর নির্ভর করবে।</li>
+      </ul>
+    </div>
+
+    <div class="earning-box">
+      <div><strong>💫 $10 = ৳1,020</strong><span>আপনার দেওয়া rate অনুযায়ী</span></div>
+      <div><strong>⚡ Daily Earning</strong><span>আপনার দেওয়া তথ্য অনুযায়ী 1–2 ঘণ্টা সময় দিলে earning opportunity</span></div>
+    </div>
+
+    <div class="job-note">
+      <strong>ℹ️ গুরুত্বপূর্ণ:</strong> উপরের earning, points, payment এবং withdrawal তথ্যগুলো আপনার দেওয়া job description অনুযায়ী প্রদর্শিত হচ্ছে। বাস্তব earning ও availability platform-এর নিয়ম, activity এবং প্রযোজ্য শর্তের ওপর নির্ভর করতে পারে।
+    </div>
+
+    <div class="job-cta">
+      <div><h3>কাজটি করতে আগ্রহী?</h3><p>WhatsApp-এ যোগাযোগ করুন অথবা সরাসরি Host Registration শুরু করুন।</p></div>
+      <div class="job-actions">
+        <a class="cta secondary" href="https://wa.me/8801741564341" target="_blank" rel="noopener">📲 WhatsApp: 01741564341</a>
+        <a class="cta" href="host-register.html">REGISTER NOW</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <div class="grid">
   <div class="card"><h2>Chamet Host কী?</h2><p>লাইভ স্ট্রিমিং প্ল্যাটফর্মে Host হিসেবে যুক্ত হয়ে লাইভ কার্যক্রম পরিচালনা করার সুযোগ।</p></div>
   <div class="card"><h2>কীভাবে কাজ করবেন?</h2><p>Registration সম্পন্ন করার পর প্রয়োজনীয় নির্দেশনা অনুসরণ করে Host কার্যক্রম শুরু করবেন।</p></div>
@@ -60,7 +118,8 @@ textarea{min-height:120px;resize:vertical}
   <a class="cta" href="signup.html">REGISTER NOW</a>
 </div>
 
-  <footer class="footer">Powered by FA-AGENCY™</footer>
+  
 </div>
+<footer class="fa-agency-footer">Powered by FA-AGENCY™</footer>
 </body>
 </html>

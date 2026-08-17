@@ -8,7 +8,7 @@
 
     <meta
         name="description"
-        content="Live streaming agency, host registration and top-up services powered by FA-AGENCY™."
+        content="Live streaming agency, host registration and top-up services ."
     >
 
     <style>
@@ -480,6 +480,28 @@
             color: #756cff;
         }
 
+
+        .diamond-recharge-drawer {
+            margin-top: 24px;
+            padding: 28px;
+            border-radius: 20px;
+            background: linear-gradient(145deg, rgba(17,24,55,.98), rgba(7,11,30,.98));
+            border: 1px solid rgba(112,103,255,.35);
+            box-shadow: 0 25px 70px rgba(0,0,0,.35);
+        }
+        .diamond-recharge-drawer[hidden] { display:none; }
+        .diamond-recharge-head { display:flex; justify-content:space-between; gap:16px; align-items:center; margin-bottom:20px; }
+        .diamond-recharge-head h3 { margin:0; font-size:25px; }
+        .diamond-close { border:1px solid rgba(255,255,255,.15); background:rgba(255,255,255,.06); color:#fff; border-radius:9px; padding:9px 13px; cursor:pointer; }
+        .diamond-rate-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+        .diamond-rate-item { padding:15px; border-radius:12px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.07); display:flex; justify-content:space-between; gap:10px; }
+        .diamond-rate-item b { color:#8d87ff; }
+        .diamond-rules { margin-top:22px; color:#c7cbe0; }
+        .diamond-rules ul { margin:9px 0 0; padding-left:22px; }
+        .diamond-order { display:inline-block; margin-top:20px; padding:12px 20px; border-radius:10px; background:linear-gradient(135deg,#7067ff,#4c42e8); font-weight:800; }
+        @media(max-width:700px){ .diamond-rate-grid{grid-template-columns:1fr 1fr}.diamond-recharge-head{align-items:flex-start} }
+        @media(max-width:450px){ .diamond-rate-grid{grid-template-columns:1fr} }
+
         /* =========================
            RESPONSIVE
         ========================== */
@@ -575,12 +597,12 @@
 
             <nav class="nav-links">
                 <a href="#home">Home</a>
-                <a href="#services">Agency</a>
-                <a href="#services">Host</a>
-                <a href="#services">Top Up</a>
+                <a href="pages/login.html">Agency</a>
+                <a href="pages/login.html">Host</a>
+                <a href="pages/login.html">Top Up</a>
                 <a href="#contact">Contact</a>
-                <a href="#">Login</a>
-                <a href="#" class="nav-login">Register</a>
+                <a href="pages/login.html">Login</a>
+                <a href="pages/signup.html" class="nav-login">Register</a>
             </nav>
 
         </div>
@@ -613,15 +635,15 @@
 
                     <div class="hero-buttons">
 
-                        <a href="#services" class="btn btn-primary">
+                        <a href="pages/login.html" class="btn btn-primary">
                             Join Agency
                         </a>
 
-                        <a href="pages/signup.html" class="btn btn-secondary">
+                        <a href="pages/login.html" class="btn btn-secondary">
                             Become a Host
                         </a>
 
-                        <a href="#services" class="btn btn-secondary">
+                        <a href="pages/login.html" class="btn btn-secondary">
                             Top Up Now
                         </a>
 
@@ -668,8 +690,7 @@
                     </div>
 
                 </div>
-
-            </div>
+</div>
 
         </section>
 
@@ -763,7 +784,7 @@
                             quickly and securely.
                         </p>
 
-                        <a href="#" class="service-btn">
+                        <a href="pages/diamond-topup.html" class="service-btn">
                             Top Up করুন
                         </a>
 
@@ -772,7 +793,7 @@
 
                     <!-- OTHER AGENCY -->
 
-                    <div class="service-card">
+                    <div class="service-card" data-fa-category="agencies">
 
                         <div class="service-icon">
                             🌐
@@ -796,7 +817,7 @@
 
                     <!-- OTHER HOSTING -->
 
-                    <div class="service-card" data-fa-category="agencies">
+                    <div class="service-card" data-fa-category="hosting">
 
                         <div class="service-icon">
                             📱
@@ -820,7 +841,7 @@
 
                     <!-- OTHER TOP UP -->
 
-                    <div class="service-card" data-fa-category="hosting">
+                    <div class="service-card" data-fa-category="topups">
 
                         <div class="service-icon">
                             🎮
@@ -1003,5 +1024,6 @@
     </footer>
 
 <script src="admin-system.js"></script>
+<footer class="fa-agency-footer">Powered by FA-AGENCY™</footer>
 </body>
 </html>

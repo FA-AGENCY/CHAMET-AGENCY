@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chamet Diamond Top Up | FA-AGENCY™</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;background:#050816;color:#fff;line-height:1.6}
+a{text-decoration:none;color:inherit}
+.topbar{background:rgba(5,8,22,.96);border-bottom:1px solid rgba(255,255,255,.08);padding:16px 22px;position:sticky;top:0;z-index:5}
+.topbar-inner{max-width:1000px;margin:auto;display:flex;justify-content:space-between;align-items:center;gap:15px}
+.brand{font-size:21px;font-weight:800}.brand span{color:#756cff}
+.back{padding:9px 15px;border:1px solid rgba(255,255,255,.16);border-radius:9px;color:#dfe2f5}
+.page{max-width:1000px;margin:auto;padding:55px 20px 80px}
+.hero{text-align:center;margin-bottom:35px}
+.hero .icon{font-size:55px;margin-bottom:10px}
+.hero h1{font-size:40px;margin-bottom:10px}
+.hero p{color:#9ea6c0}
+.panel{background:linear-gradient(145deg,rgba(18,25,58,.98),rgba(7,11,30,.98));border:1px solid rgba(112,103,255,.35);border-radius:22px;padding:30px;box-shadow:0 25px 70px rgba(0,0,0,.35);margin-bottom:24px}
+.panel h2{font-size:23px;margin-bottom:20px}
+.rate-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.rate{padding:20px;border:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.045);border-radius:15px;text-align:center}
+.rate span{display:block;color:#b9bfd5;font-weight:700;margin-bottom:6px}.rate b{font-size:25px;color:#fff}
+.rules{padding-left:21px;color:#c9cde0}.rules li{margin:9px 0}
+.order{display:block;text-align:center;background:linear-gradient(135deg,#7067ff,#4c42e8);padding:16px;border-radius:12px;font-weight:800;font-size:17px;margin-top:25px}
+.note{text-align:center;color:#858da8;font-size:13px;margin-top:14px}
+@media(max-width:700px){.rate-grid{grid-template-columns:repeat(2,1fr)}.hero h1{font-size:31px}.panel{padding:22px}}
+@media(max-width:420px){.rate-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="topbar-inner"><div class="brand">FA-AGENCY<span>™</span></div><a class="back" href="../index.html">← Back to Home</a></div></header>
+<main class="page">
+<section class="hero">
+<div class="icon">💎</div>
+<h1>Chamet Diamond Top Up</h1>
+<p>আপনার Chamet account-এর জন্য দ্রুত ও নির্ভরযোগ্য Diamond Recharge.</p>
+</section>
+<section class="panel">
+<h2>💎 আমাদের রেট চার্ট</h2>
+<div id="rates" class="rate-grid"></div>
+</section>
+<section class="panel">
+<h2>📌 গুরুত্বপূর্ণ নিয়ম</h2>
+<ul class="rules">
+<li>সর্বনিম্ন 15K Diamonds থেকে রিচার্জ করা যাবে।</li>
+<li>ভুল User ID-তে রিচার্জ হলে কোনো Refund দেওয়া হবে না।</li>
+<li>একবার Diamond purchase সম্পন্ন হলে Refund দেওয়া হবে না।</li>
+<li>Purchased Diamonds সরাসরি ব্যাংকে Cash-out করা যায় না।</li>
+<li>অননুমোদিত বা হ্যাকড source ব্যবহার করলে account ban হতে পারে।</li>
+</ul>
+<a class="order" href="signup.html">ORDER NOW</a>
+<div class="note">ORDER NOW চাপলে প্রথমে আপনার account তৈরি করার জন্য Sign Up পেজে নিয়ে যাওয়া হবে।</div>
+</section>
+</main>
+<script>
+const KEY='fa_agency_catalog_v2';
+const defaults=[['15K','355'],['20K','470'],['25K','590'],['30K','705'],['50K','1175'],['100K','2350']];
+let rates=defaults;
+try{const d=JSON.parse(localStorage.getItem(KEY));if(d&&Array.isArray(d.diamondRates)&&d.diamondRates.length)rates=d.diamondRates}catch(e){}
+document.getElementById('rates').innerHTML=rates.map(r=>`<div class="rate"><span>💎 ${String(r[0])}</span><b>৳${String(r[1])}</b></div>`).join('');
+</script>
+<footer class="fa-agency-footer">Powered by FA-AGENCY™</footer>
+</body>
+</html>
