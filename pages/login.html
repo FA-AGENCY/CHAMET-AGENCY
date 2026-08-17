@@ -1,73 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Login — রায়হান এজেন্সি</title>
+<title>Login — RAYHAN AGENCY</title>
 <style>
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;font-family:Inter,Arial,sans-serif;color:#fff;background:
-radial-gradient(circle at 10% 0%,rgba(155,108,255,.20),transparent 32%),
-radial-gradient(circle at 90% 10%,rgba(213,140,255,.12),transparent 30%),#090713;min-height:100vh}
-a{text-decoration:none;color:inherit}
-.container{width:min(1080px,92%);margin:auto}
-.nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
-.brand{font-weight:900;letter-spacing:.3px}.back{font-size:14px;color:#d9c7ff}
-.hero{text-align:center;padding:48px 0 28px}
-.eyebrow{font-size:12px;font-weight:900;letter-spacing:2px;color:#cdaaff;text-transform:uppercase}
-h1{font-size:clamp(36px,6vw,64px);line-height:1.05;margin:14px 0}
-.lead{max-width:720px;margin:auto;color:#bdb6ca;line-height:1.8}
-.card{background:linear-gradient(145deg,rgba(25,19,47,.95),rgba(12,9,25,.95));border:1px solid rgba(196,150,255,.20);border-radius:24px;padding:26px;box-shadow:0 18px 60px rgba(0,0,0,.25)}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin:28px 0}
-.card h2{margin:0 0 10px}.card p{color:#bdb6ca;line-height:1.75}
-.cta{display:inline-flex;justify-content:center;align-items:center;border:0;border-radius:14px;padding:14px 22px;background:linear-gradient(135deg,#8e5cff,#d18cff);color:#fff;font-weight:900;cursor:pointer}
-.center{text-align:center;margin:48px 0 70px}
-.form-wrap{width:min(760px,100%);margin:25px auto 70px}
-form{display:grid;gap:16px}
-label{font-size:14px;font-weight:800;display:block;margin-bottom:7px}
-input,select,textarea{width:100%;padding:14px 15px;border-radius:13px;border:1px solid rgba(196,150,255,.22);background:#0e0b1b;color:#fff;outline:0;font:inherit}
-textarea{min-height:120px;resize:vertical}
-.row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.help{font-size:12px;color:#9891a8;margin-top:-7px}
-.footer{text-align:center;color:#8f889f;font-size:12px;padding:35px 0 45px}
-@media(max-width:700px){.grid,.row{grid-template-columns:1fr}}
-.fa-agency-footer{text-align:center;padding:30px 0 45px;color:#8f889f;font-size:12px;}
+body{margin:0;min-height:100vh;font-family:Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;background:#f4f4f4;color:#1f1f1f}
+a{text-decoration:none}
+.page{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:26px 18px}
+.auth-shell{width:min(1120px,100%);background:#fff;border-radius:16px;box-shadow:0 10px 35px rgba(0,0,0,.08);overflow:hidden;display:grid;grid-template-columns:1fr 1fr}
+.visual{margin:18px;background:linear-gradient(145deg,#4a117c 0%,#9f00d6 58%,#650c91 100%);border-radius:8px;min-height:600px;position:relative;overflow:hidden;color:#fff;display:flex;align-items:flex-start;justify-content:center;text-align:center;padding:74px 38px}
+.visual:before,.visual:after{content:"";position:absolute;border:1px solid rgba(255,255,255,.18);border-radius:50%;transform:rotate(-18deg)}
+.visual:before{width:190px;height:70px;bottom:225px;left:50%;margin-left:-95px}.visual:after{width:240px;height:95px;bottom:205px;left:50%;margin-left:-120px}
+.visual h2{font-size:34px;margin:0 0 14px;position:relative;z-index:2}.visual p{max-width:340px;line-height:1.7;margin:0 auto;position:relative;z-index:2;color:rgba(255,255,255,.88)}
+.rocket{position:absolute;z-index:3;left:50%;bottom:116px;transform:translateX(-50%);width:150px;height:205px}
+.rocket-body{position:absolute;left:37px;top:20px;width:76px;height:135px;border-radius:50% 50% 44% 44%;background:linear-gradient(180deg,#fff,#e8ddff);box-shadow:0 0 35px rgba(255,255,255,.35);transform:rotate(0deg)}
+.rocket-window{position:absolute;left:57px;top:62px;width:36px;height:36px;border-radius:50%;background:linear-gradient(145deg,#8f4bff,#2b1160);border:5px solid #fff}
+.fin{position:absolute;bottom:42px;width:45px;height:60px;background:#d7b8ff}.fin.left{left:15px;border-radius:70% 0 35% 20%;transform:skewY(22deg)}.fin.right{right:15px;border-radius:0 70% 20% 35%;transform:skewY(-22deg)}
+.flame{position:absolute;left:57px;bottom:0;width:38px;height:70px;background:linear-gradient(#fff,#f4a4ff,#ff4dce);clip-path:polygon(50% 100%,10% 55%,24% 0,50% 22%,76% 0,90% 55%)}
+.gear{position:absolute;width:52px;height:52px;border:12px dotted rgba(255,255,255,.5);border-radius:50%;left:35px;bottom:90px}.target{position:absolute;right:38px;bottom:125px;width:62px;height:62px;border-radius:50%;border:7px solid rgba(255,255,255,.7);box-shadow:inset 0 0 0 8px rgba(255,255,255,.12)}
+.form-side{padding:34px 58px 30px;display:flex;flex-direction:column;justify-content:center}.brand{font-weight:900;color:#6b16a1;font-size:15px;margin-bottom:8px}.form-side h1{font-size:34px;margin:0 0 10px}.sub{color:#7b7b7b;margin:0 0 24px;line-height:1.6}.field{margin-bottom:16px}.field label{display:block;font-size:14px;font-weight:800;margin-bottom:8px;color:#333}.field input{width:100%;height:52px;border:1px solid #ddd;border-radius:28px;padding:0 20px;font-size:15px;outline:none;background:#fff}.field input:focus{border-color:#9d2ad4;box-shadow:0 0 0 3px rgba(157,42,212,.10)}
+.row{display:flex;justify-content:space-between;align-items:center;margin:2px 0 22px;font-size:13px}.remember{display:flex;gap:8px;align-items:center;color:#777}.remember input{width:16px;height:16px}.forgot{color:#c00039;font-weight:700}.login-btn{width:100%;height:50px;border:0;border-radius:28px;background:linear-gradient(90deg,#b9003a,#c8003f);color:#fff;font-size:16px;font-weight:900;cursor:pointer}.signup-line{text-align:center;color:#777;margin-top:20px;font-size:14px}.signup-line a{color:#c00039;font-weight:900}.message{display:none;margin-bottom:16px;padding:12px 14px;border-radius:10px;font-size:13px;background:#fff4f7;color:#b00035}.footer{text-align:center;padding:18px;color:#888;font-size:12px}
+@media(max-width:800px){.auth-shell{grid-template-columns:1fr}.visual{display:none}.form-side{padding:36px 24px}.page{padding:15px}}
 </style>
 </head>
 <body>
-<div class="container">
-  <nav class="nav">
-    <div class="brand">রায়হান এজেন্সি</div>
-    <a class="back" href="../index.html">← Back to Home</a>
-  </nav>
-  
-<section class="hero">
-  <div class="eyebrow">Welcome Back</div>
-  <h1>Login</h1>
-  <p class="lead">আপনার অ্যাকাউন্টে প্রবেশ করুন।</p>
-</section>
-<div class="form-wrap">
-  <div class="card">
-    <form action="host-register.html" method="get">
+<div class="page">
+  <main class="auth-shell">
+    <section class="visual">
       <div>
-        <label for="loginId">Email / Mobile Number</label>
-        <input id="loginId" name="loginId" type="text" autocomplete="username" required>
+        <h2>Welcome Back!</h2>
+        <p>RAYHAN AGENCYতে আপনাকে স্বাগতম। আপনার অ্যাকাউন্টে Login করে Agency, Host ও Top Up সিস্টেম ব্যবহার করুন।</p>
       </div>
-      <div>
-        <label for="loginPassword">Password</label>
-        <input id="loginPassword" name="password" type="password" autocomplete="current-password" required>
-      </div>
-      <div style="text-align:right">
-        <a href="#" style="color:#d9bfff;font-size:13px">Forgot Password?</a>
-      </div>
-      <button class="cta" type="submit">LOGIN</button>
-    </form>
-  </div>
+      <div class="rocket"><div class="rocket-body"></div><div class="rocket-window"></div><div class="fin left"></div><div class="fin right"></div><div class="flame"></div></div>
+      <div class="gear"></div><div class="target"></div>
+    </section>
+    <section class="form-side">
+      <div class="brand">RAYHAN AGENCY</div>
+      <h1>Welcome Back, RAYHAN AGENCY</h1>
+      <p class="sub">আপনার অ্যাকাউন্টে প্রবেশ করতে নিচের তথ্য দিন।</p>
+      <div id="message" class="message"></div>
+      <form id="loginForm">
+        <div class="field"><label for="loginId">Username / Email / Mobile</label><input id="loginId" type="text" autocomplete="username" placeholder="Enter Username, Email or Mobile" required></div>
+        <div class="field"><label for="loginPassword">Password</label><input id="loginPassword" type="password" autocomplete="current-password" placeholder="Enter Password" required></div>
+        <div class="row"><label class="remember"><input id="remember" type="checkbox"> Remember Me</label><a class="forgot" href="forgot-password.html">Forgot Password?</a></div>
+        <button class="login-btn" type="submit">Login</button>
+      </form>
+      <div class="signup-line">Not a member yet? <a href="signup.html">Register now</a></div>
+    </section>
+  </main>
 </div>
+<footer class="footer">Powered by FA-AGENCY™</footer>
+<script>
+const params=new URLSearchParams(location.search);
+const message=document.getElementById('message');
+if(params.get('created')==='1'){message.textContent='Account তৈরি হয়েছে। এখন আপনার Email/Mobile এবং Password দিয়ে Login করুন।';message.style.display='block';}
+if(params.get('reset')==='1'){message.textContent='Password পরিবর্তন হয়েছে। নতুন Password দিয়ে Login করুন।';message.style.display='block';}
 
-  
-</div>
-<footer class="fa-agency-footer">Powered by FA-AGENCY™</footer>
+document.getElementById('loginForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  const id=document.getElementById('loginId').value.trim().toLowerCase();
+  const password=document.getElementById('loginPassword').value;
+  const account=JSON.parse(localStorage.getItem('raihanAgencyAccount')||'null');
+  if(!account){message.textContent='কোনো Account পাওয়া যায়নি। প্রথমে Register now থেকে Account তৈরি করুন।';message.style.display='block';return;}
+  const ok=(id===String(account.email||'').toLowerCase() || id===String(account.mobile||'').toLowerCase() || id===String(account.username||'').toLowerCase()) && password===account.password;
+  if(!ok){message.textContent='Username/Email/Mobile অথবা Password সঠিক নয়।';message.style.display='block';return;}
+  sessionStorage.setItem('raihanAgencyLoggedIn','1');
+  location.href='dashboard.html';
+});
+</script>
 </body>
 </html>
