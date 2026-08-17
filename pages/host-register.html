@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Host Registration — রায়হান এজেন্সি</title>
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,Arial,sans-serif;color:#fff;background:
+radial-gradient(circle at 10% 0%,rgba(155,108,255,.20),transparent 32%),
+radial-gradient(circle at 90% 10%,rgba(213,140,255,.12),transparent 30%),#090713;min-height:100vh}
+a{text-decoration:none;color:inherit}
+.container{width:min(1080px,92%);margin:auto}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
+.brand{font-weight:900;letter-spacing:.3px}.back{font-size:14px;color:#d9c7ff}
+.hero{text-align:center;padding:48px 0 28px}
+.eyebrow{font-size:12px;font-weight:900;letter-spacing:2px;color:#cdaaff;text-transform:uppercase}
+h1{font-size:clamp(36px,6vw,64px);line-height:1.05;margin:14px 0}
+.lead{max-width:720px;margin:auto;color:#bdb6ca;line-height:1.8}
+.card{background:linear-gradient(145deg,rgba(25,19,47,.95),rgba(12,9,25,.95));border:1px solid rgba(196,150,255,.20);border-radius:24px;padding:26px;box-shadow:0 18px 60px rgba(0,0,0,.25)}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin:28px 0}
+.card h2{margin:0 0 10px}.card p{color:#bdb6ca;line-height:1.75}
+.cta{display:inline-flex;justify-content:center;align-items:center;border:0;border-radius:14px;padding:14px 22px;background:linear-gradient(135deg,#8e5cff,#d18cff);color:#fff;font-weight:900;cursor:pointer}
+.center{text-align:center;margin:48px 0 70px}
+.form-wrap{width:min(760px,100%);margin:25px auto 70px}
+form{display:grid;gap:16px}
+label{font-size:14px;font-weight:800;display:block;margin-bottom:7px}
+input,select,textarea{width:100%;padding:14px 15px;border-radius:13px;border:1px solid rgba(196,150,255,.22);background:#0e0b1b;color:#fff;outline:0;font:inherit}
+textarea{min-height:120px;resize:vertical}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.help{font-size:12px;color:#9891a8;margin-top:-7px}
+.footer{text-align:center;color:#8f889f;font-size:12px;padding:35px 0 45px}
+@media(max-width:700px){.grid,.row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="container">
+  <nav class="nav">
+    <div class="brand">রায়হান এজেন্সি</div>
+    <a class="back" href="../index.html">← Back to Home</a>
+  </nav>
+  
+<section class="hero">
+  <div class="eyebrow">Chamet Host Registration</div>
+  <h1>Host Registration</h1>
+  <p class="lead">আপনার বিস্তারিত তথ্য সঠিকভাবে হাতে পূরণ করুন।</p>
+</section>
+<div class="form-wrap">
+  <div class="card">
+    <form action="host-success.html" method="get">
+      <div class="row">
+        <div><label for="name">পূর্ণ নাম</label><input id="name" name="name" required></div>
+        <div><label for="dob">জন্ম তারিখ</label><input id="dob" name="dob" type="date" required></div>
+      </div>
+      <div class="row">
+        <div><label for="age">বয়স</label><input id="age" name="age" type="number" min="1" required></div>
+        <div><label for="email">ইমেইল</label><input id="email" name="email" type="email" required></div>
+      </div>
+      <div class="row">
+        <div>
+          <label for="whatsapp">WhatsApp Number</label>
+          <input id="whatsapp" name="whatsapp" type="tel" required>
+          <div class="help">এই নম্বরে WhatsApp চালু থাকতে হবে।</div>
+        </div>
+        <div>
+          <label for="imo">IMO Number</label>
+          <input id="imo" name="imo" type="tel" required>
+          <div class="help">এই নম্বরে IMO চালু থাকতে হবে।</div>
+        </div>
+      </div>
+      <div class="row">
+        <div><label for="division">বিভাগ</label><input id="division" name="division" required></div>
+        <div><label for="district">জেলা</label><input id="district" name="district" required></div>
+      </div>
+      <div>
+        <label for="upazila">উপজেলা / থানা</label>
+        <input id="upazila" name="upazila" required>
+      </div>
+      <div>
+        <label for="address">সম্পূর্ণ ঠিকানা</label>
+        <textarea id="address" name="address" required></textarea>
+      </div>
+      <div>
+        <label for="extra">অতিরিক্ত তথ্য</label>
+        <textarea id="extra" name="extra" placeholder="প্রয়োজনীয় অন্য কোনো তথ্য"></textarea>
+      </div>
+      <button class="cta" type="submit">SUBMIT HOST REGISTRATION</button>
+    </form>
+  </div>
+</div>
+
+  <footer class="footer">Powered by FA-AGENCY™</footer>
+</div>
+</body>
+</html>
