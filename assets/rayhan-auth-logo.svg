@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 430" role="img" aria-labelledby="title desc">
+<title id="title">RAYHAN AGENCY</title>
+<desc id="desc">Gold crown, RA emblem, RAYHAN AGENCY and Your Dream, Our Support</desc>
+<defs>
+  <radialGradient id="bg" cx="50%" cy="45%" r="62%"><stop offset="0" stop-color="#152451"/><stop offset=".72" stop-color="#08112f"/><stop offset="1" stop-color="#04091e"/></radialGradient>
+  <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff7bd"/><stop offset=".22" stop-color="#ffd84d"/><stop offset=".55" stop-color="#f4ad20"/><stop offset=".78" stop-color="#fff0a0"/><stop offset="1" stop-color="#c98013"/></linearGradient>
+  <linearGradient id="pink" x1="0" x2="1"><stop stop-color="#a63cff"/><stop offset=".5" stop-color="#ff4bd4"/><stop offset="1" stop-color="#7a53ff"/></linearGradient>
+  <filter id="soft"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <filter id="goldGlow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<!-- subtle star field -->
+<g opacity=".95">
+ <path d="M32 128h26M45 115v26" stroke="#ffd447" stroke-width="3" stroke-linecap="round" filter="url(#soft)"/>
+ <path d="M310 125h25M322.5 112v26" stroke="#ffd447" stroke-width="3" stroke-linecap="round" filter="url(#soft)"/>
+ <path d="M73 48h14M80 41v14" stroke="#a85cff" stroke-width="2.5" stroke-linecap="round"/>
+ <path d="M278 54h14M285 47v14" stroke="#7c78ff" stroke-width="2.5" stroke-linecap="round"/>
+ <path d="M112 355h14M119 348v14" stroke="#ef4bd2" stroke-width="2" stroke-linecap="round"/>
+ <path d="M246 354h14M253 347v14" stroke="#8b63ff" stroke-width="2" stroke-linecap="round"/>
+</g>
+<!-- crown -->
+<g filter="url(#goldGlow)">
+ <path d="M112 73 L94 36 L128 53 L180 19 L232 53 L266 36 L248 73 Z" fill="url(#gold)" stroke="#fff0a0" stroke-width="2"/>
+ <path d="M112 73 H248 L238 93 H122 Z" fill="#e9a820" stroke="#ffe47b" stroke-width="2"/>
+ <circle cx="94" cy="36" r="6" fill="#fff3a0"/><circle cx="180" cy="19" r="7" fill="#fff8bf"/><circle cx="266" cy="36" r="6" fill="#fff3a0"/>
+</g>
+<!-- emblem -->
+<circle cx="180" cy="174" r="93" fill="url(#bg)" stroke="url(#gold)" stroke-width="8" filter="url(#goldGlow)"/>
+<circle cx="180" cy="174" r="83" fill="none" stroke="url(#pink)" stroke-width="2.5" opacity=".95"/>
+<circle cx="180" cy="174" r="72" fill="none" stroke="#e4b62f" stroke-width="1.5" opacity=".55"/>
+<!-- RA -->
+<text x="180" y="202" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="91" font-weight="900" letter-spacing="-7" fill="url(#gold)" stroke="#fff1a0" stroke-width="1">RA</text>
+<!-- divider -->
+<path d="M87 276 Q180 292 273 276" fill="none" stroke="url(#pink)" stroke-width="2" opacity=".9"/>
+<!-- brand text exactly as visual reference -->
+<text x="180" y="306" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="43" font-weight="900" letter-spacing="1.2" fill="url(#gold)">RAYHAN</text>
+<text x="180" y="342" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="900" letter-spacing="8" fill="#ffffff">AGENCY</text>
+<text x="180" y="370" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-style="italic" letter-spacing="1.3" fill="#aeb8df">Your Dream, Our Support</text>
+<!-- small pink sparkles -->
+<g fill="#f04bd2"><circle cx="70" cy="389" r="2"/><circle cx="290" cy="389" r="2"/></g>
+</svg>

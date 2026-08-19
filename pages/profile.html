@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile — RAYHAN AGENCY</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Inter,system-ui,sans-serif;background:#080b1c;color:#fff;min-height:100vh;padding:16px}
+    a{text-decoration:none;color:inherit}
+    .wrap{max-width:400px;margin:0 auto}
+    .card{background:linear-gradient(165deg,#12183a,#0c1028);border:1px solid rgba(255,255,255,.08);border-radius:24px;padding:22px;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+    .head{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+    .av{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#3b82f6,#ec4899);display:grid;place-items:center;font-weight:800;font-size:18px}
+    .head .n{font-weight:800;font-size:16px}
+    .head .m{font-size:12px;color:#9aa3c7}
+    .box{background:#fff;color:#1e1b2e;border-radius:16px;padding:16px}
+    .box h3{font-size:14px;font-weight:800;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center}
+    .box h3 .acts{display:flex;gap:6px}
+    .box h3 .acts button{padding:5px 10px;border-radius:8px;border:0;font-size:11px;font-weight:700;cursor:pointer}
+    .btn-p{background:#3b82f6;color:#fff}
+    .btn-r{background:#fee2e2;color:#dc2626}
+    .row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #f3f4f6}
+    .row:last-child{border-bottom:0}
+    .row .l{font-size:12px;color:#6b7280}
+    .row .v{font-size:13px;font-weight:700}
+    .row button{padding:5px 12px;background:#eff6ff;border:1px solid #bfdbfe;border-radius:8px;color:#2563eb;font-size:11px;font-weight:700;cursor:pointer}
+    .sec{margin-top:14px;padding-top:12px;border-top:1px solid #f3f4f6}
+    .sec h4{font-size:13px;font-weight:800;margin-bottom:8px}
+    .logout{display:block;width:100%;margin-top:16px;padding:12px;border:1px solid rgba(239,68,68,.3);background:rgba(239,68,68,.1);border-radius:12px;color:#fca5a5;font-weight:700;font-size:13px;cursor:pointer;text-align:center}
+    .footer{text-align:center;padding:14px;font-size:11px;color:#5a6380}
+    .back{display:inline-block;margin-bottom:12px;font-size:13px;color:#a78bfa;font-weight:600}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="back" href="dashboard.html">← Back to Dashboard</a>
+    <div class="card">
+      <div class="head">
+        <div class="av" id="av">R</div>
+        <div>
+          <div class="n" id="name">Rayhan</div>
+          <div class="m" id="meta">+88017•••••41 · rayhan@gmail.com</div>
+        </div>
+      </div>
+      <div class="box">
+        <h3>
+          Account Settings
+          <span class="acts">
+            <button class="btn-p">Change Photo</button>
+            <button class="btn-r">Remove</button>
+          </span>
+        </h3>
+        <div class="row">
+          <div><div class="l">Full Name</div><div class="v" id="fn">Rayhan</div></div>
+        </div>
+        <div class="row">
+          <div><div class="l">Mobile Number</div><div class="v" id="mob">+8801741564341</div></div>
+          <button>Change</button>
+        </div>
+        <div class="row">
+          <div><div class="l">Email Address</div><div class="v" id="em">rayhan@gmail.com</div></div>
+          <button>Change</button>
+        </div>
+        <div class="sec">
+          <h4>Security</h4>
+          <div class="row">
+            <div class="v">Change Password</div>
+            <button>Change</button>
+          </div>
+        </div>
+      </div>
+      <button class="logout" id="logout">Logout from all devices</button>
+      <div class="footer">Powered by FA-AGENCY™</div>
+    </div>
+  </div>
+  <script>
+    const a=JSON.parse(localStorage.getItem('raihanAgencyAccount')||'null');
+    if(sessionStorage.getItem('raihanAgencyLoggedIn')!=='1'||!a){location.href='auth.html?mode=login'}
+    else{
+      const name=a.fullName||a.name||'Rayhan';
+      document.getElementById('name').textContent=name;
+      document.getElementById('fn').textContent=name;
+      document.getElementById('av').textContent=name.charAt(0).toUpperCase();
+      document.getElementById('mob').textContent=a.mobile||'';
+      document.getElementById('em').textContent=a.email||'';
+      document.getElementById('meta').textContent=(a.mobile||'')+' · '+(a.email||'');
+    }
+    document.getElementById('logout').onclick=()=>{
+      sessionStorage.removeItem('raihanAgencyLoggedIn');
+      localStorage.removeItem('raihanAgencyAccount');
+      localStorage.removeItem('rayhanLoggedInUser');
+      location.href='auth.html?mode=login';
+    };
+  </script>
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Control Panel — RAYHAN AGENCY</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Inter,system-ui,sans-serif;background:#07091f;color:#fff;min-height:100vh}
+    .top{position:sticky;top:0;z-index:20;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 3%;border-bottom:1px solid rgba(255,255,255,.08);background:#07091fe8;backdrop-filter:blur(12px)}
+    .top h1{font-size:16px;font-weight:800}
+    .top a{color:#c4b5fd;font-size:13px;text-decoration:none;font-weight:600}
+    .wrap{width:min(960px,94%);margin:24px auto 60px}
+    .tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px}
+    .tab{padding:10px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);font-size:12px;font-weight:700;cursor:pointer;color:#aeb7dc}
+    .tab.active{background:linear-gradient(90deg,#6e42ff,#e33cf0);color:#fff;border:0}
+    .panel{display:none;background:#101638;border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:20px}
+    .panel.active{display:block}
+    .panel h2{font-size:15px;margin-bottom:14px;color:#c4b5fd}
+    label{display:block;font-size:12px;font-weight:600;color:#aeb7dc;margin:10px 0 4px}
+    input,select,textarea{width:100%;padding:11px 12px;border-radius:10px;border:1px solid rgba(255,255,255,.12);background:#0a0e28;color:#fff;font-size:13px}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .btn{padding:12px 18px;border:0;border-radius:12px;background:linear-gradient(90deg,#6e42ff,#e33cf0);color:#fff;font-weight:800;cursor:pointer;font-size:13px;margin-top:14px}
+    .btn-sec{background:rgba(255,255,255,.08);margin-left:8px}
+    .btn-danger{background:#ff3e6d}
+    table{width:100%;border-collapse:collapse;font-size:12px;margin-top:8px}
+    th,td{padding:8px 6px;border-bottom:1px solid rgba(255,255,255,.08);text-align:left}
+    th{color:#aeb7dc;font-weight:600}
+    td input,td select{padding:7px 8px;font-size:12px}
+    .msg{padding:12px;border-radius:12px;background:rgba(16,185,129,.15);color:#34d399;font-size:13px;margin-bottom:12px;display:none}
+    .hint{font-size:11px;color:#7b849f;margin-top:6px}
+    @media(max-width:700px){.row{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="top">
+    <h1>⚙️ Admin Control Panel</h1>
+    <div>
+      <a href="admin.html">← Admin Home</a>
+      &nbsp;·&nbsp;
+      <a href="dashboard.html">User Dashboard</a>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="msg" id="msg">✅ Settings saved successfully!</div>
+    <div class="tabs">
+      <div class="tab active" data-t="payment">💳 Payment</div>
+      <div class="tab" data-t="contact">📞 Contact</div>
+      <div class="tab" data-t="ai">🤖 AI Packages</div>
+      <div class="tab" data-t="diamond">💎 Diamond Packages</div>
+      <div class="tab" data-t="providers">📱 Diamond Apps</div>
+    </div>
+
+    <div class="panel active" id="p-payment">
+      <h2>Payment Numbers</h2>
+      <div class="row">
+        <div><label>bKash Number</label><input id="bkash" placeholder="01741564341"></div>
+        <div><label>Nagad Number</label><input id="nagad" placeholder="01741564341"></div>
+      </div>
+      <div class="row">
+        <div><label>Rocket Number</label><input id="rocket" placeholder="01741564341"></div>
+        <div><label>Binance ID (খালি = Coming Soon)</label><input id="binance" placeholder="Leave empty for Coming Soon"></div>
+      </div>
+      <p class="hint">সব নম্বর user-facing Diamond Top Up পেজে দেখাবে।</p>
+      <button class="btn" onclick="saveAll()">💾 Save Payment</button>
+    </div>
+
+    <div class="panel" id="p-contact">
+      <h2>Contact / WhatsApp</h2>
+      <label>WhatsApp Number</label>
+      <input id="wa" placeholder="01741564341">
+      <label>Support Note</label>
+      <input id="supportNote" placeholder="Registration করতে সমস্যা হলে...">
+      <button class="btn" onclick="saveAll()">💾 Save Contact</button>
+    </div>
+
+    <div class="panel" id="p-ai">
+      <h2>AI / Premium Package Rates (৳)</h2>
+      <p class="hint">নাম ও দাম পরিবর্তন করুন। Status = Hidden করলে user দেখবে না।</p>
+      <table>
+        <thead><tr><th>Package Name</th><th>Price ৳</th><th>Status</th></tr></thead>
+        <tbody id="pkgBody"></tbody>
+      </table>
+      <button class="btn btn-sec" type="button" onclick="addPkg()">+ Add Package</button>
+      <button class="btn" onclick="saveAll()">💾 Save AI Packages</button>
+    </div>
+
+    <div class="panel" id="p-diamond">
+      <h2>Chamet Diamond Packages</h2>
+      <table>
+        <thead><tr><th>Diamonds</th><th>Price ৳</th></tr></thead>
+        <tbody id="diaBody"></tbody>
+      </table>
+      <button class="btn btn-sec" type="button" onclick="addDia()">+ Add</button>
+      <button class="btn" onclick="saveAll()">💾 Save Diamond Packages</button>
+    </div>
+
+    <div class="panel" id="p-providers">
+      <h2>Diamond Top-Up Apps (Order & Status)</h2>
+      <table>
+        <thead><tr><th>Name</th><th>Status</th></tr></thead>
+        <tbody id="provBody"></tbody>
+      </table>
+      <button class="btn" onclick="saveAll()">💾 Save Providers</button>
+    </div>
+
+    <button class="btn btn-danger" onclick="resetAll()" style="margin-top:20px">Reset All to Defaults</button>
+  </div>
+
+  <script src="../assets/config.js"></script>
+  <script>
+    document.querySelectorAll('.tab').forEach(function(t){
+      t.onclick=function(){
+        document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+        document.querySelectorAll('.panel').forEach(x=>x.classList.remove('active'));
+        t.classList.add('active');
+        document.getElementById('p-'+t.dataset.t).classList.add('active');
+      };
+    });
+
+    var CFG = JSON.parse(JSON.stringify(window.RA_CONFIG || window.RA_DEFAULTS || {}));
+    document.getElementById('wa').value = (CFG.contact && CFG.contact.whatsapp) || '';
+    document.getElementById('supportNote').value = (CFG.contact && CFG.contact.supportNote) || '';
+    document.getElementById('bkash').value = (CFG.payment && CFG.payment.bkash && CFG.payment.bkash.number) || '';
+    document.getElementById('nagad').value = (CFG.payment && CFG.payment.nagad && CFG.payment.nagad.number) || '';
+    document.getElementById('rocket').value = (CFG.payment && CFG.payment.rocket && CFG.payment.rocket.number) || '';
+    document.getElementById('binance').value = (CFG.payment && CFG.payment.binance && CFG.payment.binance.id) || '';
+
+    function renderPkgs(){
+      var body=document.getElementById('pkgBody'); body.innerHTML='';
+      (CFG.aiPackages||[]).forEach(function(p,i){
+        var tr=document.createElement('tr');
+        tr.innerHTML='<td><input data-i="'+i+'" data-f="name" value="'+(p.name||'')+'"></td>'+
+          '<td><input data-i="'+i+'" data-f="price" type="number" value="'+(p.price||0)+'" style="width:100px"></td>'+
+          '<td><select data-i="'+i+'" data-f="status"><option value="active"'+(p.status==='active'?' selected':'')+'>Active</option><option value="hidden"'+(p.status==='hidden'?' selected':'')+'>Hidden</option></select></td>';
+        body.appendChild(tr);
+      });
+    }
+    function renderDia(){
+      var body=document.getElementById('diaBody'); body.innerHTML='';
+      (CFG.diamondPackages||[]).forEach(function(p,i){
+        var tr=document.createElement('tr');
+        tr.innerHTML='<td><input data-d="'+i+'" data-f="diamonds" type="number" value="'+(p.diamonds||0)+'"></td>'+
+          '<td><input data-d="'+i+'" data-f="price" type="number" value="'+(p.price||0)+'" style="width:100px"></td>';
+        body.appendChild(tr);
+      });
+    }
+    function renderProv(){
+      var body=document.getElementById('provBody'); body.innerHTML='';
+      (CFG.diamondProviders||[]).forEach(function(p,i){
+        var tr=document.createElement('tr');
+        tr.innerHTML='<td><input data-p="'+i+'" data-f="name" value="'+(p.name||'')+'"></td>'+
+          '<td><select data-p="'+i+'" data-f="status"><option value="active"'+(p.status==='active'?' selected':'')+'>Active</option><option value="coming_soon"'+(p.status==='coming_soon'?' selected':'')+'>Coming Soon</option></select></td>';
+        body.appendChild(tr);
+      });
+    }
+    renderPkgs(); renderDia(); renderProv();
+
+    function addPkg(){ CFG.aiPackages=CFG.aiPackages||[]; CFG.aiPackages.push({id:'new-'+Date.now(),name:'New Package',category:'Premium',price:0,logo:'',status:'active'}); renderPkgs(); }
+    function addDia(){ CFG.diamondPackages=CFG.diamondPackages||[]; CFG.diamondPackages.push({diamonds:0,price:0}); renderDia(); }
+
+    function collect(){
+      document.querySelectorAll('#pkgBody [data-i]').forEach(function(inp){
+        var i=+inp.getAttribute('data-i'), f=inp.getAttribute('data-f');
+        if(CFG.aiPackages[i]) CFG.aiPackages[i][f]=f==='price'?+inp.value:inp.value;
+      });
+      document.querySelectorAll('#diaBody [data-d]').forEach(function(inp){
+        var i=+inp.getAttribute('data-d'), f=inp.getAttribute('data-f');
+        if(CFG.diamondPackages[i]) CFG.diamondPackages[i][f]=+inp.value;
+      });
+      document.querySelectorAll('#provBody [data-p]').forEach(function(inp){
+        var i=+inp.getAttribute('data-p'), f=inp.getAttribute('data-f');
+        if(CFG.diamondProviders[i]) CFG.diamondProviders[i][f]=inp.value;
+      });
+    }
+    function saveAll(){
+      collect();
+      var ov={
+        contact:{whatsapp:document.getElementById('wa').value.trim(), supportNote:document.getElementById('supportNote').value.trim()},
+        payment:{
+          bkash:{number:document.getElementById('bkash').value.trim()},
+          nagad:{number:document.getElementById('nagad').value.trim()},
+          rocket:{number:document.getElementById('rocket').value.trim()},
+          binance:{id:document.getElementById('binance').value.trim(), comingSoon:!document.getElementById('binance').value.trim()}
+        },
+        aiPackages:CFG.aiPackages,
+        diamondPackages:CFG.diamondPackages,
+        diamondProviders:CFG.diamondProviders
+      };
+      localStorage.setItem('ra_admin_settings', JSON.stringify(ov));
+      var m=document.getElementById('msg'); m.style.display='block';
+      setTimeout(function(){m.style.display='none'},2500);
+    }
+    function resetAll(){
+      if(!confirm('সব settings default-এ ফিরে যাবে?'))return;
+      localStorage.removeItem('ra_admin_settings');
+      location.reload();
+    }
+  </script>
+</body>
+</html>

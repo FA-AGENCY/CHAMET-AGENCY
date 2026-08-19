@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RAYHAN AGENCY — Login</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:Inter,system-ui,sans-serif;
+      min-height:100vh;
+      display:flex;align-items:center;justify-content:center;
+      background:
+        radial-gradient(ellipse at 50% 0%,rgba(120,40,200,.45),transparent 55%),
+        radial-gradient(ellipse at 20% 80%,rgba(80,20,160,.3),transparent 50%),
+        #0a0618;
+      padding:20px;
+      color:#fff;
+    }
+    .card{
+      width:100%;max-width:400px;
+      background:linear-gradient(165deg,rgba(20,12,48,.95),rgba(12,8,32,.98));
+      border:1px solid rgba(160,100,255,.25);
+      border-radius:28px;
+      padding:36px 28px 24px;
+      box-shadow:0 30px 80px rgba(0,0,0,.5),0 0 50px rgba(120,50,220,.15);
+      text-align:center;
+    }
+    .logo{width:180px;margin:0 auto 18px;filter:drop-shadow(0 0 24px rgba(251,191,36,.4))}
+    .card h1{font-size:26px;font-weight:800;margin-bottom:4px}
+    .card .sub{font-size:13px;color:#a89bc8;margin-bottom:24px}
+    .field{text-align:left;margin-bottom:14px;position:relative}
+    .field input{
+      width:100%;height:50px;padding:0 16px 0 44px;
+      border-radius:14px;border:1px solid rgba(255,255,255,.12);
+      background:rgba(8,6,24,.8);color:#fff;font-size:14px;outline:none;
+      transition:border-color .2s,box-shadow .2s;
+    }
+    .field input:focus{border-color:rgba(139,92,246,.6);box-shadow:0 0 0 3px rgba(139,92,246,.15)}
+    .field input::placeholder{color:#6b6280}
+    .field .ico{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-size:16px;opacity:.7}
+    .field .eye{position:absolute;right:14px;top:50%;transform:translateY(-50%);cursor:pointer;opacity:.6;font-size:14px}
+    .opts{display:flex;justify-content:space-between;align-items:center;margin:6px 0 20px;font-size:12px}
+    .opts label{display:flex;align-items:center;gap:6px;color:#a89bc8;cursor:pointer}
+    .opts input{accent-color:#8b5cf6}
+    .opts a{color:#a78bfa;font-weight:600}
+    .btn-main{
+      width:100%;height:52px;border:0;border-radius:14px;
+      background:linear-gradient(90deg,#3b82f6,#8b5cf6,#ec4899);
+      color:#fff;font-size:15px;font-weight:800;cursor:pointer;
+      box-shadow:0 10px 30px rgba(139,92,246,.4);
+      transition:transform .2s,box-shadow .2s;
+    }
+    .btn-main:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(139,92,246,.5)}
+    .switch{margin-top:20px;font-size:13px;color:#a89bc8}
+    .switch button{background:none;border:0;color:#c4b5fd;font-weight:700;cursor:pointer;font-size:13px}
+    .footer{margin-top:24px;padding-top:16px;border-top:1px solid rgba(255,255,255,.06);font-size:11px;color:#6b6280}
+    .hidden{display:none!important}
+    .section-title{font-size:26px;font-weight:800;margin-bottom:4px}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <img class="logo" src="../assets/logo-ra.png" alt="RAYHAN AGENCY" onerror="this.src='../assets/rayhan-auth-logo.svg'">
+
+    <!-- LOGIN -->
+    <div id="loginSection">
+      <h1 class="section-title">Welcome Back!</h1>
+      <p class="sub">Login to your account</p>
+      <form id="loginForm">
+        <div class="field">
+          <span class="ico">👤</span>
+          <input type="text" id="loginIdentifier" placeholder="Email or Phone Number" required autocomplete="username">
+        </div>
+        <div class="field">
+          <span class="ico">🔒</span>
+          <input type="password" id="loginPassword" placeholder="Password" required autocomplete="current-password">
+          <span class="eye" onclick="togglePw('loginPassword',this)">👁</span>
+        </div>
+        <div class="opts">
+          <label><input type="checkbox" id="rememberMe"> Remember me</label>
+          <a href="#" onclick="showForgotPassword();return false">Forgot Password?</a>
+        </div>
+        <button type="submit" class="btn-main">Login</button>
+      </form>
+      <div class="switch">Don't have an account? <button type="button" onclick="showRegister()">Register</button></div>
+    </div>
+
+    <!-- REGISTER -->
+    <div id="registerSection" class="hidden">
+      <h1 class="section-title">Welcome!</h1>
+      <p class="sub">Create your account</p>
+      <form id="registerForm">
+        <div class="field"><span class="ico">👤</span><input type="text" id="registerName" placeholder="Full Name" required></div>
+        <div class="field"><span class="ico">📱</span><input type="tel" id="registerMobile" placeholder="Mobile Number" required></div>
+        <div class="field"><span class="ico">✉️</span><input type="email" id="registerEmail" placeholder="Email Address" required></div>
+        <div class="field"><span class="ico">🔒</span><input type="password" id="registerPassword" placeholder="Password" required minlength="6"></div>
+        <div class="field"><span class="ico">🔒</span><input type="password" id="registerConfirmPassword" placeholder="Confirm Password" required minlength="6"></div>
+        <button type="submit" class="btn-main">Register</button>
+      </form>
+      <div class="switch">Already have an account? <button type="button" onclick="showLogin()">Login</button></div>
+    </div>
+
+    <!-- FORGOT -->
+    <div id="forgotSection" class="hidden">
+      <h1 class="section-title">Forgot Password?</h1>
+      <p class="sub">Reset your account password</p>
+      <form id="forgotForm">
+        <div class="field"><span class="ico">👤</span><input type="text" id="forgotIdentifier" placeholder="Email or Mobile Number" required></div>
+        <div class="field"><span class="ico">🔒</span><input type="password" id="newPassword" placeholder="New Password" required minlength="6"></div>
+        <div class="field"><span class="ico">🔒</span><input type="password" id="confirmNewPassword" placeholder="Confirm New Password" required minlength="6"></div>
+        <button type="submit" class="btn-main">RESET PASSWORD</button>
+      </form>
+      <div class="switch"><button type="button" onclick="showLogin()">← Back to Login</button></div>
+    </div>
+
+    <div class="footer">Powered by FA-AGENCY™</div>
+  </div>
+  <script>
+    function togglePw(id,el){const i=document.getElementById(id);i.type=i.type==='password'?'text':'password'}
+  
+function raValidEmail(v){return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(v);}
+function raValidPhone(v){var d=String(v).replace(/\D/g,'');return d.length>=10 && d.length<=15 && !/^(0123456789|1234567890|1111111111|0000000000)$/.test(d);}
+</script>
+  <script src="../script.js"></script>
+</body>
+</html>

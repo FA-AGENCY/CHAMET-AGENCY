@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premium AI Tools — RAYHAN AGENCY</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Inter,system-ui,sans-serif;background:#080b1c;color:#fff;min-height:100vh;padding:16px}
+    a{text-decoration:none;color:inherit}
+    .wrap{max-width:520px;margin:0 auto}
+    .back{display:inline-block;margin-bottom:14px;font-size:13px;color:#a78bfa;font-weight:600}
+    .head{text-align:center;margin-bottom:18px}
+    .head img{width:120px;margin:0 auto 10px;border-radius:16px;filter:drop-shadow(0 8px 24px rgba(168,85,247,.4))}
+    .head h1{font-size:18px;font-weight:800}
+    .head p{font-size:12px;color:#9aa3c7;margin-top:4px}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .app{background:linear-gradient(165deg,#12183a,#0c1028);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:18px 12px;text-align:center;cursor:pointer;transition:.2s;position:relative}
+    .app:hover{border-color:rgba(139,92,246,.5);transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,.3)}
+    .app img{width:48px;height:48px;object-fit:contain;margin:0 auto 10px;border-radius:12px}
+    .app .n{font-size:13px;font-weight:800}
+    .app .s{font-size:10px;color:#9aa3c7;margin-top:3px}
+    .app .crown{position:absolute;top:8px;right:10px;font-size:12px}
+    .apk-row{grid-column:1/-1;display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:16px;background:linear-gradient(90deg,#0f172a,#1e1b4b);border:1px solid rgba(34,197,94,.25);cursor:pointer;text-align:left}
+    .apk-row:hover{border-color:rgba(34,197,94,.5)}
+    .apk-row img{width:52px;height:52px;object-fit:contain}
+    .apk-row .t{font-size:15px;font-weight:800}
+    .apk-row .d{font-size:11px;color:#9aa3c7}
+    .apk-row .arrow{margin-left:auto;color:#34d399;font-size:18px}
+    .howto{margin-top:22px;padding:16px;border-radius:16px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08)}
+    .howto h3{font-size:13px;margin-bottom:12px;color:#c4b5fd}
+    .howto .step{display:flex;gap:10px;align-items:flex-start;margin-bottom:10px;font-size:12px;color:#a5b4d4}
+    .howto .num{width:22px;height:22px;border-radius:8px;background:linear-gradient(135deg,#3b82f6,#8b5cf6);display:grid;place-items:center;font-weight:800;font-size:11px;flex-shrink:0}
+    .footer{text-align:center;padding:20px;font-size:11px;color:#5a6380}
+    .view{display:none}
+    .view.active{display:block}
+    .pkg-list{display:grid;gap:10px}
+    .pkg{display:flex;align-items:center;gap:12px;padding:14px;border-radius:14px;background:linear-gradient(165deg,#12183a,#0c1028);border:1px solid rgba(255,255,255,.1);cursor:pointer}
+    .pkg:hover{border-color:rgba(96,165,250,.4)}
+    .pkg img{width:40px;height:40px;object-fit:contain;border-radius:10px}
+    .pkg .n{font-size:14px;font-weight:800}
+    .pkg .c{font-size:11px;color:#a78bfa}
+    .pkg .price{margin-left:auto;font-size:15px;font-weight:800;color:#60a5fa}
+    .modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:50;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(6px)}
+    .modal-bg.show{display:flex}
+    .modal{background:linear-gradient(165deg,#151b3d,#0c1028);border:1px solid rgba(139,92,246,.3);border-radius:22px;padding:26px 22px;max-width:380px;width:100%;text-align:center}
+    .modal img{width:56px;height:56px;object-fit:contain;margin:0 auto 12px;border-radius:12px}
+    .modal h3{font-size:17px;font-weight:800;margin-bottom:6px}
+    .modal .price{font-size:22px;font-weight:800;color:#60a5fa;margin-bottom:12px}
+    .modal p{font-size:13px;color:#a5b4d4;line-height:1.6;margin-bottom:16px}
+    .modal .btns{display:grid;gap:10px}
+    .modal .btns a,.modal .btns button{display:block;padding:12px;border-radius:12px;font-weight:800;font-size:13px;border:0;cursor:pointer;text-align:center}
+    .btn-wa{background:#25d366;color:#fff}
+    .btn-close{background:rgba(255,255,255,.08);color:#c0c7e0}
+    @media(max-width:400px){.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="back" href="dashboard.html" id="backBtn">← Dashboard</a>
+
+    <!-- MAIN APPS VIEW -->
+    <div class="view active" id="viewApps">
+      <div class="head">
+        <img src="../assets/logos/premium-apps-logo.jpeg" alt="Premium Apps">
+        <h1>Premium AI Tools and Apps</h1>
+        <p>অ্যাপ সিলেক্ট করে প্যাকেজ দেখুন</p>
+      </div>
+      <div class="grid" id="appGrid"></div>
+      <div class="howto">
+        <h3>🛒 How to Buy?</h3>
+        <div class="step"><div class="num">1</div><div>আপনার পছন্দের অ্যাপ সিলেক্ট করুন</div></div>
+        <div class="step"><div class="num">2</div><div>প্ল্যান, দাম ও বিবরণ দেখুন</div></div>
+        <div class="step"><div class="num">3</div><div>নির্দেশনা অনুযায়ী পেমেন্ট করুন</div></div>
+        <div class="step"><div class="num">4</div><div>পেমেন্ট কনফার্ম হলে অ্যাকাউন্ট/অ্যাক্টিভেশন পাবেন</div></div>
+      </div>
+    </div>
+
+    <!-- PACKAGES VIEW -->
+    <div class="view" id="viewPkgs">
+      <div class="head">
+        <img id="pkgAppLogo" src="" alt="" style="width:64px">
+        <h1 id="pkgAppName">—</h1>
+        <p>প্যাকেজ সিলেক্ট করুন</p>
+      </div>
+      <div class="pkg-list" id="pkgList"></div>
+    </div>
+
+    <div class="footer">Powered by FA-AGENCY™</div>
+  </div>
+
+  <div class="modal-bg" id="pkgModal">
+    <div class="modal">
+      <img id="mLogo" src="" alt="">
+      <h3 id="mName">—</h3>
+      <div class="price" id="mPrice">—</div>
+      <p id="mDesc"></p>
+      <div class="btns">
+        <a class="btn-wa" id="mWa" href="#" target="_blank">WhatsApp-এ অর্ডার করুন</a>
+        <button class="btn-close" onclick="document.getElementById('pkgModal').classList.remove('show')">বন্ধ করুন</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../assets/config.js"></script>
+  <script>
+    var CFG = window.RA_CONFIG || {};
+    var wa = (CFG.contact && CFG.contact.whatsapp) || '01741564341';
+    var waLink = function(msg){ return 'https://wa.me/88' + wa.replace(/\D/g,'') + '?text=' + encodeURIComponent(msg); };
+
+    // Group packages by app family
+    var APPS = [
+      { id:'canva', name:'Canva Pro', sub:'Design Unlocked', logo:'../assets/logos/canva-pro.webp', packages:[{name:'Canva Pro', category:'Premium', price:0}] },
+      { id:'chatgpt', name:'ChatGPT', sub:'AI Assistant', logo:'../assets/logos/chatgpt.webp', packages:[
+        {name:'ChatGPT Plus', category:'Premium', price:858},
+        {name:'ChatGPT Pro', category:'Premium', price:659}
+      ]},
+      { id:'grok', name:'Grok', sub:'Next Gen AI', logo:'../assets/logos/grok.webp', packages:[
+        {name:'Grok SuperGrok', category:'Premium', price:2500},
+        {name:'Grok SuperGrok Heavy', category:'Premium', price:1750}
+      ]},
+      { id:'gemini', name:'Gemini', sub:'Google AI', logo:'../assets/logos/gemini.webp', packages:[
+        {name:'Gemini Pro', category:'Premium', price:220},
+        {name:'Gemini Advanced', category:'Premium', price:499},
+        {name:'Gemini Ultra', category:'Premium', price:950}
+      ]},
+      { id:'flow', name:'Flow AI', sub:'Creative AI', logo:'../assets/logos/flow-ai.jpeg', packages:[
+        {name:'Flow Premium', category:'Premium', price:850}
+      ]},
+      { id:'suno', name:'Suno AI', sub:'AI Music', logo:'../assets/logos/suno.webp', packages:[
+        {name:'Suno Pro', category:'Premium', price:299},
+        {name:'Suno Premier', category:'Premium', price:450}
+      ]}
+    ];
+
+    // Override from admin config if present
+    if (CFG.aiPackages && CFG.aiPackages.length) {
+      // keep structure; admin can still edit prices via flat list in settings - merge by name
+      var priceMap = {};
+      CFG.aiPackages.forEach(function(p){ priceMap[p.name] = p.price; });
+      APPS.forEach(function(app){
+        app.packages.forEach(function(pk){
+          if (priceMap[pk.name] !== undefined) pk.price = priceMap[pk.name];
+        });
+      });
+    }
+
+    var grid = document.getElementById('appGrid');
+    APPS.forEach(function(app){
+      var el = document.createElement('div');
+      el.className = 'app';
+      el.innerHTML = '<span class="crown">👑</span><img src="'+app.logo+'" alt="'+app.name+'"><div class="n">'+app.name+'</div><div class="s">'+app.sub+'</div>';
+      el.onclick = function(){ openApp(app); };
+      grid.appendChild(el);
+    });
+
+    // APK row
+    var apk = document.createElement('div');
+    apk.className = 'apk-row';
+    apk.innerHTML = '<img src="../assets/logos/premium-apk.jpeg" alt="APK"><div><div class="t">Premium APK Files</div><div class="d">Paid Apps | Pro Versions | Latest</div></div><span class="arrow">→</span>';
+    apk.onclick = function(){
+      document.getElementById('mLogo').src = '../assets/logos/premium-apk.jpeg';
+      document.getElementById('mName').textContent = 'Premium APK Files';
+      document.getElementById('mPrice').textContent = '৳ 650';
+      document.getElementById('mDesc').textContent = 'আপনি কোন অ্যাপটি কিনতে আগ্রহী? দয়া করে অ্যাপের নাম লিখে আমাদেরকে মেসেজ করুন! আমাদের কাছে থাকলে আমরা আপনাকে জানিয়ে দিব।';
+      document.getElementById('mWa').href = waLink('আসসালামু আলাইকুম, Premium APK Files সম্পর্কে জানতে চাই। আমার প্রয়োজনীয় অ্যাপ: ');
+      document.getElementById('pkgModal').classList.add('show');
+    };
+    grid.appendChild(apk);
+
+    function openApp(app){
+      document.getElementById('viewApps').classList.remove('active');
+      document.getElementById('viewPkgs').classList.add('active');
+      document.getElementById('pkgAppLogo').src = app.logo;
+      document.getElementById('pkgAppName').textContent = app.name;
+      document.getElementById('backBtn').textContent = '← Premium Apps';
+      document.getElementById('backBtn').onclick = function(e){
+        e.preventDefault();
+        document.getElementById('viewPkgs').classList.remove('active');
+        document.getElementById('viewApps').classList.add('active');
+        document.getElementById('backBtn').textContent = '← Dashboard';
+        document.getElementById('backBtn').href = 'dashboard.html';
+        document.getElementById('backBtn').onclick = null;
+      };
+      var list = document.getElementById('pkgList');
+      list.innerHTML = '';
+      app.packages.forEach(function(pk){
+        var el = document.createElement('div');
+        el.className = 'pkg';
+        var priceTxt = pk.price > 0 ? ('৳ ' + Number(pk.price).toLocaleString()) : 'Contact';
+        el.innerHTML = '<img src="'+app.logo+'" alt=""><div><div class="n">'+pk.name+'</div><div class="c">'+pk.category+'</div></div><div class="price">'+priceTxt+'</div>';
+        el.onclick = function(){
+          document.getElementById('mLogo').src = app.logo;
+          document.getElementById('mName').textContent = pk.name;
+          document.getElementById('mPrice').textContent = priceTxt;
+          document.getElementById('mDesc').textContent = 'এই প্যাকেজ অর্ডার করতে WhatsApp-এ মেসেজ করুন। পেমেন্ট নিশ্চিত হলে সার্ভিস অ্যাক্টিভেট করা হবে।';
+          document.getElementById('mWa').href = waLink('আসসালামু আলাইকুম, আমি "'+pk.name+'" (৳'+(pk.price||'')+') অর্ডার করতে চাই।');
+          document.getElementById('pkgModal').classList.add('show');
+        };
+        list.appendChild(el);
+      });
+    }
+  </script>
+</body>
+</html>
